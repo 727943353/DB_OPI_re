@@ -1,0 +1,3721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mirlmes.itri.org.tw/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mirlmes.itri.org.tw/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mirlmes.itri.org.tw/">
+      <s:element name="CopyEQPCapabilityStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CopyEQPCapabilityStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CopyEQPCapabilityStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnInv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnInvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exe_EQPMaterialState_TurnInvResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnEQP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnEQPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exe_EQPMaterialState_TurnEQPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEquipmentStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEquipmentState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEquipmentStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditEquipmentStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEquipmentStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateDefine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateDefineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateDefineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEquipmentState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEquipmentStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdEquipmentStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEquipmentStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEquipmentStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEquipmentStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditEquipmentStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEquipmentStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogTopTen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogTopTenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateLogTopTenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogByState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogByStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateLogByStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateBySMD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateBySMDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateBySMDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentLotState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentLotStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentLotStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateJoinColor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateJoinColorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateJoinColorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPMaterialState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPMaterialStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEQPMaterialStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPMaterialState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPMaterialStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEQPMaterialStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPMaterialState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPMaterialStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditEQPMaterialStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPMaterialState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPMaterialStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEQPMaterialStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadViolateStateChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadViolateStateChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadViolateStateChangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdViolatStateChangeData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdViolatStateChangeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdViolatStateChangeDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadACCViolateStateChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadACCViolateStateChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadACCViolateStateChangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdACCViolatStateChangeData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdACCViolatStateChangeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdACCViolatStateChangeDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViolateStateChangeXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViolateStateChangeXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetViolateStateChangeXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdViolateStateChangeXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdViolateStateChangeXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdViolateStateChangeXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPACCState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPACCStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEQPACCStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDistinctEQPACCStateACCType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDistinctEQPACCStateACCTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDistinctEQPACCStateACCTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPACCState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPACCStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEQPACCStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPACCState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPACCStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEQPACCStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplyEQPACC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplyEQPACCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplyEQPACCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnEQPACC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnEQPACCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnEQPACCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdEQPACCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskApply">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskApplyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdEQPACCMaskApplyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskMount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskMountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdEQPACCMaskMountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskUnMount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdEQPACCMaskUnMountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdEQPACCMaskUnMountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentRecipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentRecipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentRecipeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentRecipeLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentRecipeLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentRecipeLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentRecipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentRecipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEquipmentRecipeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentRecipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentRecipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEquipmentRecipeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentQCLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentQCLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentQCLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentQCLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEquipmentQCLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEquipmentQCLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentQCLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEquipmentQCLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEquipmentQCLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchAddEquipmentQCLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BatchAddEquipmentQCLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BatchAddEquipmentQCLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDispatchBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDispatchBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditDispatchBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelDispatchBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveDispatchBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveDispatchBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApproveDispatchBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchFactor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchFactorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDispatchFactorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchFactor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchFactorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDispatchFactorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchFactor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchFactorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditDispatchFactorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchFactor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchFactorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelDispatchFactorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDispatchStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDispatchStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditDispatchStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelDispatchStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdDispatchState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdDispatchStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdDispatchStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitDispatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitDispatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitDispatchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailableLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailableLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAvailableLotResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchCutInLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDispatchCutInLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDispatchCutInLotResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchCutInLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDispatchCutInLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddDispatchCutInLotResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchCutInLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditDispatchCutInLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditDispatchCutInLotResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchCutInLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelDispatchCutInLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelDispatchCutInLotResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStatebyCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStatebyCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAccessoryStatebyCategoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStatebyEquipment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStatebyEquipmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAccessoryStatebyEquipmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentAccState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentAccStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentAccStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentAccStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentAccStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentAccStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAccessoryStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAccessoryStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAccessoryStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailAccStatebyEquipmentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailAccStatebyEquipmentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAvailAccStatebyEquipmentTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailAccStatebyEquipmentTypeByCat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailAccStatebyEquipmentTypeByCatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAvailAccStatebyEquipmentTypeByCatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailMaskStatebyEquipmentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAvailMaskStatebyEquipmentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAvailMaskStatebyEquipmentTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMountAvailMaskState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMountAvailMaskStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMountAvailMaskStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChkAccessoryStateStamp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChkAccessoryStateStampResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChkAccessoryStateStampResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadUnMountAvailMaskState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadUnMountAvailMaskStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadUnMountAvailMaskStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessoryState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAccessoryStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddAccessoryStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeAccessoryState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeAccessoryStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeAccessoryStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccApplyCountByModelNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccApplyCountByModelNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccApplyCountByModelNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPCapabilityStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPCapabilityStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEQPCapabilityStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPCapabilityStatusJoinEQPBasis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPCapabilityStatusJoinEQPBasisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEQPCapabilityStatusJoinEQPBasisResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPCapabilityStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEQPCapabilityStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEQPCapabilityStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPCapabilityStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPCapabilityStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditEQPCapabilityStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPCapabilityStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelEQPCapabilityStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelEQPCapabilityStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CopyEQPCapabilityStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CopyEQPCapabilityStatus" />
+  </wsdl:message>
+  <wsdl:message name="CopyEQPCapabilityStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CopyEQPCapabilityStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnInvSoapIn">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnInv" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnInvSoapOut">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnInvResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnEQPSoapIn">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnEQP" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnEQPSoapOut">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnEQPResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentStateSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditEquipmentStateSoapIn">
+    <wsdl:part name="parameters" element="tns:EditEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="EditEquipmentStateSoapOut">
+    <wsdl:part name="parameters" element="tns:EditEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentStateSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentStateSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateDefineSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateDefine" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateDefineSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdEquipmentStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdEquipmentState" />
+  </wsdl:message>
+  <wsdl:message name="UpdEquipmentStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdEquipmentStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEquipmentStateLog" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEquipmentStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditEquipmentStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:EditEquipmentStateLog" />
+  </wsdl:message>
+  <wsdl:message name="EditEquipmentStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:EditEquipmentStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEquipmentStateLog" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEquipmentStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogTopTenSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogTopTen" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogTopTenSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogTopTenResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogByStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogByState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogByStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateBySMDSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateBySMD" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateBySMDSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateBySMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentLotStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentLotState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentLotStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentLotStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateJoinColorSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateJoinColor" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateJoinColorSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateJoinColorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPMaterialStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEQPMaterialState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPMaterialStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEQPMaterialStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPMaterialStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEQPMaterialState" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPMaterialStateSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEQPMaterialStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPMaterialStateSoapIn">
+    <wsdl:part name="parameters" element="tns:EditEQPMaterialState" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPMaterialStateSoapOut">
+    <wsdl:part name="parameters" element="tns:EditEQPMaterialStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPMaterialStateSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEQPMaterialState" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPMaterialStateSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEQPMaterialStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadViolateStateChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadViolateStateChange" />
+  </wsdl:message>
+  <wsdl:message name="LoadViolateStateChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadViolateStateChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdViolatStateChangeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdViolatStateChangeData" />
+  </wsdl:message>
+  <wsdl:message name="UpdViolatStateChangeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdViolatStateChangeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadACCViolateStateChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadACCViolateStateChange" />
+  </wsdl:message>
+  <wsdl:message name="LoadACCViolateStateChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadACCViolateStateChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdACCViolatStateChangeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdACCViolatStateChangeData" />
+  </wsdl:message>
+  <wsdl:message name="UpdACCViolatStateChangeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdACCViolatStateChangeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetViolateStateChangeXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetViolateStateChangeXml" />
+  </wsdl:message>
+  <wsdl:message name="GetViolateStateChangeXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetViolateStateChangeXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdViolateStateChangeXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdViolateStateChangeXml" />
+  </wsdl:message>
+  <wsdl:message name="UpdViolateStateChangeXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdViolateStateChangeXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPACCStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEQPACCState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPACCStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEQPACCStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDistinctEQPACCStateACCTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDistinctEQPACCStateACCType" />
+  </wsdl:message>
+  <wsdl:message name="LoadDistinctEQPACCStateACCTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDistinctEQPACCStateACCTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPACCStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEQPACCState" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPACCStateSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEQPACCStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPACCStateSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEQPACCState" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPACCStateSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEQPACCStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApplyEQPACCSoapIn">
+    <wsdl:part name="parameters" element="tns:ApplyEQPACC" />
+  </wsdl:message>
+  <wsdl:message name="ApplyEQPACCSoapOut">
+    <wsdl:part name="parameters" element="tns:ApplyEQPACCResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnEQPACCSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnEQPACC" />
+  </wsdl:message>
+  <wsdl:message name="ReturnEQPACCSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnEQPACCResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdEQPACC" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskApplySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskApply" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskApplySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskApplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskMountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskMount" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskMountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskMountResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskUnMountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskUnMount" />
+  </wsdl:message>
+  <wsdl:message name="UpdEQPACCMaskUnMountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdEQPACCMaskUnMountResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentRecipeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentRecipe" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentRecipeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentRecipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentRecipeLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentRecipeLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentRecipeLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentRecipeLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentRecipeSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEquipmentRecipe" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentRecipeSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEquipmentRecipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentRecipeSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEquipmentRecipe" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentRecipeSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEquipmentRecipeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentQCLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentQCLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentQCLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentQCLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentQCLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEquipmentQCLog" />
+  </wsdl:message>
+  <wsdl:message name="AddEquipmentQCLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEquipmentQCLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentQCLogSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEquipmentQCLog" />
+  </wsdl:message>
+  <wsdl:message name="DelEquipmentQCLogSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEquipmentQCLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="BatchAddEquipmentQCLogSoapIn">
+    <wsdl:part name="parameters" element="tns:BatchAddEquipmentQCLog" />
+  </wsdl:message>
+  <wsdl:message name="BatchAddEquipmentQCLogSoapOut">
+    <wsdl:part name="parameters" element="tns:BatchAddEquipmentQCLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDispatchBasis" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDispatchBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDispatchBasis" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDispatchBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDispatchBasis" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDispatchBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDispatchBasis" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDispatchBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApproveDispatchBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:ApproveDispatchBasis" />
+  </wsdl:message>
+  <wsdl:message name="ApproveDispatchBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:ApproveDispatchBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchFactorSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDispatchFactor" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchFactorSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDispatchFactorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchFactorSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDispatchFactor" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchFactorSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDispatchFactorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchFactorSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDispatchFactor" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchFactorSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDispatchFactorResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchFactorSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDispatchFactor" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchFactorSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDispatchFactorResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDispatchState" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDispatchStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDispatchState" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchStateSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDispatchStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchStateSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDispatchState" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchStateSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDispatchStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchStateSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDispatchState" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchStateSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDispatchStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdDispatchStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdDispatchState" />
+  </wsdl:message>
+  <wsdl:message name="UpdDispatchStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdDispatchStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitDispatchSoapIn">
+    <wsdl:part name="parameters" element="tns:InitDispatch" />
+  </wsdl:message>
+  <wsdl:message name="InitDispatchSoapOut">
+    <wsdl:part name="parameters" element="tns:InitDispatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailableLotSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAvailableLot" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailableLotSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAvailableLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchCutInLotSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDispatchCutInLot" />
+  </wsdl:message>
+  <wsdl:message name="LoadDispatchCutInLotSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDispatchCutInLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchCutInLotSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDispatchCutInLot" />
+  </wsdl:message>
+  <wsdl:message name="AddDispatchCutInLotSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDispatchCutInLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchCutInLotSoapIn">
+    <wsdl:part name="parameters" element="tns:EditDispatchCutInLot" />
+  </wsdl:message>
+  <wsdl:message name="EditDispatchCutInLotSoapOut">
+    <wsdl:part name="parameters" element="tns:EditDispatchCutInLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchCutInLotSoapIn">
+    <wsdl:part name="parameters" element="tns:DelDispatchCutInLot" />
+  </wsdl:message>
+  <wsdl:message name="DelDispatchCutInLotSoapOut">
+    <wsdl:part name="parameters" element="tns:DelDispatchCutInLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStatebyCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStatebyCategory" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStatebyCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStatebyCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStatebyEquipmentSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStatebyEquipment" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStatebyEquipmentSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStatebyEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentAccStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentAccState" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentAccStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentAccStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentAccStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentAccStateLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentAccStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentAccStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStateLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryState" />
+  </wsdl:message>
+  <wsdl:message name="LoadAccessoryStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAccessoryStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailAccStatebyEquipmentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAvailAccStatebyEquipmentType" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailAccStatebyEquipmentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAvailAccStatebyEquipmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailAccStatebyEquipmentTypeByCatSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAvailAccStatebyEquipmentTypeByCat" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailAccStatebyEquipmentTypeByCatSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAvailAccStatebyEquipmentTypeByCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailMaskStatebyEquipmentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAvailMaskStatebyEquipmentType" />
+  </wsdl:message>
+  <wsdl:message name="LoadAvailMaskStatebyEquipmentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAvailMaskStatebyEquipmentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMountAvailMaskStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMountAvailMaskState" />
+  </wsdl:message>
+  <wsdl:message name="LoadMountAvailMaskStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMountAvailMaskStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChkAccessoryStateStampSoapIn">
+    <wsdl:part name="parameters" element="tns:ChkAccessoryStateStamp" />
+  </wsdl:message>
+  <wsdl:message name="ChkAccessoryStateStampSoapOut">
+    <wsdl:part name="parameters" element="tns:ChkAccessoryStateStampResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadUnMountAvailMaskStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadUnMountAvailMaskState" />
+  </wsdl:message>
+  <wsdl:message name="LoadUnMountAvailMaskStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadUnMountAvailMaskStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessoryStateSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAccessoryState" />
+  </wsdl:message>
+  <wsdl:message name="AddAccessoryStateSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAccessoryStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeAccessoryStateSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeAccessoryState" />
+  </wsdl:message>
+  <wsdl:message name="ChangeAccessoryStateSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeAccessoryStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccApplyCountByModelNoSoapIn">
+    <wsdl:part name="parameters" element="tns:AccApplyCountByModelNo" />
+  </wsdl:message>
+  <wsdl:message name="AccApplyCountByModelNoSoapOut">
+    <wsdl:part name="parameters" element="tns:AccApplyCountByModelNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPCapabilityStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEQPCapabilityStatus" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPCapabilityStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEQPCapabilityStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPCapabilityStatusJoinEQPBasisSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEQPCapabilityStatusJoinEQPBasis" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPCapabilityStatusJoinEQPBasisSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEQPCapabilityStatusJoinEQPBasisResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPCapabilityStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEQPCapabilityStatus" />
+  </wsdl:message>
+  <wsdl:message name="AddEQPCapabilityStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEQPCapabilityStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPCapabilityStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:EditEQPCapabilityStatus" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPCapabilityStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:EditEQPCapabilityStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPCapabilityStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:DelEQPCapabilityStatus" />
+  </wsdl:message>
+  <wsdl:message name="DelEQPCapabilityStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:DelEQPCapabilityStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsEMSSoap">
+    <wsdl:operation name="CopyEQPCapabilityStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Copy Equipment Capability Basis</wsdl:documentation>
+      <wsdl:input message="tns:CopyEQPCapabilityStatusSoapIn" />
+      <wsdl:output message="tns:CopyEQPCapabilityStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Execute Equipment Material Turn Inventory</wsdl:documentation>
+      <wsdl:input message="tns:Exe_EQPMaterialState_TurnInvSoapIn" />
+      <wsdl:output message="tns:Exe_EQPMaterialState_TurnInvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Execute Equipment Material Turn Equipment</wsdl:documentation>
+      <wsdl:input message="tns:Exe_EQPMaterialState_TurnEQPSoapIn" />
+      <wsdl:output message="tns:Exe_EQPMaterialState_TurnEQPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment State Data by EquipmentNo,EquipmentState,UserNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Equipment State</wsdl:documentation>
+      <wsdl:input message="tns:AddEquipmentStateSoapIn" />
+      <wsdl:output message="tns:AddEquipmentStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Equipment State by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:EditEquipmentStateSoapIn" />
+      <wsdl:output message="tns:EditEquipmentStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Equipment State By Specified EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:DelEquipmentStateSoapIn" />
+      <wsdl:output message="tns:DelEquipmentStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateDefine">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load relatived data of define Equipment which will be Control</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateDefineSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateDefineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEquipmentState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Update Equipment State data</wsdl:documentation>
+      <wsdl:input message="tns:UpdEquipmentStateSoapIn" />
+      <wsdl:output message="tns:UpdEquipmentStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment State Log Data by EQPSerialNo,EquipmentNo,EquipmentState,EquipmentType,UserNo,StartTime,EndTime</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateLogSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Equipment State Log</wsdl:documentation>
+      <wsdl:input message="tns:AddEquipmentStateLogSoapIn" />
+      <wsdl:output message="tns:AddEquipmentStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Equipment State Log by EQPSerialNo</wsdl:documentation>
+      <wsdl:input message="tns:EditEquipmentStateLogSoapIn" />
+      <wsdl:output message="tns:EditEquipmentStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Equipment State Log By Specified EquipmentNo,EquipmentState,EquipmentType,UserNo,StartTime,EndTime,EQPSerialNo</wsdl:documentation>
+      <wsdl:input message="tns:DelEquipmentStateLogSoapIn" />
+      <wsdl:output message="tns:DelEquipmentStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogTopTen">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Top Ten State</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateLogTopTenSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateLogTopTenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogByState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query state's production time</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateLogByStateSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateLogByStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateBySMD">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment State Data by EquipmentNo,EquipmentGroup,AreaNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateBySMDSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateBySMDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentLotState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">讀取機台之生產批資料</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentLotStateSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentLotStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateJoinColor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment State Data by EquipmentNo,EquipmentState,UserNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateJoinColorSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateJoinColorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load EQP Material State by EquipmentNo,MaterialNo,MaterialLotNo,UnitNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEQPMaterialStateSoapIn" />
+      <wsdl:output message="tns:LoadEQPMaterialStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPMaterialState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add EQP Material State</wsdl:documentation>
+      <wsdl:input message="tns:AddEQPMaterialStateSoapIn" />
+      <wsdl:output message="tns:AddEQPMaterialStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPMaterialState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified EQP Material State Data by EquipmentNo,MaterialNo,MaterialLotNo</wsdl:documentation>
+      <wsdl:input message="tns:EditEQPMaterialStateSoapIn" />
+      <wsdl:output message="tns:EditEQPMaterialStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPMaterialState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete EQP Material State By Specified EquipmentNo,MaterialNo,MaterialLotNo</wsdl:documentation>
+      <wsdl:input message="tns:DelEQPMaterialStateSoapIn" />
+      <wsdl:output message="tns:DelEQPMaterialStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadViolateStateChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Violated State Change Setting Datal</wsdl:documentation>
+      <wsdl:input message="tns:LoadViolateStateChangeSoapIn" />
+      <wsdl:output message="tns:LoadViolateStateChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolatStateChangeData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Edit Violated State Change Setting Data With A Specific Accessory Category.</wsdl:documentation>
+      <wsdl:input message="tns:UpdViolatStateChangeDataSoapIn" />
+      <wsdl:output message="tns:UpdViolatStateChangeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadACCViolateStateChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Violated State Change Setting Data With A Specific Accessory Category. </wsdl:documentation>
+      <wsdl:input message="tns:LoadACCViolateStateChangeSoapIn" />
+      <wsdl:output message="tns:LoadACCViolateStateChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdACCViolatStateChangeData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Edit Violated State Change Setting Data With A Specific Accessory Category.</wsdl:documentation>
+      <wsdl:input message="tns:UpdACCViolatStateChangeDataSoapIn" />
+      <wsdl:output message="tns:UpdACCViolatStateChangeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViolateStateChangeXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Violate State Change Xml</wsdl:documentation>
+      <wsdl:input message="tns:GetViolateStateChangeXmlSoapIn" />
+      <wsdl:output message="tns:GetViolateStateChangeXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolateStateChangeXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update Violate State Change Xml</wsdl:documentation>
+      <wsdl:input message="tns:UpdViolateStateChangeXmlSoapIn" />
+      <wsdl:output message="tns:UpdViolateStateChangeXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPACCState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load EQPACCState Detail</wsdl:documentation>
+      <wsdl:input message="tns:LoadEQPACCStateSoapIn" />
+      <wsdl:output message="tns:LoadEQPACCStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDistinctEQPACCStateACCType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load EQPACCState Detail</wsdl:documentation>
+      <wsdl:input message="tns:LoadDistinctEQPACCStateACCTypeSoapIn" />
+      <wsdl:output message="tns:LoadDistinctEQPACCStateACCTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPACCState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add EQPACCState Detail data</wsdl:documentation>
+      <wsdl:input message="tns:AddEQPACCStateSoapIn" />
+      <wsdl:output message="tns:AddEQPACCStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPACCState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete EQPACCState By Specified EquipmentType</wsdl:documentation>
+      <wsdl:input message="tns:DelEQPACCStateSoapIn" />
+      <wsdl:output message="tns:DelEQPACCStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyEQPACC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apply Accessory on the Equipment</wsdl:documentation>
+      <wsdl:input message="tns:ApplyEQPACCSoapIn" />
+      <wsdl:output message="tns:ApplyEQPACCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEQPACC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return Accessory on the Equipment</wsdl:documentation>
+      <wsdl:input message="tns:ReturnEQPACCSoapIn" />
+      <wsdl:output message="tns:ReturnEQPACCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACC">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apply Accessory Batch</wsdl:documentation>
+      <wsdl:input message="tns:UpdEQPACCSoapIn" />
+      <wsdl:output message="tns:UpdEQPACCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskApply">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apply Accessory Mask Batch</wsdl:documentation>
+      <wsdl:input message="tns:UpdEQPACCMaskApplySoapIn" />
+      <wsdl:output message="tns:UpdEQPACCMaskApplySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskMount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apply Accessory Mask Batch</wsdl:documentation>
+      <wsdl:input message="tns:UpdEQPACCMaskMountSoapIn" />
+      <wsdl:output message="tns:UpdEQPACCMaskMountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskUnMount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apply Accessory Mask Batch</wsdl:documentation>
+      <wsdl:input message="tns:UpdEQPACCMaskUnMountSoapIn" />
+      <wsdl:output message="tns:UpdEQPACCMaskUnMountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment Recipe Data by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentRecipeSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentRecipeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipeLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment Recipe log Data by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentRecipeLogSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentRecipeLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Equipment Recipe</wsdl:documentation>
+      <wsdl:input message="tns:AddEquipmentRecipeSoapIn" />
+      <wsdl:output message="tns:AddEquipmentRecipeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Equipment Recipe By Specified EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:DelEquipmentRecipeSoapIn" />
+      <wsdl:output message="tns:DelEquipmentRecipeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentQCLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment QCLog Data by EquipmentNo, QCListNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentQCLogSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentQCLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentQCLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Equipment QC Log</wsdl:documentation>
+      <wsdl:input message="tns:AddEquipmentQCLogSoapIn" />
+      <wsdl:output message="tns:AddEquipmentQCLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentQCLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Equipment QCLog By Specified EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:DelEquipmentQCLogSoapIn" />
+      <wsdl:output message="tns:DelEquipmentQCLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddEquipmentQCLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Add Equipment QCLog Data</wsdl:documentation>
+      <wsdl:input message="tns:BatchAddEquipmentQCLogSoapIn" />
+      <wsdl:output message="tns:BatchAddEquipmentQCLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Dispatch Basis by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadDispatchBasisSoapIn" />
+      <wsdl:output message="tns:LoadDispatchBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Dispatch Basis</wsdl:documentation>
+      <wsdl:input message="tns:AddDispatchBasisSoapIn" />
+      <wsdl:output message="tns:AddDispatchBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Dispatch Basis by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:EditDispatchBasisSoapIn" />
+      <wsdl:output message="tns:EditDispatchBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete dispatch basis by specified EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:DelDispatchBasisSoapIn" />
+      <wsdl:output message="tns:DelDispatchBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDispatchBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Approve specified dispatch basis by equipmentno</wsdl:documentation>
+      <wsdl:input message="tns:ApproveDispatchBasisSoapIn" />
+      <wsdl:output message="tns:ApproveDispatchBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchFactor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Dispatch Factor by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadDispatchFactorSoapIn" />
+      <wsdl:output message="tns:LoadDispatchFactorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchFactor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Dispatch Factor</wsdl:documentation>
+      <wsdl:input message="tns:AddDispatchFactorSoapIn" />
+      <wsdl:output message="tns:AddDispatchFactorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchFactor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Dispatch Factor by EquipmentNo,FactorOrder</wsdl:documentation>
+      <wsdl:input message="tns:EditDispatchFactorSoapIn" />
+      <wsdl:output message="tns:EditDispatchFactorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchFactor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Dispatch Factor by specified EquipmentNo, FactorOrder</wsdl:documentation>
+      <wsdl:input message="tns:DelDispatchFactorSoapIn" />
+      <wsdl:output message="tns:DelDispatchFactorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Dispatch State by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadDispatchStateSoapIn" />
+      <wsdl:output message="tns:LoadDispatchStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Dispatch State</wsdl:documentation>
+      <wsdl:input message="tns:AddDispatchStateSoapIn" />
+      <wsdl:output message="tns:AddDispatchStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Dispatch State by EquipmentNo,DispatchOrder</wsdl:documentation>
+      <wsdl:input message="tns:EditDispatchStateSoapIn" />
+      <wsdl:output message="tns:EditDispatchStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Dispatch State by specified EquipmentNo, DispatchOrder</wsdl:documentation>
+      <wsdl:input message="tns:DelDispatchStateSoapIn" />
+      <wsdl:output message="tns:DelDispatchStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdDispatchState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Handle Dispatch State by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:UpdDispatchStateSoapIn" />
+      <wsdl:output message="tns:UpdDispatchStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitDispatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Initial Dispatch State</wsdl:documentation>
+      <wsdl:input message="tns:InitDispatchSoapIn" />
+      <wsdl:output message="tns:InitDispatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailableLot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Available Lot by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadAvailableLotSoapIn" />
+      <wsdl:output message="tns:LoadAvailableLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchCutInLot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Dispatch Cut In Lot by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadDispatchCutInLotSoapIn" />
+      <wsdl:output message="tns:LoadDispatchCutInLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchCutInLot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Dispatch Cut In Lot</wsdl:documentation>
+      <wsdl:input message="tns:AddDispatchCutInLotSoapIn" />
+      <wsdl:output message="tns:AddDispatchCutInLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchCutInLot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified Dispatch Cut In Lot by EquipmentNo,LotNo</wsdl:documentation>
+      <wsdl:input message="tns:EditDispatchCutInLotSoapIn" />
+      <wsdl:output message="tns:EditDispatchCutInLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchCutInLot">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Dispatch Cut In Lot by specified EquipmentNo, LotNo</wsdl:documentation>
+      <wsdl:input message="tns:DelDispatchCutInLotSoapIn" />
+      <wsdl:output message="tns:DelDispatchCutInLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyCategory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Accessory State Data by Accessory Category</wsdl:documentation>
+      <wsdl:input message="tns:LoadAccessoryStatebyCategorySoapIn" />
+      <wsdl:output message="tns:LoadAccessoryStatebyCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyEquipment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Accessory State Data by Equipment</wsdl:documentation>
+      <wsdl:input message="tns:LoadAccessoryStatebyEquipmentSoapIn" />
+      <wsdl:output message="tns:LoadAccessoryStatebyEquipmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment's Accessory State Data by EquipmentNo,EquipmentType,AccessoryType,AccessoryNo,UserNo,StartTime</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentAccStateSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentAccStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment's Accessory State Log Data by EquipmentNo,EquipmentType,AccessoryType,AccessoryNo,UserNo,StartTime</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentAccStateLogSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentAccStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load  Accessory State Log Data by AccessoryType,AccessoryNo,UserNo,StartTime</wsdl:documentation>
+      <wsdl:input message="tns:LoadAccessoryStateLogSoapIn" />
+      <wsdl:output message="tns:LoadAccessoryStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Accessory State Data by AccessoryNo,AccessoryState,UserNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadAccessoryStateSoapIn" />
+      <wsdl:output message="tns:LoadAccessoryStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Available Accessory State Data by EquipmentType</wsdl:documentation>
+      <wsdl:input message="tns:LoadAvailAccStatebyEquipmentTypeSoapIn" />
+      <wsdl:output message="tns:LoadAvailAccStatebyEquipmentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentTypeByCat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Available Accessory State Data by EquipmentType And Category</wsdl:documentation>
+      <wsdl:input message="tns:LoadAvailAccStatebyEquipmentTypeByCatSoapIn" />
+      <wsdl:output message="tns:LoadAvailAccStatebyEquipmentTypeByCatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailMaskStatebyEquipmentType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Available Mask State Data by EquipmentType</wsdl:documentation>
+      <wsdl:input message="tns:LoadAvailMaskStatebyEquipmentTypeSoapIn" />
+      <wsdl:output message="tns:LoadAvailMaskStatebyEquipmentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMountAvailMaskState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Available Mask State Data by EquipmentType</wsdl:documentation>
+      <wsdl:input message="tns:LoadMountAvailMaskStateSoapIn" />
+      <wsdl:output message="tns:LoadMountAvailMaskStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChkAccessoryStateStamp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check Accssory Status Stamp valid</wsdl:documentation>
+      <wsdl:input message="tns:ChkAccessoryStateStampSoapIn" />
+      <wsdl:output message="tns:ChkAccessoryStateStampSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadUnMountAvailMaskState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">LoadUnMountAvailMaskState</wsdl:documentation>
+      <wsdl:input message="tns:LoadUnMountAvailMaskStateSoapIn" />
+      <wsdl:output message="tns:LoadUnMountAvailMaskStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessoryState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Accessory State</wsdl:documentation>
+      <wsdl:input message="tns:AddAccessoryStateSoapIn" />
+      <wsdl:output message="tns:AddAccessoryStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeAccessoryState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change Accessory State by Accessory No</wsdl:documentation>
+      <wsdl:input message="tns:ChangeAccessoryStateSoapIn" />
+      <wsdl:output message="tns:ChangeAccessoryStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccApplyCountByModelNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Accessory Apply Count by Model No</wsdl:documentation>
+      <wsdl:input message="tns:AccApplyCountByModelNoSoapIn" />
+      <wsdl:output message="tns:AccApplyCountByModelNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment Capability Basis</wsdl:documentation>
+      <wsdl:input message="tns:LoadEQPCapabilityStatusSoapIn" />
+      <wsdl:output message="tns:LoadEQPCapabilityStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatusJoinEQPBasis">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment Capability Basis Join Equipment Basis</wsdl:documentation>
+      <wsdl:input message="tns:LoadEQPCapabilityStatusJoinEQPBasisSoapIn" />
+      <wsdl:output message="tns:LoadEQPCapabilityStatusJoinEQPBasisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPCapabilityStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Equipment Capability Basis</wsdl:documentation>
+      <wsdl:input message="tns:AddEQPCapabilityStatusSoapIn" />
+      <wsdl:output message="tns:AddEQPCapabilityStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPCapabilityStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Equipment Capability Basis</wsdl:documentation>
+      <wsdl:input message="tns:EditEQPCapabilityStatusSoapIn" />
+      <wsdl:output message="tns:EditEQPCapabilityStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPCapabilityStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Equipment Capability Basis</wsdl:documentation>
+      <wsdl:input message="tns:DelEQPCapabilityStatusSoapIn" />
+      <wsdl:output message="tns:DelEQPCapabilityStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsEMSSoap" type="tns:wsEMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CopyEQPCapabilityStatus">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/CopyEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/Exe_EQPMaterialState_TurnInv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/Exe_EQPMaterialState_TurnEQP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateDefine">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEquipmentState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdEquipmentState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogTopTen">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLogTopTen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogByState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLogByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateBySMD">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateBySMD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentLotState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentLotState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateJoinColor">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateJoinColor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPMaterialState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPMaterialState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPMaterialState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadViolateStateChange">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadViolateStateChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolatStateChangeData">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdViolatStateChangeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadACCViolateStateChange">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadACCViolateStateChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdACCViolatStateChangeData">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdACCViolatStateChangeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViolateStateChangeXml">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/GetViolateStateChangeXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolateStateChangeXml">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdViolateStateChangeXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPACCState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPACCState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDistinctEQPACCStateACCType">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadDistinctEQPACCStateACCType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPACCState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEQPACCState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPACCState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEQPACCState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyEQPACC">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/ApplyEQPACC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEQPACC">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/ReturnEQPACC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACC">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskApply">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskApply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskMount">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskMount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskUnMount">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskUnMount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipe">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipeLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentRecipeLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentRecipe">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentRecipe">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentQCLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentQCLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentQCLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddEquipmentQCLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/BatchAddEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDispatchBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/ApproveDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchFactor">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchFactor">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchFactor">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchFactor">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdDispatchState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/UpdDispatchState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitDispatch">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/InitDispatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailableLot">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailableLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchCutInLot">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchCutInLot">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchCutInLot">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchCutInLot">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyCategory">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStatebyCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyEquipment">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStatebyEquipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentAccState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentAccStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStateLog">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentType">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailAccStatebyEquipmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentTypeByCat">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailAccStatebyEquipmentTypeByCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailMaskStatebyEquipmentType">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailMaskStatebyEquipmentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMountAvailMaskState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadMountAvailMaskState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkAccessoryStateStamp">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/ChkAccessoryStateStamp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUnMountAvailMaskState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadUnMountAvailMaskState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessoryState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddAccessoryState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeAccessoryState">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/ChangeAccessoryState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccApplyCountByModelNo">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AccApplyCountByModelNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatus">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatusJoinEQPBasis">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPCapabilityStatusJoinEQPBasis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPCapabilityStatus">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/AddEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPCapabilityStatus">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/EditEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPCapabilityStatus">
+      <soap:operation soapAction="http://mirlmes.itri.org.tw/DelEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsEMSSoap12" type="tns:wsEMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CopyEQPCapabilityStatus">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/CopyEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/Exe_EQPMaterialState_TurnInv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/Exe_EQPMaterialState_TurnEQP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditEquipmentState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateDefine">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateDefine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEquipmentState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdEquipmentState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEquipmentStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogTopTen">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLogTopTen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateLogByState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateLogByState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateBySMD">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateBySMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentLotState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentLotState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentStateJoinColor">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentStateJoinColor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPMaterialState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPMaterialState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPMaterialState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEQPMaterialState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadViolateStateChange">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadViolateStateChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolatStateChangeData">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdViolatStateChangeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadACCViolateStateChange">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadACCViolateStateChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdACCViolatStateChangeData">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdACCViolatStateChangeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViolateStateChangeXml">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/GetViolateStateChangeXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdViolateStateChangeXml">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdViolateStateChangeXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPACCState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPACCState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDistinctEQPACCStateACCType">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadDistinctEQPACCStateACCType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPACCState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEQPACCState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPACCState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEQPACCState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplyEQPACC">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/ApplyEQPACC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnEQPACC">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/ReturnEQPACC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACC">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskApply">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskApply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskMount">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskMount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEQPACCMaskUnMount">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdEQPACCMaskUnMount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipe">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentRecipeLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentRecipeLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentRecipe">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentRecipe">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentRecipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentQCLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipmentQCLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEquipmentQCLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddEquipmentQCLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/BatchAddEquipmentQCLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveDispatchBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/ApproveDispatchBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchFactor">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchFactor">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchFactor">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchFactor">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchFactor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdDispatchState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/UpdDispatchState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitDispatch">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/InitDispatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailableLot">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailableLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDispatchCutInLot">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDispatchCutInLot">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditDispatchCutInLot">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelDispatchCutInLot">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelDispatchCutInLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyCategory">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStatebyCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStatebyEquipment">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStatebyEquipment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentAccState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentAccStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEquipmentAccStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryStateLog">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccessoryState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAccessoryState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentType">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailAccStatebyEquipmentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailAccStatebyEquipmentTypeByCat">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailAccStatebyEquipmentTypeByCat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAvailMaskStatebyEquipmentType">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadAvailMaskStatebyEquipmentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMountAvailMaskState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadMountAvailMaskState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChkAccessoryStateStamp">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/ChkAccessoryStateStamp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUnMountAvailMaskState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadUnMountAvailMaskState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccessoryState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddAccessoryState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeAccessoryState">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/ChangeAccessoryState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccApplyCountByModelNo">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AccApplyCountByModelNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatus">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPCapabilityStatusJoinEQPBasis">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/LoadEQPCapabilityStatusJoinEQPBasis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEQPCapabilityStatus">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/AddEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPCapabilityStatus">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/EditEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelEQPCapabilityStatus">
+      <soap12:operation soapAction="http://mirlmes.itri.org.tw/DelEQPCapabilityStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsEMS">
+    <wsdl:port name="wsEMSSoap" binding="tns:wsEMSSoap">
+      <soap:address location="http://localhost/PKGMESws/wsEMS/wsEMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsEMSSoap12" binding="tns:wsEMSSoap12">
+      <soap12:address location="http://localhost/PKGMESws/wsEMS/wsEMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

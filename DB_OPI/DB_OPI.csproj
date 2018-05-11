@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D301502-CD2F-4884-8400-E3F14B666F6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DB_OPI</RootNamespace>
+    <AssemblyName>DB_OPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MesCommonCode">
+      <HintPath>D:\SourceCode\MES_Comm_DLL\MesCommonCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\StateButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\StateButton.Designer.cs">
+      <DependentUpon>StateButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BlueTapeIDInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BlueTapeIDInputForm.Designer.cs">
+      <DependentUpon>BlueTapeIDInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BlueTapeLogonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BlueTapeLogonForm.Designer.cs">
+      <DependentUpon>BlueTapeLogonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ComponentSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ComponentSelectForm.Designer.cs">
+      <DependentUpon>ComponentSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CstLogoffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CstLogoffForm.Designer.cs">
+      <DependentUpon>CstLogoffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CstLogonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CstLogonForm.Designer.cs">
+      <DependentUpon>CstLogonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EquipmentStateChangeDescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EquipmentStateChangeDescriptionForm.Designer.cs">
+      <DependentUpon>EquipmentStateChangeDescriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EquipmentStateChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EquipmentStateChangeForm.Designer.cs">
+      <DependentUpon>EquipmentStateChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MaterialLogonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MaterialLogonForm.Designer.cs">
+      <DependentUpon>MaterialLogonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\MesWsAutoProxy.cs" />
+    <Compile Include="Proxy\MesWsLextarProxy.cs" />
+    <Compile Include="Proxy\MesWsProxy.cs" />
+    <Compile Include="Service References\wsAuto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsCUS_LHTC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsEMS_LHTC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsEMS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsEQP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsOP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsPRD_LHTC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsQC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsSYS_LHTC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsWIP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsWIP_LHTC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Util\DnsUtil.cs" />
+    <Compile Include="Util\MesWsUtil.cs" />
+    <Compile Include="Util\XmlGenUtil.cs" />
+    <Compile Include="Vo\LotInfo.cs" />
+    <None Include="Service References\wsEMS_LHTC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsEMS_LHTC\configuration.svcinfo" />
+    <None Include="Service References\wsEMS_LHTC\configuration91.svcinfo" />
+    <None Include="Service References\wsEMS_LHTC\wsEMS.disco" />
+    <None Include="Service References\wsEMS_LHTC\wsEMS.wsdl" />
+    <None Include="Service References\wsSYS_LHTC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsSYS_LHTC\configuration.svcinfo" />
+    <None Include="Service References\wsSYS_LHTC\configuration91.svcinfo" />
+    <None Include="Service References\wsSYS_LHTC\wsSYS.disco" />
+    <None Include="Service References\wsQC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsQC\configuration.svcinfo" />
+    <None Include="Service References\wsQC\configuration91.svcinfo" />
+    <None Include="Service References\wsQC\wsQC.disco" />
+    <None Include="Service References\wsEQP\DB_OPI.wsEQP.ImageInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsEQP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsEQP\configuration.svcinfo" />
+    <None Include="Service References\wsEQP\configuration91.svcinfo" />
+    <None Include="Service References\wsEQP\wsEQP.disco" />
+    <None Include="Service References\wsEMS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsEMS\configuration.svcinfo" />
+    <None Include="Service References\wsEMS\configuration91.svcinfo" />
+    <None Include="Service References\wsEMS\wsEMS.disco" />
+    <None Include="Service References\wsEMS\wsEMS.wsdl" />
+    <None Include="Service References\wsEQP\wsEQP.wsdl" />
+    <None Include="Service References\wsPRD_LHTC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsPRD_LHTC\configuration.svcinfo" />
+    <None Include="Service References\wsPRD_LHTC\configuration91.svcinfo" />
+    <None Include="Service References\wsPRD_LHTC\wsPRD.disco" />
+    <None Include="Service References\wsCUS_LHTC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsCUS_LHTC\configuration.svcinfo" />
+    <None Include="Service References\wsCUS_LHTC\configuration91.svcinfo" />
+    <None Include="Service References\wsCUS_LHTC\wsCUS.disco" />
+    <None Include="Service References\wsCUS_LHTC\wsCUS.wsdl" />
+    <None Include="Service References\wsOP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsOP\configuration.svcinfo" />
+    <None Include="Service References\wsOP\configuration91.svcinfo" />
+    <None Include="Service References\wsOP\wsOP.disco" />
+    <None Include="Service References\wsOP\wsOP.wsdl" />
+    <None Include="Service References\wsPRD_LHTC\wsPRD.wsdl" />
+    <None Include="Service References\wsQC\wsQC.wsdl" />
+    <None Include="Service References\wsSYS_LHTC\wsSYS.wsdl" />
+    <None Include="Service References\wsWIP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsWIP\configuration.svcinfo" />
+    <None Include="Service References\wsWIP\configuration91.svcinfo" />
+    <None Include="Service References\wsWIP\wsWIP.disco" />
+    <None Include="Service References\wsWIP\wsWIP.wsdl" />
+    <None Include="Service References\wsWIP_LHTC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsWIP_LHTC\configuration.svcinfo" />
+    <None Include="Service References\wsWIP_LHTC\configuration91.svcinfo" />
+    <None Include="Service References\wsWIP_LHTC\wsWIP.disco" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Service References\wsAuto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsAuto\configuration.svcinfo" />
+    <None Include="Service References\wsAuto\configuration91.svcinfo" />
+    <None Include="Service References\wsAuto\wsWPSystem.disco" />
+    <EmbeddedResource Include="Components\StateButton.resx">
+      <DependentUpon>StateButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BlueTapeIDInputForm.resx">
+      <DependentUpon>BlueTapeIDInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BlueTapeLogonForm.resx">
+      <DependentUpon>BlueTapeLogonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ComponentSelectForm.resx">
+      <DependentUpon>ComponentSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CstLogoffForm.resx">
+      <DependentUpon>CstLogoffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CstLogonForm.resx">
+      <DependentUpon>CstLogonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EquipmentStateChangeDescriptionForm.resx">
+      <DependentUpon>EquipmentStateChangeDescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EquipmentStateChangeForm.resx">
+      <DependentUpon>EquipmentStateChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MaterialLogonForm.resx">
+      <DependentUpon>MaterialLogonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\wsAuto\wsWPSystem.wsdl" />
+    <None Include="Service References\wsWIP_LHTC\wsWIP.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\wsAuto\" />
+    <WCFMetadataStorage Include="Service References\wsCUS_LHTC\" />
+    <WCFMetadataStorage Include="Service References\wsEMS_LHTC\" />
+    <WCFMetadataStorage Include="Service References\wsEMS\" />
+    <WCFMetadataStorage Include="Service References\wsEQP\" />
+    <WCFMetadataStorage Include="Service References\wsOP\" />
+    <WCFMetadataStorage Include="Service References\wsPRD_LHTC\" />
+    <WCFMetadataStorage Include="Service References\wsQC\" />
+    <WCFMetadataStorage Include="Service References\wsSYS_LHTC\" />
+    <WCFMetadataStorage Include="Service References\wsWIP\" />
+    <WCFMetadataStorage Include="Service References\wsWIP_LHTC\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

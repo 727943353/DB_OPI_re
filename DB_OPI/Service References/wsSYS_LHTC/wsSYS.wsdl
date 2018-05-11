@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoadMOTypeProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMOTypePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMOTypePropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMOTypeProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMOTypePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMOTypePropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditMOTypeProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditMOTypePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditMOTypePropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMOTypeProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMOTypePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelMOTypePropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveMOTypeProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApproveMOTypePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApproveMOTypePropertyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMOTypePropertyDefine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMOTypePropertyDefineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMOTypePropertyDefineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMOTypeInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMOTypeInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMOTypeInventoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMOTypeInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMOTypeInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMOTypeInventoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMOTypeInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelMOTypeInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelMOTypeInventoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="funCheckDateTimeFormat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="funCheckDateTimeFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="funCheckDateTimeFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFunctionPrinter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadFunctionPrinterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFunctionPrinterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSystemFunction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSystemFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSystemFunctionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCFGTERM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCFGTERMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadCFGTERMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCFGTERM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCFGTERMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddCFGTERMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCFGTERM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditCFGTERMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditCFGTERMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelCFGTERM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelCFGTERMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelCFGTERMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadMOTypePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMOTypeProperty" />
+  </wsdl:message>
+  <wsdl:message name="LoadMOTypePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMOTypePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMOTypePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:AddMOTypeProperty" />
+  </wsdl:message>
+  <wsdl:message name="AddMOTypePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:AddMOTypePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditMOTypePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:EditMOTypeProperty" />
+  </wsdl:message>
+  <wsdl:message name="EditMOTypePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:EditMOTypePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelMOTypePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:DelMOTypeProperty" />
+  </wsdl:message>
+  <wsdl:message name="DelMOTypePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:DelMOTypePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApproveMOTypePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:ApproveMOTypeProperty" />
+  </wsdl:message>
+  <wsdl:message name="ApproveMOTypePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:ApproveMOTypePropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMOTypePropertyDefineSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMOTypePropertyDefine" />
+  </wsdl:message>
+  <wsdl:message name="LoadMOTypePropertyDefineSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMOTypePropertyDefineResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMOTypeInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMOTypeInventory" />
+  </wsdl:message>
+  <wsdl:message name="LoadMOTypeInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMOTypeInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMOTypeInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:AddMOTypeInventory" />
+  </wsdl:message>
+  <wsdl:message name="AddMOTypeInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:AddMOTypeInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelMOTypeInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:DelMOTypeInventory" />
+  </wsdl:message>
+  <wsdl:message name="DelMOTypeInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:DelMOTypeInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="funCheckDateTimeFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:funCheckDateTimeFormat" />
+  </wsdl:message>
+  <wsdl:message name="funCheckDateTimeFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:funCheckDateTimeFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadFunctionPrinterSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadFunctionPrinter" />
+  </wsdl:message>
+  <wsdl:message name="LoadFunctionPrinterSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadFunctionPrinterResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSystemFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSystemFunction" />
+  </wsdl:message>
+  <wsdl:message name="LoadSystemFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSystemFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadCFGTERMSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadCFGTERM" />
+  </wsdl:message>
+  <wsdl:message name="LoadCFGTERMSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadCFGTERMResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCFGTERMSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCFGTERM" />
+  </wsdl:message>
+  <wsdl:message name="AddCFGTERMSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCFGTERMResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditCFGTERMSoapIn">
+    <wsdl:part name="parameters" element="tns:EditCFGTERM" />
+  </wsdl:message>
+  <wsdl:message name="EditCFGTERMSoapOut">
+    <wsdl:part name="parameters" element="tns:EditCFGTERMResponse" />
+  </wsdl:message>
+  <wsdl:message name="DelCFGTERMSoapIn">
+    <wsdl:part name="parameters" element="tns:DelCFGTERM" />
+  </wsdl:message>
+  <wsdl:message name="DelCFGTERMSoapOut">
+    <wsdl:part name="parameters" element="tns:DelCFGTERMResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSYSSoap">
+    <wsdl:operation name="LoadMOTypeProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load MOTypeProperty Data</wsdl:documentation>
+      <wsdl:input message="tns:LoadMOTypePropertySoapIn" />
+      <wsdl:output message="tns:LoadMOTypePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add MOTypeProperty data</wsdl:documentation>
+      <wsdl:input message="tns:AddMOTypePropertySoapIn" />
+      <wsdl:output message="tns:AddMOTypePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMOTypeProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit Specified MOTypeProperty Data</wsdl:documentation>
+      <wsdl:input message="tns:EditMOTypePropertySoapIn" />
+      <wsdl:output message="tns:EditMOTypePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete MOTypeProperty By Specified MOTypeNo and PropertyNo</wsdl:documentation>
+      <wsdl:input message="tns:DelMOTypePropertySoapIn" />
+      <wsdl:output message="tns:DelMOTypePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveMOTypeProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Approve Specified MOTypeProperty Data By MOTypeNo and PropertyNo</wsdl:documentation>
+      <wsdl:input message="tns:ApproveMOTypePropertySoapIn" />
+      <wsdl:output message="tns:ApproveMOTypePropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypePropertyDefine">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load MOType Property Define Data</wsdl:documentation>
+      <wsdl:input message="tns:LoadMOTypePropertyDefineSoapIn" />
+      <wsdl:output message="tns:LoadMOTypePropertyDefineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypeInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load MOTypeInventory Data</wsdl:documentation>
+      <wsdl:input message="tns:LoadMOTypeInventorySoapIn" />
+      <wsdl:output message="tns:LoadMOTypeInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add MOTypeInventory data</wsdl:documentation>
+      <wsdl:input message="tns:AddMOTypeInventorySoapIn" />
+      <wsdl:output message="tns:AddMOTypeInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete MOTypeInventory By Specified MOTypeNo and InventoryNo</wsdl:documentation>
+      <wsdl:input message="tns:DelMOTypeInventorySoapIn" />
+      <wsdl:output message="tns:DelMOTypeInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="funCheckDateTimeFormat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check DateTime Format</wsdl:documentation>
+      <wsdl:input message="tns:funCheckDateTimeFormatSoapIn" />
+      <wsdl:output message="tns:funCheckDateTimeFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionPrinter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Function Printer</wsdl:documentation>
+      <wsdl:input message="tns:LoadFunctionPrinterSoapIn" />
+      <wsdl:output message="tns:LoadFunctionPrinterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSystemFunction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load System Function</wsdl:documentation>
+      <wsdl:input message="tns:LoadSystemFunctionSoapIn" />
+      <wsdl:output message="tns:LoadSystemFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCFGTERM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Print Lot</wsdl:documentation>
+      <wsdl:input message="tns:LoadCFGTERMSoapIn" />
+      <wsdl:output message="tns:LoadCFGTERMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCFGTERM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Print Lot</wsdl:documentation>
+      <wsdl:input message="tns:AddCFGTERMSoapIn" />
+      <wsdl:output message="tns:AddCFGTERMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCFGTERM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Print Lot</wsdl:documentation>
+      <wsdl:input message="tns:EditCFGTERMSoapIn" />
+      <wsdl:output message="tns:EditCFGTERMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DelCFGTERM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Print Lot</wsdl:documentation>
+      <wsdl:input message="tns:DelCFGTERMSoapIn" />
+      <wsdl:output message="tns:DelCFGTERMSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSYSSoap" type="tns:wsSYSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadMOTypeProperty">
+      <soap:operation soapAction="http://tempuri.org/LoadMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeProperty">
+      <soap:operation soapAction="http://tempuri.org/AddMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMOTypeProperty">
+      <soap:operation soapAction="http://tempuri.org/EditMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeProperty">
+      <soap:operation soapAction="http://tempuri.org/DelMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveMOTypeProperty">
+      <soap:operation soapAction="http://tempuri.org/ApproveMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypePropertyDefine">
+      <soap:operation soapAction="http://tempuri.org/LoadMOTypePropertyDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypeInventory">
+      <soap:operation soapAction="http://tempuri.org/LoadMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeInventory">
+      <soap:operation soapAction="http://tempuri.org/AddMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeInventory">
+      <soap:operation soapAction="http://tempuri.org/DelMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="funCheckDateTimeFormat">
+      <soap:operation soapAction="http://tempuri.org/funCheckDateTimeFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionPrinter">
+      <soap:operation soapAction="http://tempuri.org/LoadFunctionPrinter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSystemFunction">
+      <soap:operation soapAction="http://tempuri.org/LoadSystemFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCFGTERM">
+      <soap:operation soapAction="http://tempuri.org/LoadCFGTERM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCFGTERM">
+      <soap:operation soapAction="http://tempuri.org/AddCFGTERM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCFGTERM">
+      <soap:operation soapAction="http://tempuri.org/EditCFGTERM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCFGTERM">
+      <soap:operation soapAction="http://tempuri.org/DelCFGTERM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSYSSoap12" type="tns:wsSYSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadMOTypeProperty">
+      <soap12:operation soapAction="http://tempuri.org/LoadMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeProperty">
+      <soap12:operation soapAction="http://tempuri.org/AddMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMOTypeProperty">
+      <soap12:operation soapAction="http://tempuri.org/EditMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeProperty">
+      <soap12:operation soapAction="http://tempuri.org/DelMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveMOTypeProperty">
+      <soap12:operation soapAction="http://tempuri.org/ApproveMOTypeProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypePropertyDefine">
+      <soap12:operation soapAction="http://tempuri.org/LoadMOTypePropertyDefine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMOTypeInventory">
+      <soap12:operation soapAction="http://tempuri.org/LoadMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMOTypeInventory">
+      <soap12:operation soapAction="http://tempuri.org/AddMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelMOTypeInventory">
+      <soap12:operation soapAction="http://tempuri.org/DelMOTypeInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="funCheckDateTimeFormat">
+      <soap12:operation soapAction="http://tempuri.org/funCheckDateTimeFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFunctionPrinter">
+      <soap12:operation soapAction="http://tempuri.org/LoadFunctionPrinter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSystemFunction">
+      <soap12:operation soapAction="http://tempuri.org/LoadSystemFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCFGTERM">
+      <soap12:operation soapAction="http://tempuri.org/LoadCFGTERM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCFGTERM">
+      <soap12:operation soapAction="http://tempuri.org/AddCFGTERM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCFGTERM">
+      <soap12:operation soapAction="http://tempuri.org/EditCFGTERM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelCFGTERM">
+      <soap12:operation soapAction="http://tempuri.org/DelCFGTERM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSYS">
+    <wsdl:port name="wsSYSSoap" binding="tns:wsSYSSoap">
+      <soap:address location="http://localhost/PKGMESws_Lextar/wsSYS/wsSYS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSYSSoap12" binding="tns:wsSYSSoap12">
+      <soap12:address location="http://localhost/PKGMESws_Lextar/wsSYS/wsSYS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

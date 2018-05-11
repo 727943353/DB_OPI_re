@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org//wsEMS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org//wsEMS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org//wsEMS">
+      <s:element name="LoadEquipmentStateLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentStateLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentStateLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentState_Previous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEquipmentState_PreviousResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEquipmentState_PreviousResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnInv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnInvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exe_EQPMaterialState_TurnInvResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnEQP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exe_EQPMaterialState_TurnEQPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Exe_EQPMaterialState_TurnEQPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPMaterialState_Comp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadEQPMaterialState_CompResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadEQPMaterialState_CompResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSEQSTEventLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSEQSTEventLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEMSEQSTEventLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSEQALEventLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSEQALEventLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEMSEQALEventLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSDCRPEventLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddEMSDCRPEventLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEMSDCRPEventLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="funChangeStatePrintLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="funChangeStatePrintLabelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="funChangeStatePrintLabelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadEquipmentStateLogSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLog" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentStateLogSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentStateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentState_PreviousSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentState_Previous" />
+  </wsdl:message>
+  <wsdl:message name="LoadEquipmentState_PreviousSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEquipmentState_PreviousResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnInvSoapIn">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnInv" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnInvSoapOut">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnInvResponse" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnEQPSoapIn">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnEQP" />
+  </wsdl:message>
+  <wsdl:message name="Exe_EQPMaterialState_TurnEQPSoapOut">
+    <wsdl:part name="parameters" element="tns:Exe_EQPMaterialState_TurnEQPResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPMaterialState_CompSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadEQPMaterialState_Comp" />
+  </wsdl:message>
+  <wsdl:message name="LoadEQPMaterialState_CompSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadEQPMaterialState_CompResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSEQSTEventLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEMSEQSTEventLog" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSEQSTEventLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEMSEQSTEventLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSEQALEventLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEMSEQALEventLog" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSEQALEventLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEMSEQALEventLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSDCRPEventLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEMSDCRPEventLog" />
+  </wsdl:message>
+  <wsdl:message name="AddEMSDCRPEventLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEMSDCRPEventLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="funChangeStatePrintLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:funChangeStatePrintLabel" />
+  </wsdl:message>
+  <wsdl:message name="funChangeStatePrintLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:funChangeStatePrintLabelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsEMSSoap">
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment State Log Data by EQPSerialNo,EquipmentNo,EquipmentState,EquipmentType,UserNo,StartTime,EndTime</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentStateLogSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentStateLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState_Previous">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Equipment Prvious State from Log Data by EquipmentNo</wsdl:documentation>
+      <wsdl:input message="tns:LoadEquipmentState_PreviousSoapIn" />
+      <wsdl:output message="tns:LoadEquipmentState_PreviousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Execute Equipment Material Turn Inventory</wsdl:documentation>
+      <wsdl:input message="tns:Exe_EQPMaterialState_TurnInvSoapIn" />
+      <wsdl:output message="tns:Exe_EQPMaterialState_TurnInvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Execute Equipment Material Turn Equipment</wsdl:documentation>
+      <wsdl:input message="tns:Exe_EQPMaterialState_TurnEQPSoapIn" />
+      <wsdl:output message="tns:Exe_EQPMaterialState_TurnEQPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState_Comp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load EQPMaterialState_Comp</wsdl:documentation>
+      <wsdl:input message="tns:LoadEQPMaterialState_CompSoapIn" />
+      <wsdl:output message="tns:LoadEQPMaterialState_CompSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQSTEventLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add EMS EQST Event Log</wsdl:documentation>
+      <wsdl:input message="tns:AddEMSEQSTEventLogSoapIn" />
+      <wsdl:output message="tns:AddEMSEQSTEventLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQALEventLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add EMS EQAL Event Log</wsdl:documentation>
+      <wsdl:input message="tns:AddEMSEQALEventLogSoapIn" />
+      <wsdl:output message="tns:AddEMSEQALEventLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSDCRPEventLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add EMS DCRP Event Log</wsdl:documentation>
+      <wsdl:input message="tns:AddEMSDCRPEventLogSoapIn" />
+      <wsdl:output message="tns:AddEMSDCRPEventLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="funChangeStatePrintLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change State Print Label</wsdl:documentation>
+      <wsdl:input message="tns:funChangeStatePrintLabelSoapIn" />
+      <wsdl:output message="tns:funChangeStatePrintLabelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsEMSSoap" type="tns:wsEMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/LoadEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState_Previous">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/LoadEquipmentState_Previous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/Exe_EQPMaterialState_TurnInv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/Exe_EQPMaterialState_TurnEQP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState_Comp">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/LoadEQPMaterialState_Comp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQSTEventLog">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/AddEMSEQSTEventLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQALEventLog">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/AddEMSEQALEventLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSDCRPEventLog">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/AddEMSDCRPEventLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="funChangeStatePrintLabel">
+      <soap:operation soapAction="http://tempuri.org//wsEMS/funChangeStatePrintLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsEMSSoap12" type="tns:wsEMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadEquipmentStateLog">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/LoadEquipmentStateLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEquipmentState_Previous">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/LoadEquipmentState_Previous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnInv">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/Exe_EQPMaterialState_TurnInv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exe_EQPMaterialState_TurnEQP">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/Exe_EQPMaterialState_TurnEQP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadEQPMaterialState_Comp">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/LoadEQPMaterialState_Comp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQSTEventLog">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/AddEMSEQSTEventLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSEQALEventLog">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/AddEMSEQALEventLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEMSDCRPEventLog">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/AddEMSDCRPEventLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="funChangeStatePrintLabel">
+      <soap12:operation soapAction="http://tempuri.org//wsEMS/funChangeStatePrintLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsEMS">
+    <wsdl:port name="wsEMSSoap" binding="tns:wsEMSSoap">
+      <soap:address location="http://localhost/PKGMESws_Lextar/wsEMS/wsEMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsEMSSoap12" binding="tns:wsEMSSoap12">
+      <soap12:address location="http://localhost/PKGMESws_Lextar/wsEMS/wsEMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

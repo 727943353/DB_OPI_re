@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/PKGMESws/wsQC/wsQC.asmx?wsdl" docRef="http://localhost/PKGMESws/wsQC/wsQC.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/PKGMESws/wsQC/wsQC.asmx" xmlns:q1="http://mirlmes.itri.org.tw/" binding="q1:wsQCSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/PKGMESws/wsQC/wsQC.asmx" xmlns:q2="http://mirlmes.itri.org.tw/" binding="q2:wsQCSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
