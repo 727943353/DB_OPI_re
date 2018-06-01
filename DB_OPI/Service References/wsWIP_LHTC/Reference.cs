@@ -16,6 +16,14 @@ namespace DB_OPI.wsWIP_LHTC {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://tempuri.org//wsWIP", ConfigurationName="wsWIP_LHTC.wsWIPSoap")]
     public interface wsWIPSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/ChkOPNoInProcess", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string ChkOPNoInProcess(string InXml);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/AddLotReworkReverseLog", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string AddLotReworkReverseLog(string InXml);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadReTapeOrNot", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadReTapeOrNot(string InXml);
@@ -66,7 +74,7 @@ namespace DB_OPI.wsWIP_LHTC {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/CheckLotFIFO_Test", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string CheckLotFIFO_Test();
+        string CheckLotFIFO_Test(string uerNo, string mono, string lotNo, string prodNo, string opNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/AddLotBasis_LARework", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -179,6 +187,14 @@ namespace DB_OPI.wsWIP_LHTC {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/Add_Material_Record", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Add_Material_Record(string InXml);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordByMaterialLotNo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedState", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecord", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -399,14 +415,6 @@ namespace DB_OPI.wsWIP_LHTC {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadWIPReworkLot_ReTape", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadWIPReworkLot_ReTape(string InXml);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/ChkOPNoInProcess", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string ChkOPNoInProcess(string InXml);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/AddLotReworkReverseLog", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string AddLotReworkReverseLog(string InXml);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/ChkCarrierVaild_FunctionTest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2080,6 +2088,14 @@ namespace DB_OPI.wsWIP_LHTC {
                 base(binding, remoteAddress) {
         }
         
+        public string ChkOPNoInProcess(string InXml) {
+            return base.Channel.ChkOPNoInProcess(InXml);
+        }
+        
+        public string AddLotReworkReverseLog(string InXml) {
+            return base.Channel.AddLotReworkReverseLog(InXml);
+        }
+        
         public string LoadReTapeOrNot(string InXml) {
             return base.Channel.LoadReTapeOrNot(InXml);
         }
@@ -2128,8 +2144,8 @@ namespace DB_OPI.wsWIP_LHTC {
             return base.Channel.CheckLotFIFO(userNo, moNo, lotNos, productNo, opNo);
         }
         
-        public string CheckLotFIFO_Test() {
-            return base.Channel.CheckLotFIFO_Test();
+        public string CheckLotFIFO_Test(string uerNo, string mono, string lotNo, string prodNo, string opNo) {
+            return base.Channel.CheckLotFIFO_Test(uerNo, mono, lotNo, prodNo, opNo);
         }
         
         public string AddLotBasis_LARework(string InXml) {
@@ -2242,6 +2258,14 @@ namespace DB_OPI.wsWIP_LHTC {
         
         public string Add_Material_Record(string InXml) {
             return base.Channel.Add_Material_Record(InXml);
+        }
+        
+        public string LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.LoadMaterialRecordByMaterialLotNo(userNo, matLotNo, logonStTimeStr, logonEndTimeStr);
+        }
+        
+        public string LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.LoadMaterialRecordJoinGlueUsedState(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
         }
         
         public string LoadMaterialRecord(string InXml) {
@@ -2462,14 +2486,6 @@ namespace DB_OPI.wsWIP_LHTC {
         
         public string LoadWIPReworkLot_ReTape(string InXml) {
             return base.Channel.LoadWIPReworkLot_ReTape(InXml);
-        }
-        
-        public string ChkOPNoInProcess(string InXml) {
-            return base.Channel.ChkOPNoInProcess(InXml);
-        }
-        
-        public string AddLotReworkReverseLog(string InXml) {
-            return base.Channel.AddLotReworkReverseLog(InXml);
         }
         
         public string ChkCarrierVaild_FunctionTest(string InXml) {

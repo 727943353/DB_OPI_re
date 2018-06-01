@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,6 +36,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbContent = new System.Windows.Forms.GroupBox();
             this.glueVerifyChk = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -60,6 +67,14 @@
             this.txtBlueTapeCount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRefresh2 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.glueLifeGrid = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reheatReloadBtn = new System.Windows.Forms.Button();
+            this.celRhBtn = new System.Windows.Forms.Button();
+            this.reheatGrid = new System.Windows.Forms.DataGridView();
+            this.glLotNoTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.loginUserLab = new System.Windows.Forms.Label();
             this.btnMaterialTurnEQP = new System.Windows.Forms.Button();
             this.btnTurnEQP = new System.Windows.Forms.Button();
@@ -70,12 +85,28 @@
             this.btnChipScreen = new System.Windows.Forms.Button();
             this.btnLogon = new System.Windows.Forms.Button();
             this.lblStatusByEQP = new System.Windows.Forms.Label();
+            this.glueReloadTimer = new System.Windows.Forms.Timer(this.components);
+            this.rhMatLotNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reheatEndCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expTimeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ltMatLotNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeStCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lifeEndCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbContent.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvLotNo)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvBlueTape)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glueLifeGrid)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reheatGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // grbContent
@@ -105,15 +136,17 @@
             this.glueVerifyChk.AutoSize = true;
             this.glueVerifyChk.Location = new System.Drawing.Point(152, 30);
             this.glueVerifyChk.Name = "glueVerifyChk";
-            this.glueVerifyChk.Size = new System.Drawing.Size(101, 20);
+            this.glueVerifyChk.Size = new System.Drawing.Size(137, 20);
             this.glueVerifyChk.TabIndex = 4;
-            this.glueVerifyChk.Text = "Glue Verify";
+            this.glueVerifyChk.Text = "Glue Life Control";
             this.glueVerifyChk.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabControl1.Location = new System.Drawing.Point(6, 133);
             this.tabControl1.Name = "tabControl1";
@@ -386,6 +419,157 @@
             this.btnRefresh2.UseVisualStyleBackColor = true;
             this.btnRefresh2.Click += new System.EventHandler(this.btnRefresh2_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.glueLifeGrid);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(904, 310);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Glue Life";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // glueLifeGrid
+            // 
+            this.glueLifeGrid.AllowUserToAddRows = false;
+            this.glueLifeGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.glueLifeGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.glueLifeGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.glueLifeGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column13,
+            this.ltMatLotNoCol,
+            this.Column16,
+            this.lifeStCol,
+            this.lifeEndCol,
+            this.Column20});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.glueLifeGrid.DefaultCellStyle = dataGridViewCellStyle9;
+            this.glueLifeGrid.Location = new System.Drawing.Point(10, 4);
+            this.glueLifeGrid.Name = "glueLifeGrid";
+            this.glueLifeGrid.ReadOnly = true;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.glueLifeGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.glueLifeGrid.RowTemplate.Height = 24;
+            this.glueLifeGrid.Size = new System.Drawing.Size(891, 303);
+            this.glueLifeGrid.TabIndex = 0;
+            this.glueLifeGrid.VisibleChanged += new System.EventHandler(this.glueLifeGrid_VisibleChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.reheatReloadBtn);
+            this.tabPage4.Controls.Add(this.celRhBtn);
+            this.tabPage4.Controls.Add(this.reheatGrid);
+            this.tabPage4.Controls.Add(this.glLotNoTxt);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(904, 310);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Glue Reheat";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // reheatReloadBtn
+            // 
+            this.reheatReloadBtn.Location = new System.Drawing.Point(712, 12);
+            this.reheatReloadBtn.Name = "reheatReloadBtn";
+            this.reheatReloadBtn.Size = new System.Drawing.Size(75, 23);
+            this.reheatReloadBtn.TabIndex = 4;
+            this.reheatReloadBtn.Text = "Reload";
+            this.reheatReloadBtn.UseVisualStyleBackColor = true;
+            this.reheatReloadBtn.Click += new System.EventHandler(this.reheatReloadBtn_Click);
+            // 
+            // celRhBtn
+            // 
+            this.celRhBtn.Location = new System.Drawing.Point(817, 12);
+            this.celRhBtn.Name = "celRhBtn";
+            this.celRhBtn.Size = new System.Drawing.Size(75, 23);
+            this.celRhBtn.TabIndex = 3;
+            this.celRhBtn.Text = "取消回溫";
+            this.celRhBtn.UseVisualStyleBackColor = true;
+            this.celRhBtn.Click += new System.EventHandler(this.celRhBtn_Click);
+            // 
+            // reheatGrid
+            // 
+            this.reheatGrid.AllowUserToAddRows = false;
+            this.reheatGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reheatGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.reheatGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reheatGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rhMatLotNoCol,
+            this.Column14,
+            this.reheatEndCol,
+            this.expTimeCol,
+            this.Column17});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reheatGrid.DefaultCellStyle = dataGridViewCellStyle12;
+            this.reheatGrid.Location = new System.Drawing.Point(10, 46);
+            this.reheatGrid.MultiSelect = false;
+            this.reheatGrid.Name = "reheatGrid";
+            this.reheatGrid.ReadOnly = true;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.reheatGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.reheatGrid.RowTemplate.Height = 24;
+            this.reheatGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.reheatGrid.Size = new System.Drawing.Size(882, 261);
+            this.reheatGrid.TabIndex = 2;
+            this.reheatGrid.VisibleChanged += new System.EventHandler(this.reheatGrid_VisibleChanged);
+            // 
+            // glLotNoTxt
+            // 
+            this.glLotNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.glLotNoTxt.Location = new System.Drawing.Point(83, 9);
+            this.glLotNoTxt.Name = "glLotNoTxt";
+            this.glLotNoTxt.Size = new System.Drawing.Size(180, 22);
+            this.glLotNoTxt.TabIndex = 1;
+            this.glLotNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.glLotNoTxt_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Glue Lot No :";
+            // 
             // loginUserLab
             // 
             this.loginUserLab.AutoSize = true;
@@ -398,7 +582,7 @@
             // 
             // btnMaterialTurnEQP
             // 
-            this.btnMaterialTurnEQP.Location = new System.Drawing.Point(641, 30);
+            this.btnMaterialTurnEQP.Location = new System.Drawing.Point(659, 30);
             this.btnMaterialTurnEQP.Name = "btnMaterialTurnEQP";
             this.btnMaterialTurnEQP.Size = new System.Drawing.Size(100, 40);
             this.btnMaterialTurnEQP.TabIndex = 1;
@@ -408,7 +592,7 @@
             // 
             // btnTurnEQP
             // 
-            this.btnTurnEQP.Location = new System.Drawing.Point(523, 30);
+            this.btnTurnEQP.Location = new System.Drawing.Point(541, 30);
             this.btnTurnEQP.Name = "btnTurnEQP";
             this.btnTurnEQP.Size = new System.Drawing.Size(100, 40);
             this.btnTurnEQP.TabIndex = 1;
@@ -418,7 +602,7 @@
             // 
             // btnLogOff
             // 
-            this.btnLogOff.Location = new System.Drawing.Point(403, 30);
+            this.btnLogOff.Location = new System.Drawing.Point(421, 30);
             this.btnLogOff.Name = "btnLogOff";
             this.btnLogOff.Size = new System.Drawing.Size(100, 40);
             this.btnLogOff.TabIndex = 1;
@@ -438,7 +622,7 @@
             // 
             // btnChangeState
             // 
-            this.btnChangeState.Location = new System.Drawing.Point(523, 87);
+            this.btnChangeState.Location = new System.Drawing.Point(541, 87);
             this.btnChangeState.Name = "btnChangeState";
             this.btnChangeState.Size = new System.Drawing.Size(100, 40);
             this.btnChangeState.TabIndex = 1;
@@ -448,7 +632,7 @@
             // 
             // btnLeadFrameScreen
             // 
-            this.btnLeadFrameScreen.Location = new System.Drawing.Point(403, 87);
+            this.btnLeadFrameScreen.Location = new System.Drawing.Point(421, 87);
             this.btnLeadFrameScreen.Name = "btnLeadFrameScreen";
             this.btnLeadFrameScreen.Size = new System.Drawing.Size(100, 40);
             this.btnLeadFrameScreen.TabIndex = 1;
@@ -458,7 +642,7 @@
             // 
             // btnChipScreen
             // 
-            this.btnChipScreen.Location = new System.Drawing.Point(280, 87);
+            this.btnChipScreen.Location = new System.Drawing.Point(298, 87);
             this.btnChipScreen.Name = "btnChipScreen";
             this.btnChipScreen.Size = new System.Drawing.Size(100, 40);
             this.btnChipScreen.TabIndex = 1;
@@ -468,7 +652,7 @@
             // 
             // btnLogon
             // 
-            this.btnLogon.Location = new System.Drawing.Point(280, 30);
+            this.btnLogon.Location = new System.Drawing.Point(298, 30);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(100, 40);
             this.btnLogon.TabIndex = 1;
@@ -486,6 +670,96 @@
             this.lblStatusByEQP.TabIndex = 0;
             this.lblStatusByEQP.Text = "label1";
             this.lblStatusByEQP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // glueReloadTimer
+            // 
+            this.glueReloadTimer.Enabled = true;
+            this.glueReloadTimer.Interval = 300000;
+            this.glueReloadTimer.Tick += new System.EventHandler(this.glueReloadTimerElspsed);
+            // 
+            // rhMatLotNoCol
+            // 
+            this.rhMatLotNoCol.DataPropertyName = "MATERIAL_LOT_NO";
+            this.rhMatLotNoCol.HeaderText = "Material Lot No";
+            this.rhMatLotNoCol.Name = "rhMatLotNoCol";
+            this.rhMatLotNoCol.ReadOnly = true;
+            this.rhMatLotNoCol.Width = 150;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "REHEAT_START_TIME";
+            this.Column14.HeaderText = "回溫開始";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 120;
+            // 
+            // reheatEndCol
+            // 
+            this.reheatEndCol.DataPropertyName = "REHEAT_END_TIME";
+            this.reheatEndCol.HeaderText = "回溫結束";
+            this.reheatEndCol.Name = "reheatEndCol";
+            this.reheatEndCol.ReadOnly = true;
+            this.reheatEndCol.Width = 120;
+            // 
+            // expTimeCol
+            // 
+            this.expTimeCol.DataPropertyName = "EXP_TIME";
+            this.expTimeCol.HeaderText = "使用期限";
+            this.expTimeCol.Name = "expTimeCol";
+            this.expTimeCol.ReadOnly = true;
+            this.expTimeCol.Width = 120;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "USER_NO";
+            this.Column17.HeaderText = "User No";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "MATERIALNO";
+            this.Column13.HeaderText = "料號";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // ltMatLotNoCol
+            // 
+            this.ltMatLotNoCol.DataPropertyName = "MATERIALLOTNO";
+            this.ltMatLotNoCol.HeaderText = "料號批號";
+            this.ltMatLotNoCol.Name = "ltMatLotNoCol";
+            this.ltMatLotNoCol.ReadOnly = true;
+            this.ltMatLotNoCol.Width = 180;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "EQUIPMENTNO";
+            this.Column16.HeaderText = "機台編號";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // lifeStCol
+            // 
+            this.lifeStCol.DataPropertyName = "LIFE_START_TIME";
+            this.lifeStCol.HeaderText = "使用開始";
+            this.lifeStCol.Name = "lifeStCol";
+            this.lifeStCol.ReadOnly = true;
+            this.lifeStCol.Width = 120;
+            // 
+            // lifeEndCol
+            // 
+            this.lifeEndCol.DataPropertyName = "LIFE_END_TIME";
+            this.lifeEndCol.HeaderText = "使用期限";
+            this.lifeEndCol.Name = "lifeEndCol";
+            this.lifeEndCol.ReadOnly = true;
+            this.lifeEndCol.Width = 120;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "LOGON_USERNO";
+            this.Column20.HeaderText = "上機 User";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
             // 
             // Form1
             // 
@@ -506,6 +780,11 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvBlueTape)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.glueLifeGrid)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reheatGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,6 +826,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.CheckBox glueVerifyChk;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView glueLifeGrid;
+        private System.Windows.Forms.TextBox glLotNoTxt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView reheatGrid;
+        private System.Windows.Forms.Button celRhBtn;
+        private System.Windows.Forms.Button reheatReloadBtn;
+        private System.Windows.Forms.Timer glueReloadTimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rhMatLotNoCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reheatEndCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expTimeCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ltMatLotNoCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lifeStCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lifeEndCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
     }
 }
 

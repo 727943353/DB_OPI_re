@@ -13,6 +13,7 @@ namespace DB_OPI.Proxy
 {
     class MesWsLextarProxy
     {
+        static string TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
         static wsWIP_LHTC.wsWIPSoapClient wsWipLHTC = new wsWIP_LHTC.wsWIPSoapClient();
         static wsCUS_LHTC.wsCUSSoapClient wsCusLHTC = new wsCUS_LHTC.wsCUSSoapClient();
         static wsPRD_LHTC.wsPRDSoapClient wsPrdLHTC = new wsPRD_LHTC.wsPRDSoapClient();
@@ -91,24 +92,100 @@ namespace DB_OPI.Proxy
             return MesWsUtil.RetriveDataTable(xmlDoc, "loadmaterialrecord");
         }
 
-
-
-        //wsCusLHTC
-        public static DataTable LoadMaterialUsedState(string userNo, string matLotNo)
+        public static DataTable LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, DateTime logonStTime, DateTime logonEndTime)
         {
-            
-            string result = wsCusLHTC.LoadMaterialUsedState(userNo, matLotNo);
+            string result = wsWipLHTC.LoadMaterialRecordByMaterialLotNo(userNo, matLotNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
             WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
             if (wsRes.Result == ResultEnum.Exception)
-            {
-                throw new Exception("LoadMaterialUsedState error." + wsRes.Exception.Stack);
-            }
-
+                throw new Exception(wsRes.Exception.Stack);
             return wsRes.ReturnTable;
-
         }
 
+        //wsCusLHTC
+        //public static DataTable LoadMaterialUsedState(string userNo, string matLotNo, string type)
+        //{
 
+        //    string result = wsCusLHTC.LoadMaterialUsedState(userNo, matLotNo, type);
+        //    WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+        //    if (wsRes.Result == ResultEnum.Exception)
+        //    {
+        //        throw new Exception("LoadMaterialUsedState error." + wsRes.Exception.Stack);
+        //    }
+
+        //    return wsRes.ReturnTable;
+
+        //}
+
+        //public static DataTable LoadMaterialUsedStateByEqpNo(string userNo, string eqpNo, string type)
+        //{
+        //    string result = wsCusLHTC.LoadMaterialUsedStateByEqpNo(userNo, eqpNo, type);
+        //    WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+        //    if (wsRes.Result == ResultEnum.Exception)
+        //    {
+        //        throw new Exception("LoadMaterialUsedStateByEqpNo error." + wsRes.Exception.Stack);
+        //    }
+
+        //    return wsRes.ReturnTable;
+        //}
+
+        //public static DataTable LoadGlueUsedState(string userNo, string matLotNo)
+        //{
+        //    string result = wsCusLHTC.LoadGlueUsedState(userNo, matLotNo);
+        //    WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+        //    if (wsRes.Result == ResultEnum.Exception)
+        //        throw new Exception("LoadMaterialUsedStateByEqpNo error." + wsRes.Exception.Stack);
+
+        //    return wsRes.ReturnTable;
+        //}
+
+        public static void UpdateGlueLifeTime(string userNo, string matLotNo, string eqpNo, DateTime lifeStTime, DateTime lifeEndTime)
+        {
+            string result = wsCusLHTC.UpdateGlueLifeTimeData(userNo, matLotNo, eqpNo, lifeStTime.ToString(TIME_FORMAT), lifeEndTime.ToString(TIME_FORMAT));
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception(wsRes.Exception.Stack);
+
+        }
+        public static DataTable LoadGlueUsedState(string userNo, string matLotNo)
+        {
+            DateTime endTime = DateTime.Now;
+            DateTime stTime = endTime.AddMonths(-1);
+            string result = wsCusLHTC.LoadGlueUsedState(userNo, matLotNo, stTime.ToString(TIME_FORMAT), endTime.ToString(TIME_FORMAT));
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception(wsRes.Exception.Stack);
+
+            return wsRes.ReturnTable;
+        }
+
+        
+        public static WsResponse AddGlueReheatData(string userNo, string matLotNo)
+        {
+            string result = wsCusLHTC.AddGlueReheatData(userNo, matLotNo);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception(wsRes.Exception.Stack);
+
+            return wsRes;
+        }
+
+        public static void DeleteGlueUsedData(string userNo, string matLotNo)
+        {
+            string result = wsCusLHTC.DeleteByMaterialLotNo(userNo, matLotNo);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception(wsRes.Exception.Stack);
+        }
+
+        public static DataTable LoadAllReheatingData(string userNo)
+        {
+            string result = wsCusLHTC.LoadAllGlueReheatingData(userNo);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception("LoadAllReheatingData error." + wsRes.Exception.Stack);
+
+            return wsRes.ReturnTable;
+        }
         public static DataTable GetMaterialLifeTimeSetting(string userNo, string eqpNo, string matNo)
         {
             string strIdentity = XmlGenUtil.CombineXMLIdentity(eqpNo, userNo);
@@ -123,15 +200,24 @@ namespace DB_OPI.Proxy
             return MesWsUtil.RetriveDataTable(xmlDoc, "loadrecipeparamemter_wp");
         }
 
-        public static void InsertMaterialUsedState(string userNo, string eqpNo, string matLotNo, DateTime stTime, DateTime expTime)
+        public static DataTable LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, DateTime logonStTime, DateTime logonEndTime)
         {
-            string result = wsCusLHTC.InsertMaterialUsedState(userNo, matLotNo, eqpNo, stTime.ToString("yyyy-MM-dd HH:mm:ss"), expTime.ToString("yyyy-MM-dd HH:mm:ss"));
+            string result = wsWipLHTC.LoadMaterialRecordJoinGlueUsedState(userNo, eqpNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
             WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
             if (wsRes.Result == ResultEnum.Exception)
-            {
-                throw new Exception("LoadMaterialUsedState error." + wsRes.Exception.Stack);
-            }
+                throw new Exception(wsRes.Exception.Stack);
+            return wsRes.ReturnTable;
         }
+
+        //public static void InsertMaterialUsedState(string userNo, string eqpNo, string matLotNo, DateTime stTime, DateTime expTime, string type)
+        //{
+        //    string result = wsCusLHTC.InsertMaterialUsedState(userNo, matLotNo, eqpNo, stTime.ToString("yyyy-MM-dd HH:mm:ss"), expTime.ToString("yyyy-MM-dd HH:mm:ss"), type);
+        //    WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+        //    if (wsRes.Result == ResultEnum.Exception)
+        //    {
+        //        throw new Exception("LoadMaterialUsedState error." + wsRes.Exception.Stack);
+        //    }
+        //}
 
         public static void Add_Material_Record(string userNo, string eqpNo, string matNo, string matLotNo)
         {

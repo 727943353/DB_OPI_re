@@ -2,6 +2,34 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org//wsWIP" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org//wsWIP" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org//wsWIP">
+      <s:element name="ChkOPNoInProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChkOPNoInProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChkOPNoInProcessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLotReworkReverseLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLotReworkReverseLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddLotReworkReverseLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="LoadReTapeOrNot">
         <s:complexType>
           <s:sequence>
@@ -187,7 +215,15 @@
         </s:complexType>
       </s:element>
       <s:element name="CheckLotFIFO_Test">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uerNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prodNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="opNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="CheckLotFIFO_TestResponse">
         <s:complexType>
@@ -586,6 +622,40 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Add_Material_RecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordByMaterialLotNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordByMaterialLotNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialRecordByMaterialLotNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJoinGlueUsedState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJoinGlueUsedStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialRecordJoinGlueUsedStateResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1423,34 +1493,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="LoadWIPReworkLot_ReTapeResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ChkOPNoInProcess">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ChkOPNoInProcessResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ChkOPNoInProcessResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="AddLotReworkReverseLog">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="AddLotReworkReverseLogResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AddLotReworkReverseLogResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -7211,6 +7253,18 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="ChkOPNoInProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:ChkOPNoInProcess" />
+  </wsdl:message>
+  <wsdl:message name="ChkOPNoInProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:ChkOPNoInProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLotReworkReverseLogSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLotReworkReverseLog" />
+  </wsdl:message>
+  <wsdl:message name="AddLotReworkReverseLogSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLotReworkReverseLogResponse" />
+  </wsdl:message>
   <wsdl:message name="LoadReTapeOrNotSoapIn">
     <wsdl:part name="parameters" element="tns:LoadReTapeOrNot" />
   </wsdl:message>
@@ -7456,6 +7510,18 @@
   </wsdl:message>
   <wsdl:message name="Add_Material_RecordSoapOut">
     <wsdl:part name="parameters" element="tns:Add_Material_RecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordByMaterialLotNoSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordByMaterialLotNo" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordByMaterialLotNoSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordByMaterialLotNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJoinGlueUsedStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinGlueUsedState" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJoinGlueUsedStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinGlueUsedStateResponse" />
   </wsdl:message>
   <wsdl:message name="LoadMaterialRecordSoapIn">
     <wsdl:part name="parameters" element="tns:LoadMaterialRecord" />
@@ -7786,18 +7852,6 @@
   </wsdl:message>
   <wsdl:message name="LoadWIPReworkLot_ReTapeSoapOut">
     <wsdl:part name="parameters" element="tns:LoadWIPReworkLot_ReTapeResponse" />
-  </wsdl:message>
-  <wsdl:message name="ChkOPNoInProcessSoapIn">
-    <wsdl:part name="parameters" element="tns:ChkOPNoInProcess" />
-  </wsdl:message>
-  <wsdl:message name="ChkOPNoInProcessSoapOut">
-    <wsdl:part name="parameters" element="tns:ChkOPNoInProcessResponse" />
-  </wsdl:message>
-  <wsdl:message name="AddLotReworkReverseLogSoapIn">
-    <wsdl:part name="parameters" element="tns:AddLotReworkReverseLog" />
-  </wsdl:message>
-  <wsdl:message name="AddLotReworkReverseLogSoapOut">
-    <wsdl:part name="parameters" element="tns:AddLotReworkReverseLogResponse" />
   </wsdl:message>
   <wsdl:message name="ChkCarrierVaild_FunctionTestSoapIn">
     <wsdl:part name="parameters" element="tns:ChkCarrierVaild_FunctionTest" />
@@ -10266,6 +10320,16 @@
     <wsdl:part name="parameters" element="tns:AddLotBasisResponse" />
   </wsdl:message>
   <wsdl:portType name="wsWIPSoap">
+    <wsdl:operation name="ChkOPNoInProcess">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Chk OPNo In Process</wsdl:documentation>
+      <wsdl:input message="tns:ChkOPNoInProcessSoapIn" />
+      <wsdl:output message="tns:ChkOPNoInProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLotReworkReverseLog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Lot Rework Reverse Log</wsdl:documentation>
+      <wsdl:input message="tns:AddLotReworkReverseLogSoapIn" />
+      <wsdl:output message="tns:AddLotReworkReverseLogSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="LoadReTapeOrNot">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load ReTape OrNot </wsdl:documentation>
       <wsdl:input message="tns:LoadReTapeOrNotSoapIn" />
@@ -10470,6 +10534,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Material Record</wsdl:documentation>
       <wsdl:input message="tns:Add_Material_RecordSoapIn" />
       <wsdl:output message="tns:Add_Material_RecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordByMaterialLotNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record</wsdl:documentation>
+      <wsdl:input message="tns:LoadMaterialRecordByMaterialLotNoSoapIn" />
+      <wsdl:output message="tns:LoadMaterialRecordByMaterialLotNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinGlueUsedState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record join Glue Used State</wsdl:documentation>
+      <wsdl:input message="tns:LoadMaterialRecordJoinGlueUsedStateSoapIn" />
+      <wsdl:output message="tns:LoadMaterialRecordJoinGlueUsedStateSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LoadMaterialRecord">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record</wsdl:documentation>
@@ -10745,16 +10819,6 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Rework Lot</wsdl:documentation>
       <wsdl:input message="tns:LoadWIPReworkLot_ReTapeSoapIn" />
       <wsdl:output message="tns:LoadWIPReworkLot_ReTapeSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="ChkOPNoInProcess">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Chk OPNo In Process</wsdl:documentation>
-      <wsdl:input message="tns:ChkOPNoInProcessSoapIn" />
-      <wsdl:output message="tns:ChkOPNoInProcessSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="AddLotReworkReverseLog">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Lot Rework Reverse Log</wsdl:documentation>
-      <wsdl:input message="tns:AddLotReworkReverseLogSoapIn" />
-      <wsdl:output message="tns:AddLotReworkReverseLogSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ChkCarrierVaild_FunctionTest">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check Carrier Valid of Function Test</wsdl:documentation>
@@ -12814,6 +12878,24 @@
   </wsdl:portType>
   <wsdl:binding name="wsWIPSoap" type="tns:wsWIPSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChkOPNoInProcess">
+      <soap:operation soapAction="http://tempuri.org//wsWIP/ChkOPNoInProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLotReworkReverseLog">
+      <soap:operation soapAction="http://tempuri.org//wsWIP/AddLotReworkReverseLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoadReTapeOrNot">
       <soap:operation soapAction="http://tempuri.org//wsWIP/LoadReTapeOrNot" style="document" />
       <wsdl:input>
@@ -13176,6 +13258,24 @@
     </wsdl:operation>
     <wsdl:operation name="Add_Material_Record">
       <soap:operation soapAction="http://tempuri.org//wsWIP/Add_Material_Record" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordByMaterialLotNo">
+      <soap:operation soapAction="http://tempuri.org//wsWIP/LoadMaterialRecordByMaterialLotNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinGlueUsedState">
+      <soap:operation soapAction="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedState" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -13671,24 +13771,6 @@
     </wsdl:operation>
     <wsdl:operation name="LoadWIPReworkLot_ReTape">
       <soap:operation soapAction="http://tempuri.org//wsWIP/LoadWIPReworkLot_ReTape" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ChkOPNoInProcess">
-      <soap:operation soapAction="http://tempuri.org//wsWIP/ChkOPNoInProcess" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddLotReworkReverseLog">
-      <soap:operation soapAction="http://tempuri.org//wsWIP/AddLotReworkReverseLog" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -17398,6 +17480,24 @@
   </wsdl:binding>
   <wsdl:binding name="wsWIPSoap12" type="tns:wsWIPSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChkOPNoInProcess">
+      <soap12:operation soapAction="http://tempuri.org//wsWIP/ChkOPNoInProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLotReworkReverseLog">
+      <soap12:operation soapAction="http://tempuri.org//wsWIP/AddLotReworkReverseLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoadReTapeOrNot">
       <soap12:operation soapAction="http://tempuri.org//wsWIP/LoadReTapeOrNot" style="document" />
       <wsdl:input>
@@ -17760,6 +17860,24 @@
     </wsdl:operation>
     <wsdl:operation name="Add_Material_Record">
       <soap12:operation soapAction="http://tempuri.org//wsWIP/Add_Material_Record" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordByMaterialLotNo">
+      <soap12:operation soapAction="http://tempuri.org//wsWIP/LoadMaterialRecordByMaterialLotNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinGlueUsedState">
+      <soap12:operation soapAction="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedState" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -18255,24 +18373,6 @@
     </wsdl:operation>
     <wsdl:operation name="LoadWIPReworkLot_ReTape">
       <soap12:operation soapAction="http://tempuri.org//wsWIP/LoadWIPReworkLot_ReTape" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ChkOPNoInProcess">
-      <soap12:operation soapAction="http://tempuri.org//wsWIP/ChkOPNoInProcess" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddLotReworkReverseLog">
-      <soap12:operation soapAction="http://tempuri.org//wsWIP/AddLotReworkReverseLog" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

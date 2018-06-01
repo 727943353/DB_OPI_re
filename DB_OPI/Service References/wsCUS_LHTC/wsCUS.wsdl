@@ -12,7 +12,42 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="LoadMaterialUsedState">
+      <s:element name="LoadMaterialUsedStateByEqpNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialUsedStateByEqpNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialUsedStateByEqpNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadGlueUsedState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reheatStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reheatEndTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadGlueUsedStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadGlueUsedStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGlueReheatData">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
@@ -20,28 +55,57 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="LoadMaterialUsedStateResponse">
+      <s:element name="AddGlueReheatDataResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialUsedStateResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddGlueReheatDataResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="InsertMaterialUsedState">
+      <s:element name="UpdateGlueLifeTimeData">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="startTimeStr" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="expTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lifeStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lifeEndTimeStr" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="InsertMaterialUsedStateResponse">
+      <s:element name="UpdateGlueLifeTimeDataResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InsertMaterialUsedStateResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateGlueLifeTimeDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAllGlueReheatingData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadAllGlueReheatingDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadAllGlueReheatingDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteByMaterialLotNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteByMaterialLotNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteByMaterialLotNoResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -63,17 +127,41 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="LoadMaterialUsedStateSoapIn">
-    <wsdl:part name="parameters" element="tns:LoadMaterialUsedState" />
+  <wsdl:message name="LoadMaterialUsedStateByEqpNoSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMaterialUsedStateByEqpNo" />
   </wsdl:message>
-  <wsdl:message name="LoadMaterialUsedStateSoapOut">
-    <wsdl:part name="parameters" element="tns:LoadMaterialUsedStateResponse" />
+  <wsdl:message name="LoadMaterialUsedStateByEqpNoSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMaterialUsedStateByEqpNoResponse" />
   </wsdl:message>
-  <wsdl:message name="InsertMaterialUsedStateSoapIn">
-    <wsdl:part name="parameters" element="tns:InsertMaterialUsedState" />
+  <wsdl:message name="LoadGlueUsedStateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadGlueUsedState" />
   </wsdl:message>
-  <wsdl:message name="InsertMaterialUsedStateSoapOut">
-    <wsdl:part name="parameters" element="tns:InsertMaterialUsedStateResponse" />
+  <wsdl:message name="LoadGlueUsedStateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadGlueUsedStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddGlueReheatDataSoapIn">
+    <wsdl:part name="parameters" element="tns:AddGlueReheatData" />
+  </wsdl:message>
+  <wsdl:message name="AddGlueReheatDataSoapOut">
+    <wsdl:part name="parameters" element="tns:AddGlueReheatDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGlueLifeTimeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateGlueLifeTimeData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateGlueLifeTimeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateGlueLifeTimeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadAllGlueReheatingDataSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadAllGlueReheatingData" />
+  </wsdl:message>
+  <wsdl:message name="LoadAllGlueReheatingDataSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadAllGlueReheatingDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteByMaterialLotNoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteByMaterialLotNo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteByMaterialLotNoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteByMaterialLotNoResponse" />
   </wsdl:message>
   <wsdl:message name="TestSoapIn">
     <wsdl:part name="parameters" element="tns:Test" />
@@ -86,15 +174,35 @@
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedState">
+    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Used State</wsdl:documentation>
-      <wsdl:input message="tns:LoadMaterialUsedStateSoapIn" />
-      <wsdl:output message="tns:LoadMaterialUsedStateSoapOut" />
+      <wsdl:input message="tns:LoadMaterialUsedStateByEqpNoSoapIn" />
+      <wsdl:output message="tns:LoadMaterialUsedStateByEqpNoSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="InsertMaterialUsedState">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Material Used State</wsdl:documentation>
-      <wsdl:input message="tns:InsertMaterialUsedStateSoapIn" />
-      <wsdl:output message="tns:InsertMaterialUsedStateSoapOut" />
+    <wsdl:operation name="LoadGlueUsedState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Glue Used State data</wsdl:documentation>
+      <wsdl:input message="tns:LoadGlueUsedStateSoapIn" />
+      <wsdl:output message="tns:LoadGlueUsedStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGlueReheatData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Glue reheat data</wsdl:documentation>
+      <wsdl:input message="tns:AddGlueReheatDataSoapIn" />
+      <wsdl:output message="tns:AddGlueReheatDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGlueLifeTimeData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update Glue life time data</wsdl:documentation>
+      <wsdl:input message="tns:UpdateGlueLifeTimeDataSoapIn" />
+      <wsdl:output message="tns:UpdateGlueLifeTimeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllGlueReheatingData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load all glue reheating data</wsdl:documentation>
+      <wsdl:input message="tns:LoadAllGlueReheatingDataSoapIn" />
+      <wsdl:output message="tns:LoadAllGlueReheatingDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByMaterialLotNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete By Material Lot No</wsdl:documentation>
+      <wsdl:input message="tns:DeleteByMaterialLotNoSoapIn" />
+      <wsdl:output message="tns:DeleteByMaterialLotNoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Test">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Material Used State</wsdl:documentation>
@@ -113,8 +221,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedState">
-      <soap:operation soapAction="http://tempuri.org/LoadMaterialUsedState" style="document" />
+    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
+      <soap:operation soapAction="http://tempuri.org/LoadMaterialUsedStateByEqpNo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -122,8 +230,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InsertMaterialUsedState">
-      <soap:operation soapAction="http://tempuri.org/InsertMaterialUsedState" style="document" />
+    <wsdl:operation name="LoadGlueUsedState">
+      <soap:operation soapAction="http://tempuri.org/LoadGlueUsedState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGlueReheatData">
+      <soap:operation soapAction="http://tempuri.org/AddGlueReheatData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGlueLifeTimeData">
+      <soap:operation soapAction="http://tempuri.org/UpdateGlueLifeTimeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllGlueReheatingData">
+      <soap:operation soapAction="http://tempuri.org/LoadAllGlueReheatingData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByMaterialLotNo">
+      <soap:operation soapAction="http://tempuri.org/DeleteByMaterialLotNo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -152,8 +296,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedState">
-      <soap12:operation soapAction="http://tempuri.org/LoadMaterialUsedState" style="document" />
+    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
+      <soap12:operation soapAction="http://tempuri.org/LoadMaterialUsedStateByEqpNo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -161,8 +305,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InsertMaterialUsedState">
-      <soap12:operation soapAction="http://tempuri.org/InsertMaterialUsedState" style="document" />
+    <wsdl:operation name="LoadGlueUsedState">
+      <soap12:operation soapAction="http://tempuri.org/LoadGlueUsedState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGlueReheatData">
+      <soap12:operation soapAction="http://tempuri.org/AddGlueReheatData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGlueLifeTimeData">
+      <soap12:operation soapAction="http://tempuri.org/UpdateGlueLifeTimeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAllGlueReheatingData">
+      <soap12:operation soapAction="http://tempuri.org/LoadAllGlueReheatingData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteByMaterialLotNo">
+      <soap12:operation soapAction="http://tempuri.org/DeleteByMaterialLotNo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -20,13 +20,16 @@ namespace DB_OPI.Forms
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             loginUser = userTxt.Text.Trim();
             if (MesWsAutoProxy.Login(loginUser, pwdTxt.Text.Trim()))
             {
+                this.Cursor = Cursors.Default;
                 this.Close();
             }
             else
             {
+                this.Cursor = Cursors.Default;
                 pwdTxt.SelectAll();
                 MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed ");
             }

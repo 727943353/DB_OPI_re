@@ -2,6 +2,20 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Dino_Test">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Dino_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Dino_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="LoadEquipmentBlueTape_DBOPI">
         <s:complexType>
           <s:sequence>
@@ -251,6 +265,53 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="InsertApConfigResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialRecordJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJoinMaterialUsedStateJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMaterialRecordJoinMaterialUsedStateJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialRecordJoinMaterialUsedStateJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Material_Record">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Material_RecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Add_Material_RecordResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1550,6 +1611,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LoadDSP_TASK_JoinRecipe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDSP_TASK_JoinRecipeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadDSP_TASK_JoinRecipeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetlotInfo">
         <s:complexType>
           <s:sequence>
@@ -2112,20 +2187,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="IsertMSMQMessageResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Dino_Test">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Dino_TestResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Dino_TestResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -3601,6 +3662,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Dino_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Dino_Test" />
+  </wsdl:message>
+  <wsdl:message name="Dino_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:Dino_TestResponse" />
+  </wsdl:message>
   <wsdl:message name="LoadEquipmentBlueTape_DBOPISoapIn">
     <wsdl:part name="parameters" element="tns:LoadEquipmentBlueTape_DBOPI" />
   </wsdl:message>
@@ -3696,6 +3763,24 @@
   </wsdl:message>
   <wsdl:message name="InsertApConfigSoapOut">
     <wsdl:part name="parameters" element="tns:InsertApConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJson" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJoinMaterialUsedStateJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinMaterialUsedStateJson" />
+  </wsdl:message>
+  <wsdl:message name="LoadMaterialRecordJoinMaterialUsedStateJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinMaterialUsedStateJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_Material_RecordSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Material_Record" />
+  </wsdl:message>
+  <wsdl:message name="Add_Material_RecordSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_Material_RecordResponse" />
   </wsdl:message>
   <wsdl:message name="DelEQPPRSTATESoapIn">
     <wsdl:part name="parameters" element="tns:DelEQPPRSTATE" />
@@ -4039,6 +4124,12 @@
   <wsdl:message name="LoadEQPIP_ByLotNoSoapOut">
     <wsdl:part name="parameters" element="tns:LoadEQPIP_ByLotNoResponse" />
   </wsdl:message>
+  <wsdl:message name="LoadDSP_TASK_JoinRecipeSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadDSP_TASK_JoinRecipe" />
+  </wsdl:message>
+  <wsdl:message name="LoadDSP_TASK_JoinRecipeSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadDSP_TASK_JoinRecipeResponse" />
+  </wsdl:message>
   <wsdl:message name="GetlotInfoSoapIn">
     <wsdl:part name="parameters" element="tns:GetlotInfo" />
   </wsdl:message>
@@ -4200,12 +4291,6 @@
   </wsdl:message>
   <wsdl:message name="IsertMSMQMessageSoapOut">
     <wsdl:part name="parameters" element="tns:IsertMSMQMessageResponse" />
-  </wsdl:message>
-  <wsdl:message name="Dino_TestSoapIn">
-    <wsdl:part name="parameters" element="tns:Dino_Test" />
-  </wsdl:message>
-  <wsdl:message name="Dino_TestSoapOut">
-    <wsdl:part name="parameters" element="tns:Dino_TestResponse" />
   </wsdl:message>
   <wsdl:message name="CheckOutFunction_TESTSoapIn">
     <wsdl:part name="parameters" element="tns:CheckOutFunction_TEST" />
@@ -4646,6 +4731,11 @@
     <wsdl:part name="parameters" element="tns:EditEQPPRSTATEResponse" />
   </wsdl:message>
   <wsdl:portType name="wsWPSystemSoap">
+    <wsdl:operation name="Dino_Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dino Test</wsdl:documentation>
+      <wsdl:input message="tns:Dino_TestSoapIn" />
+      <wsdl:output message="tns:Dino_TestSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="LoadEquipmentBlueTape_DBOPI">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load TempEquipment</wsdl:documentation>
       <wsdl:input message="tns:LoadEquipmentBlueTape_DBOPISoapIn" />
@@ -4725,6 +4815,21 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Ap Config</wsdl:documentation>
       <wsdl:input message="tns:InsertApConfigSoapIn" />
       <wsdl:output message="tns:InsertApConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record return json</wsdl:documentation>
+      <wsdl:input message="tns:LoadMaterialRecordJsonSoapIn" />
+      <wsdl:output message="tns:LoadMaterialRecordJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record join Material Used State return json</wsdl:documentation>
+      <wsdl:input message="tns:LoadMaterialRecordJoinMaterialUsedStateJsonSoapIn" />
+      <wsdl:output message="tns:LoadMaterialRecordJoinMaterialUsedStateJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Material_Record">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Material Record</wsdl:documentation>
+      <wsdl:input message="tns:Add_Material_RecordSoapIn" />
+      <wsdl:output message="tns:Add_Material_RecordSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DelEQPPRSTATE">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Del OPI EQP Basis</wsdl:documentation>
@@ -5011,6 +5116,11 @@
       <wsdl:input message="tns:LoadEQPIP_ByLotNoSoapIn" />
       <wsdl:output message="tns:LoadEQPIP_ByLotNoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="LoadDSP_TASK_JoinRecipe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load DSP_TASK Join Recipe</wsdl:documentation>
+      <wsdl:input message="tns:LoadDSP_TASK_JoinRecipeSoapIn" />
+      <wsdl:output message="tns:LoadDSP_TASK_JoinRecipeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetlotInfo">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Lot Info</wsdl:documentation>
       <wsdl:input message="tns:GetlotInfoSoapIn" />
@@ -5145,11 +5255,6 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Isert MSMQ Message</wsdl:documentation>
       <wsdl:input message="tns:IsertMSMQMessageSoapIn" />
       <wsdl:output message="tns:IsertMSMQMessageSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Dino_Test">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dino Test</wsdl:documentation>
-      <wsdl:input message="tns:Dino_TestSoapIn" />
-      <wsdl:output message="tns:Dino_TestSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CheckOutFunction_TEST">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">移入函数(CheckOutFunction_Cassette) TEST</wsdl:documentation>
@@ -5519,6 +5624,15 @@
   </wsdl:portType>
   <wsdl:binding name="wsWPSystemSoap" type="tns:wsWPSystemSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Dino_Test">
+      <soap:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoadEquipmentBlueTape_DBOPI">
       <soap:operation soapAction="http://tempuri.org/LoadEquipmentBlueTape_DBOPI" style="document" />
       <wsdl:input>
@@ -5656,6 +5770,33 @@
     </wsdl:operation>
     <wsdl:operation name="InsertApConfig">
       <soap:operation soapAction="http://tempuri.org/InsertApConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJson">
+      <soap:operation soapAction="http://tempuri.org/LoadMaterialRecordJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
+      <soap:operation soapAction="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Material_Record">
+      <soap:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -6176,6 +6317,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadDSP_TASK_JoinRecipe">
+      <soap:operation soapAction="http://tempuri.org/LoadDSP_TASK_JoinRecipe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetlotInfo">
       <soap:operation soapAction="http://tempuri.org/GetlotInfo" style="document" />
       <wsdl:input>
@@ -6412,15 +6562,6 @@
     </wsdl:operation>
     <wsdl:operation name="IsertMSMQMessage">
       <soap:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Dino_Test">
-      <soap:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -7088,6 +7229,15 @@
   </wsdl:binding>
   <wsdl:binding name="wsWPSystemSoap12" type="tns:wsWPSystemSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Dino_Test">
+      <soap12:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoadEquipmentBlueTape_DBOPI">
       <soap12:operation soapAction="http://tempuri.org/LoadEquipmentBlueTape_DBOPI" style="document" />
       <wsdl:input>
@@ -7225,6 +7375,33 @@
     </wsdl:operation>
     <wsdl:operation name="InsertApConfig">
       <soap12:operation soapAction="http://tempuri.org/InsertApConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJson">
+      <soap12:operation soapAction="http://tempuri.org/LoadMaterialRecordJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
+      <soap12:operation soapAction="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Material_Record">
+      <soap12:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -7745,6 +7922,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadDSP_TASK_JoinRecipe">
+      <soap12:operation soapAction="http://tempuri.org/LoadDSP_TASK_JoinRecipe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetlotInfo">
       <soap12:operation soapAction="http://tempuri.org/GetlotInfo" style="document" />
       <wsdl:input>
@@ -7981,15 +8167,6 @@
     </wsdl:operation>
     <wsdl:operation name="IsertMSMQMessage">
       <soap12:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Dino_Test">
-      <soap12:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

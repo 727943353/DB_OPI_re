@@ -1,4 +1,6 @@
 ﻿using DB_OPI.Util;
+using MesCommonCode.WebService.Msg;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -121,6 +123,17 @@ namespace DB_OPI.Proxy
             return wsWPSystem.CheckOutFunction_DB(cassetteNo, eqpNo, opNo, errorXml, lotRecord, userNo, ref msg) == "Y";
         }
 
+        //public static DataTable LoadMaterialRecordJoinMaterialUsedStateJson(string eqpNo, string userNo, string type, DateTime logonStTime, DateTime lognEndTime)
+        //{
+        //    string result = wsWPSystem.LoadMaterialRecordJoinMaterialUsedStateJson(userNo, eqpNo, type, logonStTime.ToString("yyyy-MM-dd HH:mm:ss"), lognEndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+        //    WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+        //    if (wsRes.Result == ResultEnum.Exception)
+        //    {
+        //        throw new Exception("LoadMaterialRecordJoinMaterialUsedStateJson error." + wsRes.Exception.Stack);
+        //    }
+
+        //    return wsRes.ReturnTable;
+        //}
 
     }
 }

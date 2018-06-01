@@ -16,6 +16,10 @@ namespace DB_OPI.wsAuto {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsAuto.wsWPSystemSoap")]
     public interface wsWPSystemSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Dino_Test", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Dino_Test(string InXml);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadEquipmentBlueTape_DBOPI", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadEquipmentBlueTape_DBOPI(string InXml);
@@ -79,6 +83,18 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertApConfig", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string InsertApConfig(string userNo, string apName, string apID, string[] configKeys, string[] configValues);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadMaterialRecordJson", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadMaterialRecordJson(string userNo, string eqpNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadMaterialRecordJoinMaterialUsedStateJson(string userNo, string eqpNo, string type, string logonStTimeStr, string logonEndTimeStr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add_Material_Record", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string Add_Material_Record(string InXml);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelEQPPRSTATE", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -531,6 +547,10 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet LoadEQPIP_ByLotNo(string LotNo, string AddSQL);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadDSP_TASK_JoinRecipe", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadDSP_TASK_JoinRecipe(string InXml);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetlotInfo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetlotInfo(string LotNo);
@@ -731,10 +751,6 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IsertMSMQMessage", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string IsertMSMQMessage(string InXml);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Dino_Test", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string Dino_Test(string InXml);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CheckOutFunction_TEST", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -1056,6 +1072,10 @@ namespace DB_OPI.wsAuto {
                 base(binding, remoteAddress) {
         }
         
+        public string Dino_Test(string InXml) {
+            return base.Channel.Dino_Test(InXml);
+        }
+        
         public string LoadEquipmentBlueTape_DBOPI(string InXml) {
             return base.Channel.LoadEquipmentBlueTape_DBOPI(InXml);
         }
@@ -1118,6 +1138,18 @@ namespace DB_OPI.wsAuto {
         
         public string InsertApConfig(string userNo, string apName, string apID, string[] configKeys, string[] configValues) {
             return base.Channel.InsertApConfig(userNo, apName, apID, configKeys, configValues);
+        }
+        
+        public string LoadMaterialRecordJson(string userNo, string eqpNo) {
+            return base.Channel.LoadMaterialRecordJson(userNo, eqpNo);
+        }
+        
+        public string LoadMaterialRecordJoinMaterialUsedStateJson(string userNo, string eqpNo, string type, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.LoadMaterialRecordJoinMaterialUsedStateJson(userNo, eqpNo, type, logonStTimeStr, logonEndTimeStr);
+        }
+        
+        public string Add_Material_Record(string InXml) {
+            return base.Channel.Add_Material_Record(InXml);
         }
         
         public bool DelEQPPRSTATE(string EQUIPMENTNO, string CARRIERNO) {
@@ -1571,6 +1603,10 @@ namespace DB_OPI.wsAuto {
             return base.Channel.LoadEQPIP_ByLotNo(LotNo, AddSQL);
         }
         
+        public string LoadDSP_TASK_JoinRecipe(string InXml) {
+            return base.Channel.LoadDSP_TASK_JoinRecipe(InXml);
+        }
+        
         public System.Data.DataSet GetlotInfo(string LotNo) {
             return base.Channel.GetlotInfo(LotNo);
         }
@@ -1770,10 +1806,6 @@ namespace DB_OPI.wsAuto {
         
         public string IsertMSMQMessage(string InXml) {
             return base.Channel.IsertMSMQMessage(InXml);
-        }
-        
-        public string Dino_Test(string InXml) {
-            return base.Channel.Dino_Test(InXml);
         }
         
         public string CheckOutFunction_TEST(string CassetteNo, string EquipmentNo, string OPID, string UserNo) {
