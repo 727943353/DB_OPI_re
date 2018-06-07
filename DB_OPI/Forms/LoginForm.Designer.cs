@@ -34,6 +34,7 @@
             this.pwdTxt = new System.Windows.Forms.MaskedTextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.reheModeChk = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +76,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(32, 114);
+            this.loginBtn.Location = new System.Drawing.Point(32, 127);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 3;
@@ -85,7 +86,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(142, 114);
+            this.exitBtn.Location = new System.Drawing.Point(142, 127);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 3;
@@ -93,12 +94,24 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // reheModeChk
+            // 
+            this.reheModeChk.AutoSize = true;
+            this.reheModeChk.Location = new System.Drawing.Point(92, 95);
+            this.reheModeChk.Name = "reheModeChk";
+            this.reheModeChk.Size = new System.Drawing.Size(75, 16);
+            this.reheModeChk.TabIndex = 4;
+            this.reheModeChk.Text = " 回溫模式";
+            this.reheModeChk.UseVisualStyleBackColor = true;
+            this.reheModeChk.CheckedChanged += new System.EventHandler(this.reheModeChk_CheckedChanged);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 149);
+            this.ClientSize = new System.Drawing.Size(269, 171);
             this.ControlBox = false;
+            this.Controls.Add(this.reheModeChk);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.pwdTxt);
@@ -109,6 +122,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DB OPI LoginForm";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +136,6 @@
         private System.Windows.Forms.MaskedTextBox pwdTxt;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.CheckBox reheModeChk;
     }
 }

@@ -13,8 +13,11 @@ namespace DB_OPI.Forms
     public partial class LoginForm : Form
     {
         public string loginUser;
+        public bool reheatMode;
+
         public LoginForm()
         {
+            
             InitializeComponent();
         }
 
@@ -31,7 +34,7 @@ namespace DB_OPI.Forms
             {
                 this.Cursor = Cursors.Default;
                 pwdTxt.SelectAll();
-                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed ");
+                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
             }
         }
 
@@ -46,6 +49,16 @@ namespace DB_OPI.Forms
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Environment.Exit(Environment.ExitCode);
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reheModeChk_CheckedChanged(object sender, EventArgs e)
+        {
+            reheatMode = reheModeChk.Checked;
         }
     }
 }

@@ -69,34 +69,33 @@
             this.btnRefresh2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.glueLifeGrid = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.reheatReloadBtn = new System.Windows.Forms.Button();
-            this.celRhBtn = new System.Windows.Forms.Button();
-            this.reheatGrid = new System.Windows.Forms.DataGridView();
-            this.glLotNoTxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.loginUserLab = new System.Windows.Forms.Label();
-            this.btnMaterialTurnEQP = new System.Windows.Forms.Button();
-            this.btnTurnEQP = new System.Windows.Forms.Button();
-            this.btnLogOff = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnChangeState = new System.Windows.Forms.Button();
-            this.btnLeadFrameScreen = new System.Windows.Forms.Button();
-            this.btnChipScreen = new System.Windows.Forms.Button();
-            this.btnLogon = new System.Windows.Forms.Button();
-            this.lblStatusByEQP = new System.Windows.Forms.Label();
-            this.glueReloadTimer = new System.Windows.Forms.Timer(this.components);
-            this.rhMatLotNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reheatEndCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expTimeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ltMatLotNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lifeStCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lifeEndCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reheatReloadBtn = new System.Windows.Forms.Button();
+            this.celRhBtn = new System.Windows.Forms.Button();
+            this.reheatGrid = new System.Windows.Forms.DataGridView();
+            this.rhMatLotNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reheatEndCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expTimeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.glLotNoTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.loginUserLab = new System.Windows.Forms.Label();
+            this.btnMaterialTurnEQP = new System.Windows.Forms.Button();
+            this.btnTurnEQP = new System.Windows.Forms.Button();
+            this.btnLogOff = new System.Windows.Forms.Button();
+            this.btnChangeState = new System.Windows.Forms.Button();
+            this.btnLeadFrameScreen = new System.Windows.Forms.Button();
+            this.btnChipScreen = new System.Windows.Forms.Button();
+            this.btnLogon = new System.Windows.Forms.Button();
+            this.lblStatusByEQP = new System.Windows.Forms.Label();
+            this.glueReloadTimer = new System.Windows.Forms.Timer(this.components);
             this.grbContent.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -117,7 +116,6 @@
             this.grbContent.Controls.Add(this.btnMaterialTurnEQP);
             this.grbContent.Controls.Add(this.btnTurnEQP);
             this.grbContent.Controls.Add(this.btnLogOff);
-            this.grbContent.Controls.Add(this.btnLogOut);
             this.grbContent.Controls.Add(this.btnChangeState);
             this.grbContent.Controls.Add(this.btnLeadFrameScreen);
             this.grbContent.Controls.Add(this.btnChipScreen);
@@ -153,6 +151,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(912, 336);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -473,6 +472,51 @@
             this.glueLifeGrid.TabIndex = 0;
             this.glueLifeGrid.VisibleChanged += new System.EventHandler(this.glueLifeGrid_VisibleChanged);
             // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "MATERIALNO";
+            this.Column13.HeaderText = "料號";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // ltMatLotNoCol
+            // 
+            this.ltMatLotNoCol.DataPropertyName = "MATERIALLOTNO";
+            this.ltMatLotNoCol.HeaderText = "料號批號";
+            this.ltMatLotNoCol.Name = "ltMatLotNoCol";
+            this.ltMatLotNoCol.ReadOnly = true;
+            this.ltMatLotNoCol.Width = 180;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "EQUIPMENTNO";
+            this.Column16.HeaderText = "機台編號";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // lifeStCol
+            // 
+            this.lifeStCol.DataPropertyName = "LIFE_START_TIME";
+            this.lifeStCol.HeaderText = "使用開始";
+            this.lifeStCol.Name = "lifeStCol";
+            this.lifeStCol.ReadOnly = true;
+            this.lifeStCol.Width = 120;
+            // 
+            // lifeEndCol
+            // 
+            this.lifeEndCol.DataPropertyName = "LIFE_END_TIME";
+            this.lifeEndCol.HeaderText = "使用期限";
+            this.lifeEndCol.Name = "lifeEndCol";
+            this.lifeEndCol.ReadOnly = true;
+            this.lifeEndCol.Width = 120;
+            // 
+            // Column20
+            // 
+            this.Column20.DataPropertyName = "LOGON_USERNO";
+            this.Column20.HeaderText = "上機 User";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.reheatReloadBtn);
@@ -489,6 +533,7 @@
             // 
             // reheatReloadBtn
             // 
+            this.reheatReloadBtn.Enabled = false;
             this.reheatReloadBtn.Location = new System.Drawing.Point(712, 12);
             this.reheatReloadBtn.Name = "reheatReloadBtn";
             this.reheatReloadBtn.Size = new System.Drawing.Size(75, 23);
@@ -499,6 +544,7 @@
             // 
             // celRhBtn
             // 
+            this.celRhBtn.Enabled = false;
             this.celRhBtn.Location = new System.Drawing.Point(817, 12);
             this.celRhBtn.Name = "celRhBtn";
             this.celRhBtn.Size = new System.Drawing.Size(75, 23);
@@ -552,9 +598,49 @@
             this.reheatGrid.TabIndex = 2;
             this.reheatGrid.VisibleChanged += new System.EventHandler(this.reheatGrid_VisibleChanged);
             // 
+            // rhMatLotNoCol
+            // 
+            this.rhMatLotNoCol.DataPropertyName = "MATERIAL_LOT_NO";
+            this.rhMatLotNoCol.HeaderText = "Material Lot No";
+            this.rhMatLotNoCol.Name = "rhMatLotNoCol";
+            this.rhMatLotNoCol.ReadOnly = true;
+            this.rhMatLotNoCol.Width = 150;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "REHEAT_START_TIME";
+            this.Column14.HeaderText = "回溫開始";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 120;
+            // 
+            // reheatEndCol
+            // 
+            this.reheatEndCol.DataPropertyName = "REHEAT_END_TIME";
+            this.reheatEndCol.HeaderText = "回溫結束";
+            this.reheatEndCol.Name = "reheatEndCol";
+            this.reheatEndCol.ReadOnly = true;
+            this.reheatEndCol.Width = 120;
+            // 
+            // expTimeCol
+            // 
+            this.expTimeCol.DataPropertyName = "EXP_TIME";
+            this.expTimeCol.HeaderText = "使用期限";
+            this.expTimeCol.Name = "expTimeCol";
+            this.expTimeCol.ReadOnly = true;
+            this.expTimeCol.Width = 120;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "USER_NO";
+            this.Column17.HeaderText = "User No";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
             // glLotNoTxt
             // 
             this.glLotNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.glLotNoTxt.Enabled = false;
             this.glLotNoTxt.Location = new System.Drawing.Point(83, 9);
             this.glLotNoTxt.Name = "glLotNoTxt";
             this.glLotNoTxt.Size = new System.Drawing.Size(180, 22);
@@ -609,16 +695,6 @@
             this.btnLogOff.Text = "LogOff";
             this.btnLogOff.UseVisualStyleBackColor = true;
             this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Location = new System.Drawing.Point(818, 87);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(100, 40);
-            this.btnLogOut.TabIndex = 1;
-            this.btnLogOut.Text = "User Logout";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnChangeState
             // 
@@ -677,90 +753,6 @@
             this.glueReloadTimer.Interval = 300000;
             this.glueReloadTimer.Tick += new System.EventHandler(this.glueReloadTimerElspsed);
             // 
-            // rhMatLotNoCol
-            // 
-            this.rhMatLotNoCol.DataPropertyName = "MATERIAL_LOT_NO";
-            this.rhMatLotNoCol.HeaderText = "Material Lot No";
-            this.rhMatLotNoCol.Name = "rhMatLotNoCol";
-            this.rhMatLotNoCol.ReadOnly = true;
-            this.rhMatLotNoCol.Width = 150;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "REHEAT_START_TIME";
-            this.Column14.HeaderText = "回溫開始";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 120;
-            // 
-            // reheatEndCol
-            // 
-            this.reheatEndCol.DataPropertyName = "REHEAT_END_TIME";
-            this.reheatEndCol.HeaderText = "回溫結束";
-            this.reheatEndCol.Name = "reheatEndCol";
-            this.reheatEndCol.ReadOnly = true;
-            this.reheatEndCol.Width = 120;
-            // 
-            // expTimeCol
-            // 
-            this.expTimeCol.DataPropertyName = "EXP_TIME";
-            this.expTimeCol.HeaderText = "使用期限";
-            this.expTimeCol.Name = "expTimeCol";
-            this.expTimeCol.ReadOnly = true;
-            this.expTimeCol.Width = 120;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "USER_NO";
-            this.Column17.HeaderText = "User No";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "MATERIALNO";
-            this.Column13.HeaderText = "料號";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // ltMatLotNoCol
-            // 
-            this.ltMatLotNoCol.DataPropertyName = "MATERIALLOTNO";
-            this.ltMatLotNoCol.HeaderText = "料號批號";
-            this.ltMatLotNoCol.Name = "ltMatLotNoCol";
-            this.ltMatLotNoCol.ReadOnly = true;
-            this.ltMatLotNoCol.Width = 180;
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "EQUIPMENTNO";
-            this.Column16.HeaderText = "機台編號";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            // 
-            // lifeStCol
-            // 
-            this.lifeStCol.DataPropertyName = "LIFE_START_TIME";
-            this.lifeStCol.HeaderText = "使用開始";
-            this.lifeStCol.Name = "lifeStCol";
-            this.lifeStCol.ReadOnly = true;
-            this.lifeStCol.Width = 120;
-            // 
-            // lifeEndCol
-            // 
-            this.lifeEndCol.DataPropertyName = "LIFE_END_TIME";
-            this.lifeEndCol.HeaderText = "使用期限";
-            this.lifeEndCol.Name = "lifeEndCol";
-            this.lifeEndCol.ReadOnly = true;
-            this.lifeEndCol.Width = 120;
-            // 
-            // Column20
-            // 
-            this.Column20.DataPropertyName = "LOGON_USERNO";
-            this.Column20.HeaderText = "上機 User";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -805,7 +797,6 @@
         private System.Windows.Forms.Button btnMaterialTurnEQP;
         private System.Windows.Forms.Button btnTurnEQP;
         private System.Windows.Forms.Button btnLogOff;
-        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnChangeState;
         private System.Windows.Forms.Button btnLeadFrameScreen;
         private System.Windows.Forms.Button btnChipScreen;

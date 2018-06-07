@@ -71,7 +71,8 @@
             this.txtUnloadingCassette.Location = new System.Drawing.Point(149, 92);
             this.txtUnloadingCassette.Name = "txtUnloadingCassette";
             this.txtUnloadingCassette.Size = new System.Drawing.Size(140, 22);
-            this.txtUnloadingCassette.TabIndex = 1;
+            this.txtUnloadingCassette.TabIndex = 2;
+            this.txtUnloadingCassette.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnloadingCassette_KeyPress);
             // 
             // btnConfirm
             // 
@@ -115,6 +116,7 @@
             this.Name = "CstLogonForm";
             this.Text = "CstLogonForm";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.CstLogonForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

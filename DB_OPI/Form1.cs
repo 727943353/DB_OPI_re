@@ -26,11 +26,13 @@ namespace DB_OPI
         private FixedSizedQueue<string> glLifeEndQueue = new FixedSizedQueue<string>(1000);
         private FixedSizedQueue<string> glWillLifeEndQueue = new FixedSizedQueue<string>(1000);
 
-        public static readonly string GLUE_LIFE_TIME_TYPE = "GlueLife";
-        public static readonly string GLUE_REHEAT_TYPE = "GlueReheat";
+        //public static readonly string GLUE_LIFE_TIME_TYPE = "GlueLife";
+        //public static readonly string GLUE_REHEAT_TYPE = "GlueReheat";
         private DataTable glueLifeTb = new DataTable();
         string gComputerName;
         string logPath = @"C:\OPI_PIC\Log\";
+        bool reheatMode = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -39,20 +41,20 @@ namespace DB_OPI
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            eqpStateTimer = new System.Timers.Timer();
-            eqpStateTimer.Interval = 60000;
             
-            eqpStateTimer.Elapsed += new System.Timers.ElapsedEventHandler(_TimersTimer_Elapsed);
-            eqpStateTimer.Stop();
 
-            reheatGrid.AutoGenerateColumns = false;
-                   
+
 
         }
         
         private void glueReloadTimerElspsed(object sender, EventArgs e)
         {
+            
             LoadAllGlReheatingData();
+
+            if (reheatMode)
+                return;
+
             LoadGlueLifeTimeData();
         }
         
@@ -152,6 +154,7 @@ namespace DB_OPI
             CstLogonForm cstLogonForm = new CstLogonForm();
             cstLogonForm.userNo = loginUserLab.Text;
             cstLogonForm.eqpNo = gComputerName;
+            cstLogonForm.doGlueVerify = glueVerifyChk.Checked;
             cstLogonForm.ShowDialog(this);
             cstLogonForm.Dispose();
 
@@ -182,17 +185,36 @@ namespace DB_OPI
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             loginUserLab.Text = loginForm.loginUser;
+            if (loginForm.reheatMode)
+            {
+                SetReHeatMode();
+                LoadAllGlReheatingData();
+                return;
+            }
+
             loginForm.Dispose();
 
             
             try
             {
+                eqpStateTimer = new System.Timers.Timer();
+                eqpStateTimer.Interval = 60000;
+
+                eqpStateTimer.Elapsed += new System.Timers.ElapsedEventHandler(_TimersTimer_Elapsed);
+                eqpStateTimer.Stop();
+
+                reheatGrid.AutoGenerateColumns = false;
+                glueLifeGrid.AutoGenerateColumns = false;
+
+
                 string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo(DnsUtil.GetLocalIp());
                 if (string.IsNullOrEmpty(eqpNo))
                 {
-                    MessageBox.Show("Can't get the [" + DnsUtil.GetLocalIp() + "] EQP NO.");
+                    MessageBox.Show("無法取得 EQP NO by [" + DnsUtil.GetLocalIp() + "].");
                     this.Close();
                 }
+
+
                 grbContent.Text = eqpNo;
                 gComputerName = eqpNo;
 
@@ -215,6 +237,30 @@ namespace DB_OPI
                 MessageBox.Show(ex.ToString());
                 this.Close();
             }
+        }
+
+        private void SetReHeatMode()
+        {
+            reheatMode = true;
+            glLotNoTxt.Enabled = true;
+            reheatReloadBtn.Enabled = true;
+            celRhBtn.Enabled = true;
+            tabControl1.SelectedIndex = 3;
+
+            lblStatusByEQP.Enabled = false;
+            glueVerifyChk.Enabled = false;
+            btnLogon.Enabled = false;
+            btnLogOff.Enabled = false;
+            btnTurnEQP.Enabled = false;
+            btnMaterialTurnEQP.Enabled = false;
+            btnChipScreen.Enabled = false;
+            btnLeadFrameScreen.Enabled = false;
+            btnChangeState.Enabled = false;
+
+
+
+
+
         }
 
         private void btnMaterialTurnEQP_Click(object sender, EventArgs e)
@@ -588,6 +634,18 @@ namespace DB_OPI
         private void glueLifeGrid_VisibleChanged(object sender, EventArgs e)
         {
             CheckGlLifeTime();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (reheatMode)
+            {
+                if (tabControl1.SelectedIndex != 3)
+                {
+                    MessageBox.Show("目前為回溫模式，不可選擇其它頁面。","Warning");
+                    tabControl1.SelectedIndex = 3;
+                }
+            }
         }
     }
 }
