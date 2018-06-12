@@ -138,6 +138,7 @@
             this.glueVerifyChk.TabIndex = 4;
             this.glueVerifyChk.Text = "Glue Life Control";
             this.glueVerifyChk.UseVisualStyleBackColor = true;
+            this.glueVerifyChk.CheckedChanged += new System.EventHandler(this.glueVerifyChk_CheckedChanged);
             // 
             // tabControl1
             // 

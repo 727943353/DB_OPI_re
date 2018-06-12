@@ -206,8 +206,9 @@ namespace DB_OPI
                 reheatGrid.AutoGenerateColumns = false;
                 glueLifeGrid.AutoGenerateColumns = false;
 
-
+                //10.234.104.63
                 string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo(DnsUtil.GetLocalIp());
+                //string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo("10.234.104.63");
                 if (string.IsNullOrEmpty(eqpNo))
                 {
                     MessageBox.Show("無法取得 EQP NO by [" + DnsUtil.GetLocalIp() + "].");
@@ -463,6 +464,9 @@ namespace DB_OPI
 
         private void LoadAllGlReheatingData()
         {
+            if (glueVerifyChk.Checked == false)
+                return;
+
             try
             {
                 this.Cursor = Cursors.WaitCursor;
@@ -484,6 +488,9 @@ namespace DB_OPI
 
         private void CheckGlReheatState()
         {
+            if (glueVerifyChk.Checked == false)
+                return;
+
             List<string> reheatDoneList = new List<string>();
             
 
@@ -563,6 +570,9 @@ namespace DB_OPI
 
         private void LoadGlueLifeTimeData()
         {
+            if (glueVerifyChk.Checked == false)
+                return;
+
             DateTime endTime = DateTime.Now;
             DateTime stTime = endTime.AddMonths(-1);
 
@@ -572,12 +582,18 @@ namespace DB_OPI
 
         private void CheckGlLifeTime()
         {
+            if (glueVerifyChk.Checked == false)
+                return;
+
             List<string> willLifeEndList = new List<string>();
             List<string> lifeEndList = new List<string>();
 
             foreach (DataGridViewRow row in glueLifeGrid.Rows)
             {
                 row.DefaultCellStyle.BackColor = Color.White;
+                if (row.Cells["lifeEndCol"].Value == null || row.Cells["lifeEndCol"].Value == DBNull.Value)
+                    continue;
+
                 DateTime lifeEndTime = Convert.ToDateTime(row.Cells["lifeEndCol"].Value);
                 string matLotNo = Convert.ToString(row.Cells["ltMatLotNoCol"].Value);
                 if (lifeEndTime < DateTime.Now)
@@ -646,6 +662,15 @@ namespace DB_OPI
                     tabControl1.SelectedIndex = 3;
                 }
             }
+        }
+
+        private void glueVerifyChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (glueVerifyChk.Checked == false)
+                return;
+            LoadGlueLifeTimeData();
+            LoadAllGlReheatingData();
+
         }
     }
 }
