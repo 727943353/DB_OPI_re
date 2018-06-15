@@ -84,22 +84,32 @@ namespace DB_OPI.Forms
                 return;
 
             DataTable opErrTb = MesWsProxy.LoadOPErrorJoinBasis(eqpNo, userNo, opNo);
-            string[] keepCols = new string[] { "ERRORNO", "REASONNAME", "REASONTYPE" };
-            for (int colIdx = 0; colIdx < opErrTb.Columns.Count; colIdx++)
-            {
+            opErrTb.Columns.Add(new DataColumn("CheckFlag", typeof(bool)));
+            opErrTb.Columns.Add(new DataColumn("ErrorQty", typeof(Int32)));
 
-                if (keepCols.Contains(opErrTb.Columns[colIdx].ColumnName) == false)
-                {
-                    opErrTb.Columns.RemoveAt(colIdx);
-                    colIdx--;
-                }
+            foreach (DataRow row in opErrTb.Rows)
+            {
+                row["CheckFlag"] = false;
+                row["ErrorQty"] = 0;
             }
+
+            //string[] keepCols = new string[] { "ERRORNO", "REASONNAME", "REASONTYPE" };
+            //for (int colIdx = 0; colIdx < opErrTb.Columns.Count; colIdx++)
+            //{
+
+            //    if (keepCols.Contains(opErrTb.Columns[colIdx].ColumnName) == false)
+            //    {
+            //        opErrTb.Columns.RemoveAt(colIdx);
+            //        colIdx--;
+            //    }
+            //}
 
             iugError.DataSource = opErrTb;
         }
 
         private void CstLogoffForm_Load(object sender, EventArgs e)
         {
+            iugError.AutoGenerateColumns = false;
             txtEquipmentNo.Text = eqpNo;
             LoadOPError();
         }
@@ -246,7 +256,7 @@ namespace DB_OPI.Forms
         {
             
             DataTable tb = (DataTable)iugError.DataSource;
-            var selRows = tb.Select("CheckFlag=" + true + " and ErrorQty <= 0");
+            var selRows = tb.Select("CheckFlag=" + true + " and (ErrorQty <= 0 or ErrorQty is null)");
             if (selRows.Length > 0)
             {
                 lblMessage.Text = "ErrorNo : " + selRows[0]["ErrorNo"].ToString() + " ErrorQty <= 0 !!";

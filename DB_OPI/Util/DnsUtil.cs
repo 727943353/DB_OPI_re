@@ -22,9 +22,10 @@ namespace DB_OPI.Util
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    logger.Info("Get ap IP : {0}", ip.ToString());
                     localIp = ip.ToString();
-                    return ip.ToString();
+                    logger.Info("Get ap IP : {0}", localIp);
+                    
+                    return localIp;
                 }
             }
             throw new Exception("No network adapters with an IPv4 address in the system!");

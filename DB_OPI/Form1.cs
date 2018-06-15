@@ -40,9 +40,9 @@ namespace DB_OPI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            
 
+
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 
         }
@@ -259,9 +259,6 @@ namespace DB_OPI
             btnChangeState.Enabled = false;
 
 
-
-
-
         }
 
         private void btnMaterialTurnEQP_Click(object sender, EventArgs e)
@@ -464,7 +461,7 @@ namespace DB_OPI
 
         private void LoadAllGlReheatingData()
         {
-            if (glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueVerifyChk.Checked == false)
                 return;
 
             try
@@ -488,7 +485,7 @@ namespace DB_OPI
 
         private void CheckGlReheatState()
         {
-            if (glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueVerifyChk.Checked == false)
                 return;
 
             List<string> reheatDoneList = new List<string>();
@@ -570,7 +567,8 @@ namespace DB_OPI
 
         private void LoadGlueLifeTimeData()
         {
-            if (glueVerifyChk.Checked == false)
+            
+            if (reheatMode == false && glueVerifyChk.Checked == false)
                 return;
 
             DateTime endTime = DateTime.Now;
@@ -582,7 +580,7 @@ namespace DB_OPI
 
         private void CheckGlLifeTime()
         {
-            if (glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueVerifyChk.Checked == false)
                 return;
 
             List<string> willLifeEndList = new List<string>();
@@ -666,7 +664,7 @@ namespace DB_OPI
 
         private void glueVerifyChk_CheckedChanged(object sender, EventArgs e)
         {
-            if (glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueVerifyChk.Checked == false)
                 return;
             LoadGlueLifeTimeData();
             LoadAllGlReheatingData();

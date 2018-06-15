@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUnloadingCassette = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -197,10 +197,14 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "CheckFlag";
+            this.Column1.FalseValue = "false";
             this.Column1.HeaderText = "CheckFlag";
+            this.Column1.IndeterminateValue = "false";
             this.Column1.Name = "Column1";
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.TrueValue = "true";
             // 
             // Column5
             // 
@@ -225,9 +229,10 @@
             // 
             // errQtyCol
             // 
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.errQtyCol.DefaultCellStyle = dataGridViewCellStyle2;
+            this.errQtyCol.DataPropertyName = "ErrorQty";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.errQtyCol.DefaultCellStyle = dataGridViewCellStyle1;
             this.errQtyCol.HeaderText = "ErrorQty";
             this.errQtyCol.Name = "errQtyCol";
             // 
