@@ -79,19 +79,24 @@ namespace DB_OPI.Forms
                 DateTime endTime = DateTime.Now;
                 DateTime stTime = endTime.AddMonths(-1);
 
-                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedState(userNo, eqpNo, stTime, endTime);
+                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo, stTime, endTime);
                 if (tb.Rows.Count == 0)
-                    return true;
+                {
+                    ShowErrorMsg("上機失敗，此機台並未上固晶膠。");
+                    return false;
+                }
+                
 
                 var lifeEndRows = (from row in tb.AsEnumerable()
-                               where Convert.ToDateTime(row["LIFE_END_TIME"]) < DateTime.Now
+                                   where Convert.ToDateTime(row["LIFE_END_TIME"]) < DateTime.Now
                                select row.Field<string>("MATERIALLOTNO")).ToArray();
 
                 if (lifeEndRows.Length > 0)
                 {
                     MessageBox.Show("上機失敗，" + string.Join(", ", lifeEndRows) + " 已過使用期限，請做 Material 下機。");
-                    lblMessage.Text = "上機失敗，" + string.Join(", ", lifeEndRows) + " 已過使用期限，請做 Material 下機。";
-                    lblMessage.BackColor = Color.Red;
+                    //lblMessage.Text = "上機失敗，" + string.Join(", ", lifeEndRows) + " 已過使用期限，請做 Material 下機。";
+                    //lblMessage.BackColor = Color.Red;
+                    ShowErrorMsg("上機失敗，" + string.Join(", ", lifeEndRows) + " 已過使用期限，請做 Material 下機。");
                     return false;
                 }
                 
@@ -125,6 +130,12 @@ namespace DB_OPI.Forms
                 return;
 
             btnConfirm_Click(sender, e);
+        }
+
+        private void ShowErrorMsg(string msg)
+        {
+            lblMessage.Text = msg;
+            lblMessage.BackColor = Color.Red;
         }
     }
 }

@@ -92,9 +92,9 @@ namespace DB_OPI.Proxy
             return MesWsUtil.RetriveDataTable(xmlDoc, "loadmaterialrecord");
         }
 
-        public static DataTable LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, DateTime logonStTime, DateTime logonEndTime)
+        public static DataTable LoadMaterialRecordOnEqp(string userNo, string eqpNo, DateTime logonStTime, DateTime logonEndTime)
         {
-            string result = wsWipLHTC.LoadMaterialRecordByMaterialLotNo(userNo, matLotNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
+            string result = wsWipLHTC.LoadMaterialRecordOnEquipment(userNo, eqpNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
             WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
             if (wsRes.Result == ResultEnum.Exception)
                 throw new Exception(wsRes.Exception.Stack);
@@ -200,9 +200,9 @@ namespace DB_OPI.Proxy
             return MesWsUtil.RetriveDataTable(xmlDoc, "loadrecipeparamemter_wp");
         }
 
-        public static DataTable LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, DateTime logonStTime, DateTime logonEndTime)
+        public static DataTable LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo, DateTime logonStTime, DateTime logonEndTime)
         {
-            string result = wsWipLHTC.LoadMaterialRecordJoinGlueUsedState(userNo, eqpNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
+            string result = wsWipLHTC.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo, logonStTime.ToString(TIME_FORMAT), logonEndTime.ToString(TIME_FORMAT));
             WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
             if (wsRes.Result == ResultEnum.Exception)
                 throw new Exception(wsRes.Exception.Stack);
@@ -320,7 +320,7 @@ namespace DB_OPI.Proxy
             MesWsUtil.CheckTxSuccess(xmlDoc);
 
 
-            return MesWsUtil.RetriveDataTable(xmlDoc, "loadtemp_equipmentjoinlotbasis");
+            return MesWsUtil.RetriveDataTable(xmlDoc, "loadeqpmaterialstatejoinbluetapelist");
 
         }
 
@@ -333,10 +333,10 @@ namespace DB_OPI.Proxy
             string xml = "";
             foreach (DataRow btRow in logonBlueTapeTb.Rows)
             {
-                xml += XmlGenUtil.CombineXMLValueTag(XmlGenUtil.CombineXMLValue("materialno", Convert.ToString(btRow["MaterialNo"])) +
-                    XmlGenUtil.CombineXMLValue("materiallotno", Convert.ToString(btRow["materiallotno"])) +
+                xml += XmlGenUtil.CombineXMLValueTag(XmlGenUtil.CombineXMLValue("materialno", Convert.ToString(btRow["MATERIALNO"])) +
+                    XmlGenUtil.CombineXMLValue("materiallotno", Convert.ToString(btRow["MATERIALLOTNO"])) +
                     XmlGenUtil.CombineXMLValue("unitno", Convert.ToString(btRow["UnitNo"])) +
-                    XmlGenUtil.CombineXMLValue("qty", Convert.ToInt32(btRow["TurnQty"]).ToString()) +
+                    XmlGenUtil.CombineXMLValue("qty", Convert.ToString(btRow["TURN_QTY"])) +
                     XmlGenUtil.CombineXMLValue("materialtype", "OPI") +
                     XmlGenUtil.CombineXMLValue("frominventoryno", Convert.ToString(btRow["InventoryNo"])));
 

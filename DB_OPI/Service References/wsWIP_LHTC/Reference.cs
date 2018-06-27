@@ -188,13 +188,13 @@ namespace DB_OPI.wsWIP_LHTC {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Add_Material_Record(string InXml);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordByMaterialLotNo", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordOnEquipment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr);
+        string LoadMaterialRecordOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedState", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedStateOnEquipment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
+        string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecord", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2260,12 +2260,12 @@ namespace DB_OPI.wsWIP_LHTC {
             return base.Channel.Add_Material_Record(InXml);
         }
         
-        public string LoadMaterialRecordByMaterialLotNo(string userNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr) {
-            return base.Channel.LoadMaterialRecordByMaterialLotNo(userNo, matLotNo, logonStTimeStr, logonEndTimeStr);
+        public string LoadMaterialRecordOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.LoadMaterialRecordOnEquipment(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
         }
         
-        public string LoadMaterialRecordJoinGlueUsedState(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
-            return base.Channel.LoadMaterialRecordJoinGlueUsedState(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
+        public string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
         }
         
         public string LoadMaterialRecord(string InXml) {

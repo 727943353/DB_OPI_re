@@ -431,6 +431,9 @@ namespace DB_OPI
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
+            if (string.IsNullOrEmpty(glLotNoTxt.Text.Trim()))
+                return;
+
             try
             {
                 this.Cursor = Cursors.WaitCursor;
@@ -574,7 +577,7 @@ namespace DB_OPI
             DateTime endTime = DateTime.Now;
             DateTime stTime = endTime.AddMonths(-1);
 
-            glueLifeGrid.DataSource = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedState(loginUserLab.Text, gComputerName, stTime, endTime);
+            glueLifeGrid.DataSource = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(loginUserLab.Text, gComputerName, stTime, endTime);
             CheckGlLifeTime();
         }
 
@@ -623,23 +626,20 @@ namespace DB_OPI
             StringBuilder msg = new StringBuilder();
             if (lifeEndList.Count > 0)
             {   
-                msg.AppendLine("已到達使用期限: ")
+                msg.AppendLine("已過使用期限，請做下機 : ")
                     .AppendLine(string.Join(Environment.NewLine, lifeEndList));
                 
                 //MessageBox.Show("已到達使用期限: " + Environment.NewLine + string.Join(Environment.NewLine, lifeEndList), "到達使用期限列表");
             }
+            msg.AppendLine("----------------------");
 
             if (willLifeEndList.Count > 0)
-            {
-                if (msg.Length > 0)
-                {
-                    msg.AppendLine("----------------------");
-                }
-
+            {                
                 msg.AppendLine("將要到達使用期限 : ")
                     .AppendLine(string.Join(Environment.NewLine, willLifeEndList));
 
             }
+
             if(msg.Length > 0)
                 MessageBox.Show(msg.ToString(), "Warning");
 

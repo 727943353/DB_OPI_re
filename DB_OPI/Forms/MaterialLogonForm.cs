@@ -93,15 +93,15 @@ namespace DB_OPI.Forms
                         //檢查是否有在其它機台上機
                         DateTime endTime = DateTime.Now;
                         DateTime stTime = endTime.AddMonths(-1);
-                        DataTable matUsedTb = MesWsLextarProxy.LoadMaterialRecordByMaterialLotNo(userNoTxt.Text, matLotNoTxt.Text, stTime, endTime);
+                        DataTable matUsedTb = MesWsLextarProxy.LoadMaterialRecordOnEqp(userNoTxt.Text, equipmentNo, stTime, endTime);
                         var selRows = (from row in matUsedTb.AsEnumerable()
-                                       where row["LOGOFF_TIME"] == DBNull.Value
+                                       where row.Field<string>("MATERIALLOTNO").StartsWith("42.")
                                        select row).ToArray();
 
                         if (selRows.Length > 0)
                         {
                             string eqpNo = Convert.ToString(selRows[0]["EQUIPMENTNO"]);
-                            MessageBox.Show("上機失敗，" + matLotNoTxt.Text + " 已在 [" + eqpNo + "] 上機。", "Error");
+                            MessageBox.Show("上機失敗，已有膠在機台上，請先將 " + Convert.ToString(selRows[0]["MATERIALLOTNO"]) + " 做下機。", "Error");
                             return;
                         }
 
@@ -120,6 +120,7 @@ namespace DB_OPI.Forms
                 MessageBox.Show("SuccessFully");
                 matHistGrid.DataSource = MesWsLextarProxy.LoadMaterialRecord(userNoTxt.Text, equipmentNo);
 
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -146,13 +147,7 @@ namespace DB_OPI.Forms
                     MessageBox.Show("找不到膠 [" + materLotNo + "] 回溫記錄，請確認是否有做回溫設定.", "Error");
                     return false;
                 }
-                string onEqpNo = Convert.ToString(tb.Rows[0]["EQP_NO"]); //已上機的機台ID
-                if (string.IsNullOrEmpty(onEqpNo) == false)
-                {
-                    MessageBox.Show("[" + materLotNo + "] 已在 " + onEqpNo + " 上機。", "Error");
-                    return false;
-                }
-
+                
                 DateTime reheatEndTime = Convert.ToDateTime(tb.Rows[0]["REHEAT_END_TIME"]);
                 if (DateTime.Now < reheatEndTime)
                 {
@@ -178,43 +173,7 @@ namespace DB_OPI.Forms
                 double lifeTime = Convert.ToDouble(lifeTimeTb.Rows[0]["PARAMETERVALUE"]);
                 DateTime stTime = DateTime.Now;
                 MesWsLextarProxy.UpdateGlueLifeTime(userNoTxt.Text, materLotNo, equipmentNo, stTime, stTime.AddHours(lifeTime));
-
-                //string materLotNo = matLotNoTxt.Text.Trim();
-                ////DateTime endTime = DateTime.Now;
-                ////DateTime stTime = endTime.AddMonths(-2);
-
-                //DataTable tb = MesWsLextarProxy.LoadMaterialUsedState(userNoTxt.Text, materLotNo, Form1.GLUE_LIFE_TIME_TYPE);
-
-
-                ////如果query 不到膠的上機狀態，表示是第一次使用
-                //if (tb.Rows.Count == 0)
-                //{
-                //    string matNo = materLotNo.Split('-')[0];
-                //    DataTable lifeTimeTb = MesWsLextarProxy.GetMaterialLifeTimeSetting(userNoTxt.Text, equipmentNo, matNo);
-                //    if (lifeTimeTb.Rows.Count == 0)
-                //    {
-                //        MessageBox.Show("找不到膠 [" + matNo + "] LIFE_TIME 設定，請確認 MES Recipe Parameter 設定.");
-                //        return false;
-                //    }
-
-                //    double lifeTime = Convert.ToDouble(lifeTimeTb.Rows[0]["PARAMETERVALUE"]);
-                //    DateTime stTime = DateTime.Now;
-                //    MesWsLextarProxy.InsertMaterialUsedState(userNoTxt.Text, equipmentNo, materLotNo, stTime, stTime.AddHours(lifeTime), Form1.GLUE_LIFE_TIME_TYPE);
-
-                //    return true;
-                //}
-
-                //DataRow materStateRow = tb.Rows[0];
-
-                //DateTime expTime = Convert.ToDateTime(materStateRow["EXP_TIME"]);
-                //if (expTime < DateTime.Now)
-                //{
-                //    StringBuilder errMsg = new StringBuilder();
-                //    errMsg.AppendLine("上機失敗，膠 [" + materLotNo + "] 的使用期限已超過。 " + materLotNo + " Exp Time : " + expTime.ToString("yyyy-MM-dd HH:mm:ss"));
-                //    errMsg.AppendLine("Logon fail, Glue [" + materLotNo + "] is over exp time。 " + materLotNo + " Exp Time : " + expTime.ToString("yyyy-MM-dd HH:mm:ss"));
-                //    MessageBox.Show(errMsg.ToString());
-                //    return false;
-                //}
+                
 
             }
             catch (Exception ex)

@@ -33,9 +33,12 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
+            
             try
             {
                 txtLotNo.Text = "";
+                txtCurQty.Text = "";
+
                 string unLoadCst = txtUnloadingCassette.Text.Trim();
                 if (unLoadCst.StartsWith("L") || unLoadCst.StartsWith("R"))
                 {
@@ -57,10 +60,12 @@ namespace DB_OPI.Forms
 
                 opNo = lotInfo.OpNo;
 
+                txtLotNo.Text = lotInfo.LotNo;
+                txtCurQty.Text = Convert.ToString(lotInfo.CurrQty);
                 DataTable tb = MesWsProxy.LoadTemp_EquipmentLot(eqpNo, userNo, lotInfo.LotNo);
                 if (tb.Rows.Count == 0)
                 {
-                    lblMessage.Text = "LotNo status is't running!!";
+                    lblMessage.Text = txtLotNo.Text + " status is not running!!";
                     lblMessage.BackColor = Color.Red;
                     return;
                 }
@@ -164,7 +169,7 @@ namespace DB_OPI.Forms
                 if (VerifyOpErrorGridInput() == false)
                     return;
 
-                if (VerifyMaterialQty(lotInfo.LotNo, lotInfo.CurrQty))
+                if (VerifyMaterialQty(lotInfo.LotNo, lotInfo.CurrQty) == false)
                 {
                     return;
                 }
@@ -188,6 +193,7 @@ namespace DB_OPI.Forms
 
                     txtUnloadingCassette.Text = "";
                     txtUnloadingCassette.Focus();
+
 
                 }
                 else

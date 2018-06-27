@@ -13,7 +13,22 @@ namespace DB_OPI.Forms
     public partial class LoginForm : Form
     {
         public string loginUser;
-        public bool reheatMode;
+        //public bool reheatMode;
+
+        public bool ReheatMode
+        {
+            get {
+                return reheModeChk.Checked;
+            }
+
+        }
+
+        public bool GlueCtrlEnabled
+        {
+            get {
+                return glueCtrlChk.Checked;
+            }
+        }
 
         public LoginForm()
         {
@@ -58,7 +73,16 @@ namespace DB_OPI.Forms
 
         private void reheModeChk_CheckedChanged(object sender, EventArgs e)
         {
-            reheatMode = reheModeChk.Checked;
+            //reheatMode = reheModeChk.Checked;
+
+            if (reheModeChk.Checked)
+            {
+                glueCtrlChk.Enabled = false;
+                glueCtrlChk.Checked = false;
+            }
+            else
+                glueCtrlChk.Enabled = true;
+
         }
     }
 }

@@ -35,6 +35,7 @@
             this.loginBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.reheModeChk = new System.Windows.Forms.CheckBox();
+            this.glueCtrlChk = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +77,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(32, 127);
+            this.loginBtn.Location = new System.Drawing.Point(32, 163);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 3;
@@ -86,7 +87,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(142, 127);
+            this.exitBtn.Location = new System.Drawing.Point(142, 163);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 3;
@@ -97,7 +98,7 @@
             // reheModeChk
             // 
             this.reheModeChk.AutoSize = true;
-            this.reheModeChk.Location = new System.Drawing.Point(92, 95);
+            this.reheModeChk.Location = new System.Drawing.Point(92, 128);
             this.reheModeChk.Name = "reheModeChk";
             this.reheModeChk.Size = new System.Drawing.Size(75, 16);
             this.reheModeChk.TabIndex = 4;
@@ -105,12 +106,23 @@
             this.reheModeChk.UseVisualStyleBackColor = true;
             this.reheModeChk.CheckedChanged += new System.EventHandler(this.reheModeChk_CheckedChanged);
             // 
+            // glueCtrlChk
+            // 
+            this.glueCtrlChk.AutoSize = true;
+            this.glueCtrlChk.Location = new System.Drawing.Point(92, 94);
+            this.glueCtrlChk.Name = "glueCtrlChk";
+            this.glueCtrlChk.Size = new System.Drawing.Size(72, 16);
+            this.glueCtrlChk.TabIndex = 5;
+            this.glueCtrlChk.Text = "膠材卡控";
+            this.glueCtrlChk.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 171);
+            this.ClientSize = new System.Drawing.Size(269, 211);
             this.ControlBox = false;
+            this.Controls.Add(this.glueCtrlChk);
             this.Controls.Add(this.reheModeChk);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.CheckBox reheModeChk;
+        private System.Windows.Forms.CheckBox glueCtrlChk;
     }
 }

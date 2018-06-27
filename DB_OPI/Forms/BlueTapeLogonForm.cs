@@ -62,7 +62,7 @@ namespace DB_OPI.Forms
             }
 
             DataRow newRow = blueTapeTb.NewRow();
-            newRow["TURN_QTY"] = tb.Rows[0]["QTY"];
+            newRow["TURN_QTY"] = tb.Rows[0]["QTY"].ToString().Split('.')[0];
             newRow["INVENTORYNO"] = tb.Rows[0]["INVENTORYNO"];
             newRow["MATERIALNO"] = tb.Rows[0]["MATERIALNO"];
             newRow["CHIPMODEL"] = Convert.ToString(tb.Rows[0]["CHIPMODEL"]).Replace(".","V");
@@ -70,7 +70,7 @@ namespace DB_OPI.Forms
             newRow["MATERIALLOTNO"] = tb.Rows[0]["MATERIALLOTNO"];
             newRow["FRAME_ID"] = tb.Rows[0]["FRAME_ID"];
             newRow["UNITNO"] = tb.Rows[0]["UNITNO"];
-            newRow["QTY"] = tb.Rows[0]["QTY"];
+            newRow["QTY"] = tb.Rows[0]["QTY"].ToString().Split('.')[0];
             newRow["MATERIALTYPE"] = tb.Rows[0]["MATERIALTYPE"];
             blueTapeTb.Rows.Add(newRow);
 
@@ -111,7 +111,7 @@ namespace DB_OPI.Forms
             }
 
             DataRow newRow = blueTapeTb.NewRow();
-            newRow["TURN_QTY"] = tb.Rows[0]["QTY"];
+            newRow["TURN_QTY"] = tb.Rows[0]["QTY"].ToString().Split('.')[0];
             newRow["INVENTORYNO"] = tb.Rows[0]["INVENTORYNO"];
             newRow["MATERIALNO"] = tb.Rows[0]["MATERIALNO"];
             newRow["CHIPMODEL"] = Convert.ToString(tb.Rows[0]["CHIPMODEL"]).Replace(".", "V");
@@ -119,7 +119,7 @@ namespace DB_OPI.Forms
             newRow["MATERIALLOTNO"] = tb.Rows[0]["MATERIALLOTNO"];
             newRow["FRAME_ID"] = tb.Rows[0]["FRAME_ID"];
             newRow["UNITNO"] = tb.Rows[0]["UNITNO"];
-            newRow["QTY"] = tb.Rows[0]["QTY"];
+            newRow["QTY"] = tb.Rows[0]["QTY"].ToString().Split('.')[0];
             newRow["MATERIALTYPE"] = tb.Rows[0]["MATERIALTYPE"];
             blueTapeTb.Rows.Add(newRow);
 
@@ -154,6 +154,9 @@ namespace DB_OPI.Forms
                 MesWsLextarProxy.Exe_WIP_RAW_TurnEQP(userNoTxt.Text, equipmentNo, blueTapeTb);
 
                 MessageBox.Show("SuccessFully");
+
+                this.Close();
+
             }
             catch (Exception ex)
             {
