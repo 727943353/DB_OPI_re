@@ -35,13 +35,18 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.userNoTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pwdTxt = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 49);
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 12);
             this.label1.TabIndex = 0;
@@ -50,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 95);
+            this.label2.Location = new System.Drawing.Point(2, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 12);
             this.label2.TabIndex = 0;
@@ -59,7 +64,7 @@
             // txtLoadingCassette
             // 
             this.txtLoadingCassette.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLoadingCassette.Location = new System.Drawing.Point(149, 46);
+            this.txtLoadingCassette.Location = new System.Drawing.Point(108, 13);
             this.txtLoadingCassette.Name = "txtLoadingCassette";
             this.txtLoadingCassette.Size = new System.Drawing.Size(140, 22);
             this.txtLoadingCassette.TabIndex = 1;
@@ -68,7 +73,7 @@
             // txtUnloadingCassette
             // 
             this.txtUnloadingCassette.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnloadingCassette.Location = new System.Drawing.Point(149, 92);
+            this.txtUnloadingCassette.Location = new System.Drawing.Point(108, 59);
             this.txtUnloadingCassette.Name = "txtUnloadingCassette";
             this.txtUnloadingCassette.Size = new System.Drawing.Size(140, 22);
             this.txtUnloadingCassette.TabIndex = 2;
@@ -76,10 +81,10 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(174, 165);
+            this.btnConfirm.Location = new System.Drawing.Point(174, 194);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(115, 40);
-            this.btnConfirm.TabIndex = 2;
+            this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "Comfrim";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -87,7 +92,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblMessage);
-            this.groupBox1.Location = new System.Drawing.Point(328, 46);
+            this.groupBox1.Location = new System.Drawing.Point(328, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 3;
@@ -102,15 +107,66 @@
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "label3";
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Location = new System.Drawing.Point(328, 194);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(115, 40);
+            this.closeBtn.TabIndex = 2;
+            this.closeBtn.Text = "Close";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "User No :";
+            // 
+            // userNoTxt
+            // 
+            this.userNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.userNoTxt.Location = new System.Drawing.Point(108, 100);
+            this.userNoTxt.Name = "userNoTxt";
+            this.userNoTxt.Size = new System.Drawing.Size(140, 22);
+            this.userNoTxt.TabIndex = 3;
+            this.userNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userNoTxt_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(48, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Password :";
+            // 
+            // pwdTxt
+            // 
+            this.pwdTxt.Location = new System.Drawing.Point(108, 136);
+            this.pwdTxt.Name = "pwdTxt";
+            this.pwdTxt.PasswordChar = '*';
+            this.pwdTxt.Size = new System.Drawing.Size(140, 22);
+            this.pwdTxt.TabIndex = 4;
+            this.pwdTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwdTxt_KeyPress);
+            // 
             // CstLogonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 244);
+            this.Controls.Add(this.pwdTxt);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtUnloadingCassette);
+            this.Controls.Add(this.userNoTxt);
             this.Controls.Add(this.txtLoadingCassette);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CstLogonForm";
@@ -132,5 +188,10 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox userNoTxt;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox pwdTxt;
     }
 }

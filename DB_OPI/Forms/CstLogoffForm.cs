@@ -14,7 +14,7 @@ namespace DB_OPI.Forms
 {
     public partial class CstLogoffForm : Form
     {
-        public string userNo;
+        private string userNo;
         public string eqpNo;
         public string opNo;
 
@@ -33,54 +33,9 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
+            userNoTxt.Focus();
+
             
-            try
-            {
-                txtLotNo.Text = "";
-                txtCurQty.Text = "";
-
-                string unLoadCst = txtUnloadingCassette.Text.Trim();
-                if (unLoadCst.StartsWith("L") || unLoadCst.StartsWith("R"))
-                {
-                    if (unLoadCst.Length >= 8)
-                    {
-                        txtUnloadingCassette.Text = unLoadCst.Substring(1, unLoadCst.Length - 1);
-                    }
-                }
-
-                LotInfo lotInfo;
-                string msg;
-                if (MesWsLextarProxy.GetLotInfo(userNo, "", unLoadCst, out lotInfo, out msg) == false)
-                {
-                    lblMessage.Text = msg;
-                    lblMessage.BackColor = Color.Red;
-                    txtUnloadingCassette.SelectAll();
-                    return;
-                }
-
-                opNo = lotInfo.OpNo;
-
-                txtLotNo.Text = lotInfo.LotNo;
-                txtCurQty.Text = Convert.ToString(lotInfo.CurrQty);
-                DataTable tb = MesWsProxy.LoadTemp_EquipmentLot(eqpNo, userNo, lotInfo.LotNo);
-                if (tb.Rows.Count == 0)
-                {
-                    lblMessage.Text = txtLotNo.Text + " status is not running!!";
-                    lblMessage.BackColor = Color.Red;
-                    return;
-                }
-
-                LoadOPError();
-
-                lblMessage.Text = "";
-                lblMessage.BackColor = Color.Transparent;
-                btnConfirm.Focus();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
         }
 
         private void LoadOPError()
@@ -275,5 +230,95 @@ namespace DB_OPI.Forms
             return true;
         }
 
+        private void userNoTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != Convert.ToChar(13))
+                return;
+
+            pwdTxt.Focus();
+        }
+
+        private void pwdTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != Convert.ToChar(13))
+                return;
+
+            userNo = userNoTxt.Text.Trim();
+            string pwd = pwdTxt.Text.Trim();
+            if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
+            {
+                lblMessage.Text = "User No , Password 不能為空 (User No , Password  can,t be empty) !!";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.Focus();
+                return;
+            }
+
+            if (MesWsAutoProxy.Login(userNo, pwd) == false)
+            {
+
+                lblMessage.Text = "帳號或密碼錯誤 !! (UserNo or PassWord is error)";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.SelectAll();
+                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
+                return;
+            }
+
+            try
+            {
+                txtLotNo.Text = "";
+                txtCurQty.Text = "";
+
+                string unLoadCst = txtUnloadingCassette.Text.Trim();
+                if (unLoadCst.StartsWith("L") || unLoadCst.StartsWith("R"))
+                {
+                    if (unLoadCst.Length >= 8)
+                    {
+                        txtUnloadingCassette.Text = unLoadCst.Substring(1, unLoadCst.Length - 1);
+                    }
+                }
+
+                LotInfo lotInfo;
+                string msg;
+                if (MesWsLextarProxy.GetLotInfo(userNo, "", unLoadCst, out lotInfo, out msg) == false)
+                {
+                    lblMessage.Text = msg;
+                    lblMessage.BackColor = Color.Red;
+                    txtUnloadingCassette.SelectAll();
+                    return;
+                }
+
+                opNo = lotInfo.OpNo;
+
+                txtLotNo.Text = lotInfo.LotNo;
+                txtCurQty.Text = Convert.ToString(lotInfo.CurrQty);
+                DataTable tb = MesWsProxy.LoadTemp_EquipmentLot(eqpNo, userNo, lotInfo.LotNo);
+                if (tb.Rows.Count == 0)
+                {
+                    lblMessage.Text = txtLotNo.Text + " status is not running!!";
+                    lblMessage.BackColor = Color.Red;
+                    return;
+                }
+
+                LoadOPError();
+
+                lblMessage.Text = "";
+                lblMessage.BackColor = Color.Transparent;
+                btnConfirm.Focus();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
+            userNoTxt.Text = "";
+            pwdTxt.Text = "";
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

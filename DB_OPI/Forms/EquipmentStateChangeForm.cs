@@ -17,7 +17,7 @@ namespace DB_OPI.Forms
         public string equipmentNo;
         
         public string eqpState;
-        public string userNo;
+        private string userNo;
         private DataTable stateBasisTb = null;
         public EquipmentStateChangeForm()
         {
@@ -59,6 +59,24 @@ namespace DB_OPI.Forms
 
         private void StateBtnClicked_Handler(object sender, EventArgs e)
         {
+            userNo = userNoTxt.Text.Trim();
+            string pwd = pwdTxt.Text.Trim();
+            if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
+            {   
+                MessageBox.Show("User No , Password 不能為空 (User No , Password  can,t be empty) !!","Warning");
+                userNoTxt.Focus();
+                return;
+            }
+
+            if (MesWsAutoProxy.Login(userNo, pwd) == false)
+            {
+                
+                userNoTxt.SelectAll();
+                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "LogIn failed");
+                return;
+            }
+
+
             EquipmentStateChangeDescriptionForm chgDescForm = new EquipmentStateChangeDescriptionForm();
             chgDescForm.equipmentNo = equipmentNo;
             chgDescForm.userNo = userNo;
@@ -125,6 +143,19 @@ namespace DB_OPI.Forms
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userNoTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != Convert.ToChar(13))
+                return;
+
+            pwdTxt.Focus();
         }
     }
 }

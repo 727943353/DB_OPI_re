@@ -37,6 +37,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.stateBtnPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.pwdTxt = new System.Windows.Forms.MaskedTextBox();
+            this.userNoTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,7 +52,7 @@
             this.groupBox1.Controls.Add(this.eqpStateLab);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 56);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 350);
             this.groupBox1.TabIndex = 0;
@@ -104,7 +108,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.stateBtnPanel);
-            this.groupBox2.Location = new System.Drawing.Point(218, 12);
+            this.groupBox2.Location = new System.Drawing.Point(218, 56);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(273, 350);
             this.groupBox2.TabIndex = 0;
@@ -120,7 +124,7 @@
             // 
             // closeBtn
             // 
-            this.closeBtn.Location = new System.Drawing.Point(410, 392);
+            this.closeBtn.Location = new System.Drawing.Point(410, 413);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(75, 34);
             this.closeBtn.TabIndex = 1;
@@ -128,11 +132,51 @@
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // pwdTxt
+            // 
+            this.pwdTxt.Location = new System.Drawing.Point(322, 12);
+            this.pwdTxt.Name = "pwdTxt";
+            this.pwdTxt.PasswordChar = '*';
+            this.pwdTxt.Size = new System.Drawing.Size(140, 22);
+            this.pwdTxt.TabIndex = 14;
+            // 
+            // userNoTxt
+            // 
+            this.userNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.userNoTxt.Location = new System.Drawing.Point(72, 12);
+            this.userNoTxt.Name = "userNoTxt";
+            this.userNoTxt.Size = new System.Drawing.Size(140, 22);
+            this.userNoTxt.TabIndex = 13;
+            this.userNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userNoTxt_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(262, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Password :";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 12);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "User No :";
+            // 
             // EquipmentStateChangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 456);
+            this.Controls.Add(this.pwdTxt);
+            this.Controls.Add(this.userNoTxt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -145,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +204,9 @@
         private System.Windows.Forms.Label eqpNoLab;
         private System.Windows.Forms.FlowLayoutPanel stateBtnPanel;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.MaskedTextBox pwdTxt;
+        private System.Windows.Forms.TextBox userNoTxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

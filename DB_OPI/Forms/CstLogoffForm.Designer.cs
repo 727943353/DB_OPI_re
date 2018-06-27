@@ -41,14 +41,19 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnKeyboard = new System.Windows.Forms.Button();
             this.iugError = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtLotRecord = new System.Windows.Forms.TextBox();
-            this.btnConfirm = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errQtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtLotRecord = new System.Windows.Forms.TextBox();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.pwdTxt = new System.Windows.Forms.MaskedTextBox();
+            this.userNoTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iugError)).BeginInit();
             this.SuspendLayout();
@@ -160,40 +165,13 @@
             this.Column4,
             this.Column3,
             this.errQtyCol});
-            this.iugError.Location = new System.Drawing.Point(23, 162);
+            this.iugError.Location = new System.Drawing.Point(23, 231);
             this.iugError.MultiSelect = false;
             this.iugError.Name = "iugError";
             this.iugError.RowTemplate.Height = 24;
             this.iugError.Size = new System.Drawing.Size(548, 183);
             this.iugError.TabIndex = 4;
             this.iugError.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.iugError_CellEndEdit);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 365);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 12);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Lot Record :";
-            // 
-            // txtLotRecord
-            // 
-            this.txtLotRecord.Location = new System.Drawing.Point(91, 362);
-            this.txtLotRecord.Multiline = true;
-            this.txtLotRecord.Name = "txtLotRecord";
-            this.txtLotRecord.Size = new System.Drawing.Size(300, 55);
-            this.txtLotRecord.TabIndex = 5;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Location = new System.Drawing.Point(470, 365);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(95, 52);
-            this.btnConfirm.TabIndex = 6;
-            this.btnConfirm.Text = "Comfirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // Column1
             // 
@@ -236,11 +214,89 @@
             this.errQtyCol.HeaderText = "ErrorQty";
             this.errQtyCol.Name = "errQtyCol";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 434);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Lot Record :";
+            // 
+            // txtLotRecord
+            // 
+            this.txtLotRecord.Location = new System.Drawing.Point(91, 431);
+            this.txtLotRecord.Multiline = true;
+            this.txtLotRecord.Name = "txtLotRecord";
+            this.txtLotRecord.Size = new System.Drawing.Size(300, 55);
+            this.txtLotRecord.TabIndex = 5;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(447, 434);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(95, 52);
+            this.btnConfirm.TabIndex = 6;
+            this.btnConfirm.Text = "Comfirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // pwdTxt
+            // 
+            this.pwdTxt.Location = new System.Drawing.Point(127, 199);
+            this.pwdTxt.Name = "pwdTxt";
+            this.pwdTxt.PasswordChar = '*';
+            this.pwdTxt.Size = new System.Drawing.Size(140, 22);
+            this.pwdTxt.TabIndex = 10;
+            this.pwdTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pwdTxt_KeyPress);
+            // 
+            // userNoTxt
+            // 
+            this.userNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.userNoTxt.Location = new System.Drawing.Point(127, 163);
+            this.userNoTxt.Name = "userNoTxt";
+            this.userNoTxt.Size = new System.Drawing.Size(140, 22);
+            this.userNoTxt.TabIndex = 9;
+            this.userNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userNoTxt_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(67, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 12);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Password :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(72, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 12);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "User No :";
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Location = new System.Drawing.Point(608, 434);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(95, 52);
+            this.closeBtn.TabIndex = 6;
+            this.closeBtn.Text = "Close";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
             // CstLogoffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 465);
+            this.ClientSize = new System.Drawing.Size(715, 521);
+            this.Controls.Add(this.pwdTxt);
+            this.Controls.Add(this.userNoTxt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtLotRecord);
             this.Controls.Add(this.iugError);
@@ -287,5 +343,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn errQtyCol;
+        private System.Windows.Forms.MaskedTextBox pwdTxt;
+        private System.Windows.Forms.TextBox userNoTxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

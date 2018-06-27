@@ -32,6 +32,7 @@ namespace DB_OPI
         string gComputerName;
         string logPath = @"C:\OPI_PIC\Log\";
         bool reheatMode = false;
+        bool glueCtrlEnabled = false;
 
         public Form1()
         {
@@ -152,9 +153,9 @@ namespace DB_OPI
         private void btnLogon_Click(object sender, EventArgs e)
         {
             CstLogonForm cstLogonForm = new CstLogonForm();
-            cstLogonForm.userNo = loginUserLab.Text;
+            
             cstLogonForm.eqpNo = gComputerName;
-            cstLogonForm.doGlueVerify = glueVerifyChk.Checked;
+            cstLogonForm.doGlueVerify = glueCtrlEnabled;
             cstLogonForm.ShowDialog(this);
             cstLogonForm.Dispose();
 
@@ -165,7 +166,7 @@ namespace DB_OPI
         private void btnLogOff_Click(object sender, EventArgs e)
         {
             CstLogoffForm cstLogoffForm = new CstLogoffForm();
-            cstLogoffForm.userNo = loginUserLab.Text;
+            //cstLogoffForm.userNo = loginUserLab.Text;
             cstLogoffForm.eqpNo = gComputerName;
             DataTable tb = (DataTable)dvLotNo.DataSource;
             if (tb.Rows.Count > 0)
@@ -185,13 +186,25 @@ namespace DB_OPI
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             loginUserLab.Text = loginForm.loginUser;
-            if (loginForm.reheatMode)
+            if (loginForm.ReheatMode)
             {
                 SetReHeatMode();
                 LoadAllGlReheatingData();
+                loginForm.Dispose();
                 return;
             }
 
+            glueCtrlEnabled = loginForm.GlueCtrlEnabled;
+            if (loginForm.GlueCtrlEnabled)
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Enabled";
+                glueCtrlStateLab.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Disabled";
+            }
+            
             loginForm.Dispose();
 
             
@@ -249,7 +262,7 @@ namespace DB_OPI
             tabControl1.SelectedIndex = 3;
 
             lblStatusByEQP.Enabled = false;
-            glueVerifyChk.Enabled = false;
+            
             btnLogon.Enabled = false;
             btnLogOff.Enabled = false;
             btnTurnEQP.Enabled = false;
@@ -266,7 +279,7 @@ namespace DB_OPI
             MaterialLogonForm matLogonForm = new MaterialLogonForm();
             matLogonForm.userNo = loginUserLab.Text;
             matLogonForm.equipmentNo = gComputerName;
-            matLogonForm.isVerifyGlue = glueVerifyChk.Checked;
+            matLogonForm.isVerifyGlue = glueCtrlEnabled;
 
             matLogonForm.ShowDialog();
 
@@ -410,7 +423,7 @@ namespace DB_OPI
             EquipmentStateChangeForm stateChgForm = new EquipmentStateChangeForm();
             stateChgForm.eqpState = lblStatusByEQP.Text;
             stateChgForm.equipmentNo = grbContent.Text;
-            stateChgForm.userNo = loginUserLab.Text;
+            //stateChgForm.userNo = loginUserLab.Text;
             stateChgForm.ShowDialog();
         }
 
@@ -464,7 +477,7 @@ namespace DB_OPI
 
         private void LoadAllGlReheatingData()
         {
-            if (reheatMode == false && glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueCtrlEnabled == false)
                 return;
 
             try
@@ -488,7 +501,7 @@ namespace DB_OPI
 
         private void CheckGlReheatState()
         {
-            if (reheatMode == false && glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueCtrlEnabled == false)
                 return;
 
             List<string> reheatDoneList = new List<string>();
@@ -571,7 +584,7 @@ namespace DB_OPI
         private void LoadGlueLifeTimeData()
         {
             
-            if (reheatMode == false && glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueCtrlEnabled == false)
                 return;
 
             DateTime endTime = DateTime.Now;
@@ -583,7 +596,7 @@ namespace DB_OPI
 
         private void CheckGlLifeTime()
         {
-            if (reheatMode == false && glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueCtrlEnabled == false)
                 return;
 
             List<string> willLifeEndList = new List<string>();
@@ -631,10 +644,11 @@ namespace DB_OPI
                 
                 //MessageBox.Show("已到達使用期限: " + Environment.NewLine + string.Join(Environment.NewLine, lifeEndList), "到達使用期限列表");
             }
-            msg.AppendLine("----------------------");
+            
 
             if (willLifeEndList.Count > 0)
-            {                
+            {
+                msg.AppendLine("----------------------");
                 msg.AppendLine("將要到達使用期限 : ")
                     .AppendLine(string.Join(Environment.NewLine, willLifeEndList));
 
@@ -664,7 +678,7 @@ namespace DB_OPI
 
         private void glueVerifyChk_CheckedChanged(object sender, EventArgs e)
         {
-            if (reheatMode == false && glueVerifyChk.Checked == false)
+            if (reheatMode == false && glueCtrlEnabled == false)
                 return;
             LoadGlueLifeTimeData();
             LoadAllGlReheatingData();

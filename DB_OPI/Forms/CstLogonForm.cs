@@ -13,7 +13,7 @@ namespace DB_OPI.Forms
 {
     public partial class CstLogonForm : Form
     {
-        public string userNo;
+        private string userNo;
         public string eqpNo;
         public bool doGlueVerify;
 
@@ -34,6 +34,27 @@ namespace DB_OPI.Forms
                 txtLoadingCassette.Focus();
                 return;
             }
+
+            userNo = userNoTxt.Text.Trim();
+            string pwd = pwdTxt.Text.Trim();
+            if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
+            {
+                lblMessage.Text = "User No , Password 不能為空 (User No , Password  can,t be empty) !!";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.Focus();
+                return;
+            }
+            
+            if (MesWsAutoProxy.Login(userNo, pwd) == false)
+            {
+                
+                lblMessage.Text = "帳號或密碼錯誤 !! (UserNo or PassWord is error)";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.SelectAll();
+                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
+                return;
+            }
+            
 
             string loadingCst = txtLoadingCassette.Text.Trim();
             string unloadingCst = txtUnloadingCassette.Text.Trim();
@@ -67,7 +88,9 @@ namespace DB_OPI.Forms
                 lblMessage.Text = msg;
                 lblMessage.BackColor = Color.Red;
             }
-                        
+
+            userNoTxt.Text = "";
+            pwdTxt.Text = "";
         }
 
 
@@ -129,13 +152,35 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
-            btnConfirm_Click(sender, e);
+            userNoTxt.Focus();
+            //btnConfirm_Click(sender, e);
         }
 
         private void ShowErrorMsg(string msg)
         {
             lblMessage.Text = msg;
             lblMessage.BackColor = Color.Red;
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pwdTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != Convert.ToChar(13))
+                return;
+
+            btnConfirm_Click(sender, e);
+        }
+
+        private void userNoTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != Convert.ToChar(13))
+                return;
+
+            pwdTxt.Focus();
         }
     }
 }

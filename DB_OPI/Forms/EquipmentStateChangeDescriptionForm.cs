@@ -75,6 +75,7 @@ namespace DB_OPI.Forms
                 {
                     printerTxt.Text = Convert.ToString(defPrinterRows[0]["Printer"]);
                     strLabelFormat = Convert.ToString(defPrinterRows[0]["LabelFormat"]);
+
                 }
 
 
@@ -301,7 +302,7 @@ namespace DB_OPI.Forms
             }
 
             description = txtDescription.Text;
-
+            printer = printerTxt.Text;
             isChange = true;
             this.DialogResult = DialogResult.OK;
             this.Close();
