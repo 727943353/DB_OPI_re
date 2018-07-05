@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -153,7 +154,7 @@ namespace DB_OPI
         private void btnLogon_Click(object sender, EventArgs e)
         {
             CstLogonForm cstLogonForm = new CstLogonForm();
-            
+            cstLogonForm.Owner = this;
             cstLogonForm.eqpNo = gComputerName;
             cstLogonForm.doGlueVerify = glueCtrlEnabled;
             cstLogonForm.ShowDialog(this);
@@ -221,6 +222,15 @@ namespace DB_OPI
 
                 //10.234.104.63
                 string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo(DnsUtil.GetLocalIp());
+                
+                string setEqpNo = ConfigurationManager.AppSettings["EqpNo"];
+
+                if (string.IsNullOrEmpty(setEqpNo) == false)
+                {
+                    eqpNo = setEqpNo;
+                }
+                
+
                 //string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo("10.234.104.63");
                 if (string.IsNullOrEmpty(eqpNo))
                 {
@@ -543,6 +553,7 @@ namespace DB_OPI
 
         private void celRhBtn_Click(object sender, EventArgs e)
         {
+            
             if (reheatGrid.SelectedRows.Count == 0)
                 return;
             DataTable tb = (DataTable)reheatGrid.DataSource;
@@ -586,11 +597,8 @@ namespace DB_OPI
             
             if (reheatMode == false && glueCtrlEnabled == false)
                 return;
-
-            DateTime endTime = DateTime.Now;
-            DateTime stTime = endTime.AddMonths(-1);
-
-            glueLifeGrid.DataSource = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(loginUserLab.Text, gComputerName, stTime, endTime);
+                        
+            glueLifeGrid.DataSource = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(loginUserLab.Text, gComputerName);
             CheckGlLifeTime();
         }
 

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.eqpTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comfBtn = new System.Windows.Forms.Button();
             this.clsBtn = new System.Windows.Forms.Button();
+            this.glueCtrlStateLab = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msgGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.matHistGrid)).BeginInit();
@@ -97,7 +98,7 @@
             this.groupBox1.Controls.Add(this.matHistGrid);
             this.groupBox1.Controls.Add(this.matLotNoTxt);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(14, 34);
+            this.groupBox1.Location = new System.Drawing.Point(14, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(707, 438);
             this.groupBox1.TabIndex = 3;
@@ -131,8 +132,8 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle13.Format = "yyyy-MM-dd HH:mm:ss";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Format = "yyyy-MM-dd HH:mm:ss";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column8.HeaderText = "時間";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -159,7 +160,7 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.matHistGrid.Location = new System.Drawing.Point(8, 53);
+            this.matHistGrid.Location = new System.Drawing.Point(12, 53);
             this.matHistGrid.MultiSelect = false;
             this.matHistGrid.Name = "matHistGrid";
             this.matHistGrid.ReadOnly = true;
@@ -201,8 +202,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "LOGON_TIME";
-            dataGridViewCellStyle14.Format = "yyyy-MM-dd HH:mm:ss";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Format = "yyyy-MM-dd HH:mm:ss";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "上機時間";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -211,8 +212,8 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "LOGOFF_TIME";
-            dataGridViewCellStyle15.Format = "yyyy-MM-dd HH:mm:ss";
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Format = "yyyy-MM-dd HH:mm:ss";
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column6.HeaderText = "下機時間";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -245,7 +246,7 @@
             // 
             // comfBtn
             // 
-            this.comfBtn.Location = new System.Drawing.Point(539, 473);
+            this.comfBtn.Location = new System.Drawing.Point(539, 524);
             this.comfBtn.Name = "comfBtn";
             this.comfBtn.Size = new System.Drawing.Size(79, 30);
             this.comfBtn.TabIndex = 4;
@@ -255,7 +256,7 @@
             // 
             // clsBtn
             // 
-            this.clsBtn.Location = new System.Drawing.Point(636, 472);
+            this.clsBtn.Location = new System.Drawing.Point(636, 524);
             this.clsBtn.Name = "clsBtn";
             this.clsBtn.Size = new System.Drawing.Size(79, 30);
             this.clsBtn.TabIndex = 4;
@@ -263,11 +264,22 @@
             this.clsBtn.UseVisualStyleBackColor = true;
             this.clsBtn.Click += new System.EventHandler(this.clsBtn_Click);
             // 
+            // glueCtrlStateLab
+            // 
+            this.glueCtrlStateLab.AutoSize = true;
+            this.glueCtrlStateLab.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.glueCtrlStateLab.Location = new System.Drawing.Point(12, 41);
+            this.glueCtrlStateLab.Name = "glueCtrlStateLab";
+            this.glueCtrlStateLab.Size = new System.Drawing.Size(137, 16);
+            this.glueCtrlStateLab.TabIndex = 5;
+            this.glueCtrlStateLab.Text = "Glue Ctrl Enabled";
+            // 
             // MaterialLogonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 512);
+            this.ClientSize = new System.Drawing.Size(734, 563);
+            this.Controls.Add(this.glueCtrlStateLab);
             this.Controls.Add(this.clsBtn);
             this.Controls.Add(this.comfBtn);
             this.Controls.Add(this.groupBox1);
@@ -277,6 +289,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MaterialLogonForm";
             this.Text = "MaterialLogonForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.MaterialLogonForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -310,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Button comfBtn;
         private System.Windows.Forms.Button clsBtn;
+        private System.Windows.Forms.Label glueCtrlStateLab;
     }
 }

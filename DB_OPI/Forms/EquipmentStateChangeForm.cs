@@ -26,6 +26,8 @@ namespace DB_OPI.Forms
 
         private void EquipmentStateChangeForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             eqpNoLab.Text = equipmentNo;
             eqpStateLab.Text = eqpState;
 

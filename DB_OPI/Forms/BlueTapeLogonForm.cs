@@ -25,6 +25,8 @@ namespace DB_OPI.Forms
 
         private void BlueTapeLogonForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             msgTb.Columns.Add("CreateTime");
             msgTb.Columns.Add("Message");
             msgGrid.DataSource = msgTb;

@@ -182,6 +182,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "EquipmentStateChangeForm";
             this.Text = "EquipmentStateChangeForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.EquipmentStateChangeForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

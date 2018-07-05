@@ -78,6 +78,7 @@
             this.Controls.Add(this.gridView);
             this.Name = "ComponentSelectForm";
             this.Text = "ComponentSelectForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ComponentSelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);

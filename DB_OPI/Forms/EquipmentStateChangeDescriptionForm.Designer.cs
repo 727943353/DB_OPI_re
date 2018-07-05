@@ -255,6 +255,7 @@
             this.Controls.Add(this.reasonSubTypeGrid);
             this.Name = "EquipmentStateChangeDescriptionForm";
             this.Text = "EquipmentStateChangeDescriptionForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.EquipmentStateChangeDescriptionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reasonSubTypeGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reasonListGrid)).EndInit();

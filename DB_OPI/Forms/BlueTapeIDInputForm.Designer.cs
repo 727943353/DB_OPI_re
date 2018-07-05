@@ -83,6 +83,8 @@
             this.Controls.Add(this.label1);
             this.Name = "BlueTapeIDInputForm";
             this.Text = "BlueTapeIDInputForm";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.BlueTapeIDInputForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

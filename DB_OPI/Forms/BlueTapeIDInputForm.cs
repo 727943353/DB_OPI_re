@@ -35,5 +35,10 @@ namespace DB_OPI.Forms
                 okBtn_Click(sender, e);
 
         }
+
+        private void BlueTapeIDInputForm_Load(object sender, EventArgs e)
+        {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
     }
 }

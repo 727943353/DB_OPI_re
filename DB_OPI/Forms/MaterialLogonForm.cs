@@ -25,6 +25,8 @@ namespace DB_OPI.Forms
 
         private void MaterialLogonForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             msgTb.Columns.Add("CreateTime");
             msgTb.Columns.Add("Message");
             msgGrid.DataSource = msgTb;
@@ -34,7 +36,16 @@ namespace DB_OPI.Forms
             matHistGrid.DataSource = MesWsLextarProxy.LoadMaterialRecord(userNoTxt.Text, equipmentNo);
             userNoTxt.Focus();
 
-            
+            if (isVerifyGlue)
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Enabled";
+                glueCtrlStateLab.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Disabled";
+            }
+
         }
 
         private void matLotNoTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,9 +102,9 @@ namespace DB_OPI.Forms
                     if (matLotNoTxt.Text.StartsWith("42.") && isVerifyGlue)
                     {
                         //檢查是否有在其它機台上機
-                        DateTime endTime = DateTime.Now;
-                        DateTime stTime = endTime.AddMonths(-1);
-                        DataTable matUsedTb = MesWsLextarProxy.LoadMaterialRecordOnEqp(userNoTxt.Text, equipmentNo, stTime, endTime);
+
+                        //DataTable matUsedTb = MesWsLextarProxy.LoadMaterialRecordOnEqp(userNoTxt.Text, equipmentNo);
+                        DataTable matUsedTb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNoTxt.Text, equipmentNo);
                         var selRows = (from row in matUsedTb.AsEnumerable()
                                        where row.Field<string>("MATERIALLOTNO").StartsWith("42.")
                                        select row).ToArray();
@@ -141,7 +152,7 @@ namespace DB_OPI.Forms
             {
                 string materLotNo = matLotNoTxt.Text.Trim();
                 DataTable tb = MesWsLextarProxy.LoadGlueUsedState(userNoTxt.Text, materLotNo);
-                //如果query 不到膠的上機狀態，表示是第一次使用
+                
                 if (tb.Rows.Count == 0)
                 {
                     MessageBox.Show("找不到膠 [" + materLotNo + "] 回溫記錄，請確認是否有做回溫設定.", "Error");
@@ -172,7 +183,7 @@ namespace DB_OPI.Forms
 
                 double lifeTime = Convert.ToDouble(lifeTimeTb.Rows[0]["PARAMETERVALUE"]);
                 DateTime stTime = DateTime.Now;
-                MesWsLextarProxy.UpdateGlueLifeTime(userNoTxt.Text, materLotNo, equipmentNo, stTime, stTime.AddHours(lifeTime));
+                MesWsLextarProxy.UpdateGlueLifeTime(userNoTxt.Text, materLotNo, stTime, stTime.AddHours(lifeTime));
                 
 
             }

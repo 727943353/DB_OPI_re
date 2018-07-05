@@ -12,24 +12,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="LoadMaterialUsedStateByEqpNo">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="stTimeStr" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="endTimeStr" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="LoadMaterialUsedStateByEqpNoResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialUsedStateByEqpNoResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="LoadGlueUsedState">
         <s:complexType>
           <s:sequence>
@@ -67,7 +49,6 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="lifeStTimeStr" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="lifeEndTimeStr" type="s:string" />
           </s:sequence>
@@ -127,12 +108,6 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="LoadMaterialUsedStateByEqpNoSoapIn">
-    <wsdl:part name="parameters" element="tns:LoadMaterialUsedStateByEqpNo" />
-  </wsdl:message>
-  <wsdl:message name="LoadMaterialUsedStateByEqpNoSoapOut">
-    <wsdl:part name="parameters" element="tns:LoadMaterialUsedStateByEqpNoResponse" />
-  </wsdl:message>
   <wsdl:message name="LoadGlueUsedStateSoapIn">
     <wsdl:part name="parameters" element="tns:LoadGlueUsedState" />
   </wsdl:message>
@@ -174,11 +149,6 @@
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Used State</wsdl:documentation>
-      <wsdl:input message="tns:LoadMaterialUsedStateByEqpNoSoapIn" />
-      <wsdl:output message="tns:LoadMaterialUsedStateByEqpNoSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="LoadGlueUsedState">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Glue Used State data</wsdl:documentation>
       <wsdl:input message="tns:LoadGlueUsedStateSoapIn" />
@@ -214,15 +184,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
-      <soap:operation soapAction="http://tempuri.org/LoadMaterialUsedStateByEqpNo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -289,15 +250,6 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="HelloWorld">
       <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="LoadMaterialUsedStateByEqpNo">
-      <soap12:operation soapAction="http://tempuri.org/LoadMaterialUsedStateByEqpNo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

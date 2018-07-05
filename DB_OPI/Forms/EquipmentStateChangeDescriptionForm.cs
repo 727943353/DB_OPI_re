@@ -43,7 +43,7 @@ namespace DB_OPI.Forms
 
         private void EquipmentStateChangeDescriptionForm_Load(object sender, EventArgs e)
         {
-            
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             try
             {
                 Cursor.Current = Cursors.WaitCursor;

@@ -28,23 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.userNoTxt = new System.Windows.Forms.TextBox();
             this.eqpTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.blueTapeCntTxt = new System.Windows.Forms.TextBox();
             this.msgGrid = new System.Windows.Forms.DataGridView();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.blueTapeGrid = new System.Windows.Forms.DataGridView();
-            this.matLotNoTxt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.frameIDTxt = new System.Windows.Forms.TextBox();
-            this.blueTapeCntTxt = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +50,10 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frameIDTxt = new System.Windows.Forms.TextBox();
+            this.matLotNoTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.clsBtn = new System.Windows.Forms.Button();
             this.comfBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -109,6 +109,15 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // blueTapeCntTxt
+            // 
+            this.blueTapeCntTxt.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.blueTapeCntTxt.Location = new System.Drawing.Point(8, 45);
+            this.blueTapeCntTxt.Name = "blueTapeCntTxt";
+            this.blueTapeCntTxt.ReadOnly = true;
+            this.blueTapeCntTxt.Size = new System.Drawing.Size(69, 27);
+            this.blueTapeCntTxt.TabIndex = 5;
+            // 
             // msgGrid
             // 
             this.msgGrid.AllowUserToAddRows = false;
@@ -127,8 +136,8 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle19.Format = "yyyy-MM-dd HH:mm:ss";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Format = "yyyy-MM-dd HH:mm:ss";
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column8.HeaderText = "時間";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -165,57 +174,12 @@
             this.blueTapeGrid.Size = new System.Drawing.Size(693, 198);
             this.blueTapeGrid.TabIndex = 2;
             // 
-            // matLotNoTxt
-            // 
-            this.matLotNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.matLotNoTxt.Location = new System.Drawing.Point(97, 15);
-            this.matLotNoTxt.Name = "matLotNoTxt";
-            this.matLotNoTxt.Size = new System.Drawing.Size(200, 22);
-            this.matLotNoTxt.TabIndex = 1;
-            this.matLotNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matLotNoTxt_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Material Lot No :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(311, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Frame ID :";
-            // 
-            // frameIDTxt
-            // 
-            this.frameIDTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.frameIDTxt.Location = new System.Drawing.Point(372, 15);
-            this.frameIDTxt.Name = "frameIDTxt";
-            this.frameIDTxt.Size = new System.Drawing.Size(150, 22);
-            this.frameIDTxt.TabIndex = 1;
-            this.frameIDTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frameIDTxt_KeyPress);
-            // 
-            // blueTapeCntTxt
-            // 
-            this.blueTapeCntTxt.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.blueTapeCntTxt.Location = new System.Drawing.Point(8, 45);
-            this.blueTapeCntTxt.Name = "blueTapeCntTxt";
-            this.blueTapeCntTxt.ReadOnly = true;
-            this.blueTapeCntTxt.Size = new System.Drawing.Size(69, 27);
-            this.blueTapeCntTxt.TabIndex = 5;
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "TURN_QTY";
-            dataGridViewCellStyle20.Format = "N0";
-            dataGridViewCellStyle20.NullValue = "0";
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "轉移數量";
             this.Column1.Name = "Column1";
             // 
@@ -268,9 +232,9 @@
             // Column10
             // 
             this.Column10.DataPropertyName = "QTY";
-            dataGridViewCellStyle21.Format = "N0";
-            dataGridViewCellStyle21.NullValue = "0";
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column10.HeaderText = "數量";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -281,6 +245,42 @@
             this.Column11.HeaderText = "物料類別";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            // 
+            // frameIDTxt
+            // 
+            this.frameIDTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.frameIDTxt.Location = new System.Drawing.Point(372, 15);
+            this.frameIDTxt.Name = "frameIDTxt";
+            this.frameIDTxt.Size = new System.Drawing.Size(150, 22);
+            this.frameIDTxt.TabIndex = 1;
+            this.frameIDTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frameIDTxt_KeyPress);
+            // 
+            // matLotNoTxt
+            // 
+            this.matLotNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.matLotNoTxt.Location = new System.Drawing.Point(97, 15);
+            this.matLotNoTxt.Name = "matLotNoTxt";
+            this.matLotNoTxt.Size = new System.Drawing.Size(200, 22);
+            this.matLotNoTxt.TabIndex = 1;
+            this.matLotNoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.matLotNoTxt_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(311, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Frame ID :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Material Lot No :";
             // 
             // clsBtn
             // 
@@ -316,6 +316,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BlueTapeLogonForm";
             this.Text = "BlueTapeLogonForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.BlueTapeLogonForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

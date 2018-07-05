@@ -68,7 +68,7 @@ namespace DB_OPI.Forms
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void reheModeChk_CheckedChanged(object sender, EventArgs e)

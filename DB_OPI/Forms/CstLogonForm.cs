@@ -99,10 +99,8 @@ namespace DB_OPI.Forms
 
             try
             {
-                DateTime endTime = DateTime.Now;
-                DateTime stTime = endTime.AddMonths(-1);
-
-                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo, stTime, endTime);
+                
+                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo);
                 if (tb.Rows.Count == 0)
                 {
                     ShowErrorMsg("上機失敗，此機台並未上固晶膠。");
@@ -144,7 +142,17 @@ namespace DB_OPI.Forms
 
         private void CstLogonForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
+            if (doGlueVerify)
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Enabled";
+                glueCtrlStateLab.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                glueCtrlStateLab.Text = "膠材卡控 : Disabled";
+            }
         }
 
         private void txtUnloadingCassette_KeyPress(object sender, KeyPressEventArgs e)

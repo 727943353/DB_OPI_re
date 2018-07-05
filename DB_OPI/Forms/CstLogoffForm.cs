@@ -69,6 +69,8 @@ namespace DB_OPI.Forms
 
         private void CstLogoffForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             iugError.AutoGenerateColumns = false;
             txtEquipmentNo.Text = eqpNo;
             LoadOPError();

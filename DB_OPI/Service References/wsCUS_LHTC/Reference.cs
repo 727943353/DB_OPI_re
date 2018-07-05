@@ -20,10 +20,6 @@ namespace DB_OPI.wsCUS_LHTC {
         DB_OPI.wsCUS_LHTC.HelloWorldResponse HelloWorld(DB_OPI.wsCUS_LHTC.HelloWorldRequest request);
         
         // CODEGEN: 命名空間 http://tempuri.org/ 的元素名稱  userNo 未標示為 nillable，正在產生訊息合約
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadMaterialUsedStateByEqpNo", ReplyAction="*")]
-        DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoResponse LoadMaterialUsedStateByEqpNo(DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequest request);
-        
-        // CODEGEN: 命名空間 http://tempuri.org/ 的元素名稱  userNo 未標示為 nillable，正在產生訊息合約
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadGlueUsedState", ReplyAction="*")]
         DB_OPI.wsCUS_LHTC.LoadGlueUsedStateResponse LoadGlueUsedState(DB_OPI.wsCUS_LHTC.LoadGlueUsedStateRequest request);
         
@@ -106,90 +102,6 @@ namespace DB_OPI.wsCUS_LHTC {
         
         public HelloWorldResponseBody(string HelloWorldResult) {
             this.HelloWorldResult = HelloWorldResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class LoadMaterialUsedStateByEqpNoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="LoadMaterialUsedStateByEqpNo", Namespace="http://tempuri.org/", Order=0)]
-        public DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequestBody Body;
-        
-        public LoadMaterialUsedStateByEqpNoRequest() {
-        }
-        
-        public LoadMaterialUsedStateByEqpNoRequest(DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class LoadMaterialUsedStateByEqpNoRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string userNo;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string eqpNo;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string type;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string stTimeStr;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string endTimeStr;
-        
-        public LoadMaterialUsedStateByEqpNoRequestBody() {
-        }
-        
-        public LoadMaterialUsedStateByEqpNoRequestBody(string userNo, string eqpNo, string type, string stTimeStr, string endTimeStr) {
-            this.userNo = userNo;
-            this.eqpNo = eqpNo;
-            this.type = type;
-            this.stTimeStr = stTimeStr;
-            this.endTimeStr = endTimeStr;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class LoadMaterialUsedStateByEqpNoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="LoadMaterialUsedStateByEqpNoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoResponseBody Body;
-        
-        public LoadMaterialUsedStateByEqpNoResponse() {
-        }
-        
-        public LoadMaterialUsedStateByEqpNoResponse(DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class LoadMaterialUsedStateByEqpNoResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string LoadMaterialUsedStateByEqpNoResult;
-        
-        public LoadMaterialUsedStateByEqpNoResponseBody() {
-        }
-        
-        public LoadMaterialUsedStateByEqpNoResponseBody(string LoadMaterialUsedStateByEqpNoResult) {
-            this.LoadMaterialUsedStateByEqpNoResult = LoadMaterialUsedStateByEqpNoResult;
         }
     }
     
@@ -375,21 +287,17 @@ namespace DB_OPI.wsCUS_LHTC {
         public string matLotNo;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string eqpNo;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string lifeStTimeStr;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string lifeEndTimeStr;
         
         public UpdateGlueLifeTimeDataRequestBody() {
         }
         
-        public UpdateGlueLifeTimeDataRequestBody(string userNo, string matLotNo, string eqpNo, string lifeStTimeStr, string lifeEndTimeStr) {
+        public UpdateGlueLifeTimeDataRequestBody(string userNo, string matLotNo, string lifeStTimeStr, string lifeEndTimeStr) {
             this.userNo = userNo;
             this.matLotNo = matLotNo;
-            this.eqpNo = eqpNo;
             this.lifeStTimeStr = lifeStTimeStr;
             this.lifeEndTimeStr = lifeEndTimeStr;
         }
@@ -670,23 +578,6 @@ namespace DB_OPI.wsCUS_LHTC {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoResponse DB_OPI.wsCUS_LHTC.wsCUSSoap.LoadMaterialUsedStateByEqpNo(DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequest request) {
-            return base.Channel.LoadMaterialUsedStateByEqpNo(request);
-        }
-        
-        public string LoadMaterialUsedStateByEqpNo(string userNo, string eqpNo, string type, string stTimeStr, string endTimeStr) {
-            DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequest inValue = new DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequest();
-            inValue.Body = new DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoRequestBody();
-            inValue.Body.userNo = userNo;
-            inValue.Body.eqpNo = eqpNo;
-            inValue.Body.type = type;
-            inValue.Body.stTimeStr = stTimeStr;
-            inValue.Body.endTimeStr = endTimeStr;
-            DB_OPI.wsCUS_LHTC.LoadMaterialUsedStateByEqpNoResponse retVal = ((DB_OPI.wsCUS_LHTC.wsCUSSoap)(this)).LoadMaterialUsedStateByEqpNo(inValue);
-            return retVal.Body.LoadMaterialUsedStateByEqpNoResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         DB_OPI.wsCUS_LHTC.LoadGlueUsedStateResponse DB_OPI.wsCUS_LHTC.wsCUSSoap.LoadGlueUsedState(DB_OPI.wsCUS_LHTC.LoadGlueUsedStateRequest request) {
             return base.Channel.LoadGlueUsedState(request);
         }
@@ -721,12 +612,11 @@ namespace DB_OPI.wsCUS_LHTC {
             return base.Channel.UpdateGlueLifeTimeData(request);
         }
         
-        public string UpdateGlueLifeTimeData(string userNo, string matLotNo, string eqpNo, string lifeStTimeStr, string lifeEndTimeStr) {
+        public string UpdateGlueLifeTimeData(string userNo, string matLotNo, string lifeStTimeStr, string lifeEndTimeStr) {
             DB_OPI.wsCUS_LHTC.UpdateGlueLifeTimeDataRequest inValue = new DB_OPI.wsCUS_LHTC.UpdateGlueLifeTimeDataRequest();
             inValue.Body = new DB_OPI.wsCUS_LHTC.UpdateGlueLifeTimeDataRequestBody();
             inValue.Body.userNo = userNo;
             inValue.Body.matLotNo = matLotNo;
-            inValue.Body.eqpNo = eqpNo;
             inValue.Body.lifeStTimeStr = lifeStTimeStr;
             inValue.Body.lifeEndTimeStr = lifeEndTimeStr;
             DB_OPI.wsCUS_LHTC.UpdateGlueLifeTimeDataResponse retVal = ((DB_OPI.wsCUS_LHTC.wsCUSSoap)(this)).UpdateGlueLifeTimeData(inValue);

@@ -64,6 +64,10 @@ namespace DB_OPI.wsWIP_LHTC {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string CheckUserOperationNoAuthority(string userNo, string opNo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadUserGroupDefForAUOLine", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadUserGroupDefForAUOLine(string userNo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadLotStateDataByMoNo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadLotStateDataByMoNo(string userNo, string moNo);
@@ -190,11 +194,11 @@ namespace DB_OPI.wsWIP_LHTC {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordOnEquipment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string LoadMaterialRecordOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
+        string LoadMaterialRecordOnEquipment(string userNo, string eqpNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecordJoinGlueUsedStateOnEquipment", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr);
+        string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org//wsWIP/LoadMaterialRecord", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2136,6 +2140,10 @@ namespace DB_OPI.wsWIP_LHTC {
             return base.Channel.CheckUserOperationNoAuthority(userNo, opNo);
         }
         
+        public string LoadUserGroupDefForAUOLine(string userNo) {
+            return base.Channel.LoadUserGroupDefForAUOLine(userNo);
+        }
+        
         public string LoadLotStateDataByMoNo(string userNo, string moNo) {
             return base.Channel.LoadLotStateDataByMoNo(userNo, moNo);
         }
@@ -2260,12 +2268,12 @@ namespace DB_OPI.wsWIP_LHTC {
             return base.Channel.Add_Material_Record(InXml);
         }
         
-        public string LoadMaterialRecordOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
-            return base.Channel.LoadMaterialRecordOnEquipment(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
+        public string LoadMaterialRecordOnEquipment(string userNo, string eqpNo) {
+            return base.Channel.LoadMaterialRecordOnEquipment(userNo, eqpNo);
         }
         
-        public string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo, string logonStTimeStr, string logonEndTimeStr) {
-            return base.Channel.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo, logonStTimeStr, logonEndTimeStr);
+        public string LoadMaterialRecordJoinGlueUsedStateOnEquipment(string userNo, string eqpNo) {
+            return base.Channel.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo);
         }
         
         public string LoadMaterialRecord(string InXml) {

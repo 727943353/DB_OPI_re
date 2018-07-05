@@ -26,6 +26,8 @@ namespace DB_OPI.Forms
 
         private void ComponentSelectForm_Load(object sender, EventArgs e)
         {
+            this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             gridView.DataSource = gridData;
 
             foreach (DataGridViewColumn col in gridView.Columns)

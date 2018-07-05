@@ -176,6 +176,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LoadUserGroupDefForAUOLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadUserGroupDefForAUOLineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadUserGroupDefForAUOLineResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="LoadLotStateDataByMoNo">
         <s:complexType>
           <s:sequence>
@@ -630,8 +644,6 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -647,8 +659,6 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -7325,6 +7335,12 @@
   <wsdl:message name="CheckUserOperationNoAuthoritySoapOut">
     <wsdl:part name="parameters" element="tns:CheckUserOperationNoAuthorityResponse" />
   </wsdl:message>
+  <wsdl:message name="LoadUserGroupDefForAUOLineSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadUserGroupDefForAUOLine" />
+  </wsdl:message>
+  <wsdl:message name="LoadUserGroupDefForAUOLineSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadUserGroupDefForAUOLineResponse" />
+  </wsdl:message>
   <wsdl:message name="LoadLotStateDataByMoNoSoapIn">
     <wsdl:part name="parameters" element="tns:LoadLotStateDataByMoNo" />
   </wsdl:message>
@@ -10380,6 +10396,11 @@
       <wsdl:input message="tns:CheckUserOperationNoAuthoritySoapIn" />
       <wsdl:output message="tns:CheckUserOperationNoAuthoritySoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="LoadUserGroupDefForAUOLine">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load user group data for AUO Line</wsdl:documentation>
+      <wsdl:input message="tns:LoadUserGroupDefForAUOLineSoapIn" />
+      <wsdl:output message="tns:LoadUserGroupDefForAUOLineSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="LoadLotStateDataByMoNo">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Lot State by MoNo</wsdl:documentation>
       <wsdl:input message="tns:LoadLotStateDataByMoNoSoapIn" />
@@ -12979,6 +13000,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckUserOperationNoAuthority">
       <soap:operation soapAction="http://tempuri.org//wsWIP/CheckUserOperationNoAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserGroupDefForAUOLine">
+      <soap:operation soapAction="http://tempuri.org//wsWIP/LoadUserGroupDefForAUOLine" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -17581,6 +17611,15 @@
     </wsdl:operation>
     <wsdl:operation name="CheckUserOperationNoAuthority">
       <soap12:operation soapAction="http://tempuri.org//wsWIP/CheckUserOperationNoAuthority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadUserGroupDefForAUOLine">
+      <soap12:operation soapAction="http://tempuri.org//wsWIP/LoadUserGroupDefForAUOLine" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

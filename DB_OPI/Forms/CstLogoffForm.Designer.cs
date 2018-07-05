@@ -313,6 +313,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CstLogoffForm";
             this.Text = "CstLogoffForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.CstLogoffForm_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iugError)).EndInit();
