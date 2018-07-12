@@ -123,6 +123,14 @@ namespace DB_OPI.Proxy
             return wsWPSystem.CheckOutFunction_DB(cassetteNo, eqpNo, opNo, errorXml, lotRecord, userNo, ref msg) == "Y";
         }
 
+        public static void MaterialLogoff(string userNo, string eqpNo, string matLotNo, DateTime logonStTime, DateTime logonEndTime)
+        {
+            string result = wsWPSystem.MaterialLogoff(userNo, eqpNo, matLotNo, logonStTime.ToString("yyyy-MM-dd HH:mm:ss"), logonEndTime.ToString("yyyy-MM-dd HH:mm:ss"));
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception(wsRes.Exception.Stack);
+
+        }
         //public static DataTable LoadMaterialRecordJoinMaterialUsedStateJson(string eqpNo, string userNo, string type, DateTime logonStTime, DateTime lognEndTime)
         //{
         //    string result = wsWPSystem.LoadMaterialRecordJoinMaterialUsedStateJson(userNo, eqpNo, type, logonStTime.ToString("yyyy-MM-dd HH:mm:ss"), lognEndTime.ToString("yyyy-MM-dd HH:mm:ss"));

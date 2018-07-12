@@ -209,13 +209,19 @@ namespace DB_OPI.Forms
             DataTable matTb = (DataTable)matHistGrid.DataSource;
             string logoffTimeStr = Convert.ToString(matTb.Rows[selIdx]["LOGOFF_TIME"]);
             string selectedMaterialLotNo = Convert.ToString(matTb.Rows[selIdx]["MATERIALLOTNO"]);
+            string logonTimeStr = Convert.ToString(matTb.Rows[selIdx]["LOGON_TIME"]);
+
+            DateTime logonStTime = DateTime.Parse(logonTimeStr).AddSeconds(-1);
+            DateTime logonEndTime = DateTime.Parse(logonTimeStr).AddSeconds(1);
+
             if (string.IsNullOrEmpty(logoffTimeStr) == false)
             {
                 MessageBox.Show("物料批號：" + selectedMaterialLotNo + " 非上機狀態，請檢查!! ");
                 return;
             }
 
-            MesWsLextarProxy.UpdateMaterialRecord(userNoTxt.Text, equipmentNo, selectedMaterialLotNo);
+            //MesWsLextarProxy.UpdateMaterialRecord(userNoTxt.Text, equipmentNo, selectedMaterialLotNo);
+            MesWsAutoProxy.MaterialLogoff(userNoTxt.Text, equipmentNo, selectedMaterialLotNo, logonStTime, logonEndTime);
             matHistGrid.DataSource = MesWsLextarProxy.LoadMaterialRecord(userNoTxt.Text, equipmentNo);
 
             AddMessageToGrid(selectedMaterialLotNo + " 物料批號下機成功 ");

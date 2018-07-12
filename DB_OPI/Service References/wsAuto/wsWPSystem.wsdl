@@ -2,6 +2,20 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="IsertMSMQMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsertMSMQMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsertMSMQMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Dino_Test">
         <s:complexType>
           <s:sequence>
@@ -283,24 +297,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="LoadMaterialRecordJoinMaterialUsedStateJson">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="LoadMaterialRecordJoinMaterialUsedStateJsonResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="LoadMaterialRecordJoinMaterialUsedStateJsonResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Add_Material_Record">
         <s:complexType>
           <s:sequence>
@@ -312,6 +308,99 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Add_Material_RecordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMMSettingData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prodNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMMSettingDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryMMSettingDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPreTestPotID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="glEqpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPreTestPotIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPreTestPotIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPreTestData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="potID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="glEqpNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPreTestDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPreTestDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaterialLogoff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eqpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="matLotNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonStTimeStr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonEndTimeStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaterialLogoffResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MaterialLogoffResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPPRSTATE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="W_CARRIERNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="W_CARRIERNO_PR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="W_LOTNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="W_STATE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_CARRIERNO_PR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_COLOR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_STARTTIME_STR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_IN_P_TIME_STR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_OUT_P_TIME_STR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_IN_C_TIME_STR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_OUT_C_TIME_STR" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="S_FLAG_I" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="S_FLAG_O" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_ENDTIME_STR" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="S_STATE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditEQPPRSTATEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EditEQPPRSTATEResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -2176,20 +2265,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="IsertMSMQMessage">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InXml" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="IsertMSMQMessageResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="IsertMSMQMessageResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="CheckOutFunction_TEST">
         <s:complexType>
           <s:sequence>
@@ -2388,6 +2463,21 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadOPPropertyJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="opNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadOPPropertyJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadOPPropertyJsonResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -3632,36 +3722,14 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="EditEQPPRSTATE">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="W_CARRIERNO" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="W_CARRIERNO_PR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="W_LOTNO" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="W_STATE" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_CARRIERNO_PR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_COLOR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_STARTTIME_STR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_IN_P_TIME_STR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_OUT_P_TIME_STR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_IN_C_TIME_STR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_OUT_C_TIME_STR" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="S_FLAG_I" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="S_FLAG_O" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_ENDTIME_STR" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="S_STATE" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="EditEQPPRSTATEResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="EditEQPPRSTATEResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="IsertMSMQMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:IsertMSMQMessage" />
+  </wsdl:message>
+  <wsdl:message name="IsertMSMQMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:IsertMSMQMessageResponse" />
+  </wsdl:message>
   <wsdl:message name="Dino_TestSoapIn">
     <wsdl:part name="parameters" element="tns:Dino_Test" />
   </wsdl:message>
@@ -3770,17 +3838,41 @@
   <wsdl:message name="LoadMaterialRecordJsonSoapOut">
     <wsdl:part name="parameters" element="tns:LoadMaterialRecordJsonResponse" />
   </wsdl:message>
-  <wsdl:message name="LoadMaterialRecordJoinMaterialUsedStateJsonSoapIn">
-    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinMaterialUsedStateJson" />
-  </wsdl:message>
-  <wsdl:message name="LoadMaterialRecordJoinMaterialUsedStateJsonSoapOut">
-    <wsdl:part name="parameters" element="tns:LoadMaterialRecordJoinMaterialUsedStateJsonResponse" />
-  </wsdl:message>
   <wsdl:message name="Add_Material_RecordSoapIn">
     <wsdl:part name="parameters" element="tns:Add_Material_Record" />
   </wsdl:message>
   <wsdl:message name="Add_Material_RecordSoapOut">
     <wsdl:part name="parameters" element="tns:Add_Material_RecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryMMSettingDataSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryMMSettingData" />
+  </wsdl:message>
+  <wsdl:message name="QueryMMSettingDataSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryMMSettingDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPreTestPotIDSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPreTestPotID" />
+  </wsdl:message>
+  <wsdl:message name="QueryPreTestPotIDSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPreTestPotIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPreTestDataSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPreTestData" />
+  </wsdl:message>
+  <wsdl:message name="QueryPreTestDataSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPreTestDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaterialLogoffSoapIn">
+    <wsdl:part name="parameters" element="tns:MaterialLogoff" />
+  </wsdl:message>
+  <wsdl:message name="MaterialLogoffSoapOut">
+    <wsdl:part name="parameters" element="tns:MaterialLogoffResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPPRSTATESoapIn">
+    <wsdl:part name="parameters" element="tns:EditEQPPRSTATE" />
+  </wsdl:message>
+  <wsdl:message name="EditEQPPRSTATESoapOut">
+    <wsdl:part name="parameters" element="tns:EditEQPPRSTATEResponse" />
   </wsdl:message>
   <wsdl:message name="DelEQPPRSTATESoapIn">
     <wsdl:part name="parameters" element="tns:DelEQPPRSTATE" />
@@ -4286,12 +4378,6 @@
   <wsdl:message name="LoadSystemParamentSoapOut">
     <wsdl:part name="parameters" element="tns:LoadSystemParamentResponse" />
   </wsdl:message>
-  <wsdl:message name="IsertMSMQMessageSoapIn">
-    <wsdl:part name="parameters" element="tns:IsertMSMQMessage" />
-  </wsdl:message>
-  <wsdl:message name="IsertMSMQMessageSoapOut">
-    <wsdl:part name="parameters" element="tns:IsertMSMQMessageResponse" />
-  </wsdl:message>
   <wsdl:message name="CheckOutFunction_TESTSoapIn">
     <wsdl:part name="parameters" element="tns:CheckOutFunction_TEST" />
   </wsdl:message>
@@ -4351,6 +4437,12 @@
   </wsdl:message>
   <wsdl:message name="LoadProductSoapOut">
     <wsdl:part name="parameters" element="tns:LoadProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadOPPropertyJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadOPPropertyJson" />
+  </wsdl:message>
+  <wsdl:message name="LoadOPPropertyJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadOPPropertyJsonResponse" />
   </wsdl:message>
   <wsdl:message name="LoadCarrierBasisSoapIn">
     <wsdl:part name="parameters" element="tns:LoadCarrierBasis" />
@@ -4724,13 +4816,12 @@
   <wsdl:message name="AddEQPPRSTATESoapOut">
     <wsdl:part name="parameters" element="tns:AddEQPPRSTATEResponse" />
   </wsdl:message>
-  <wsdl:message name="EditEQPPRSTATESoapIn">
-    <wsdl:part name="parameters" element="tns:EditEQPPRSTATE" />
-  </wsdl:message>
-  <wsdl:message name="EditEQPPRSTATESoapOut">
-    <wsdl:part name="parameters" element="tns:EditEQPPRSTATEResponse" />
-  </wsdl:message>
   <wsdl:portType name="wsWPSystemSoap">
+    <wsdl:operation name="IsertMSMQMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Isert MSMQ Message</wsdl:documentation>
+      <wsdl:input message="tns:IsertMSMQMessageSoapIn" />
+      <wsdl:output message="tns:IsertMSMQMessageSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Dino_Test">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dino Test</wsdl:documentation>
       <wsdl:input message="tns:Dino_TestSoapIn" />
@@ -4821,15 +4912,35 @@
       <wsdl:input message="tns:LoadMaterialRecordJsonSoapIn" />
       <wsdl:output message="tns:LoadMaterialRecordJsonSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Material Record join Material Used State return json</wsdl:documentation>
-      <wsdl:input message="tns:LoadMaterialRecordJoinMaterialUsedStateJsonSoapIn" />
-      <wsdl:output message="tns:LoadMaterialRecordJoinMaterialUsedStateJsonSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="Add_Material_Record">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add Material Record</wsdl:documentation>
       <wsdl:input message="tns:Add_Material_RecordSoapIn" />
       <wsdl:output message="tns:Add_Material_RecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryMMSettingData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query MMS Setting data</wsdl:documentation>
+      <wsdl:input message="tns:QueryMMSettingDataSoapIn" />
+      <wsdl:output message="tns:QueryMMSettingDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestPotID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query PreTest POT ID</wsdl:documentation>
+      <wsdl:input message="tns:QueryPreTestPotIDSoapIn" />
+      <wsdl:output message="tns:QueryPreTestPotIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query PreTest Data</wsdl:documentation>
+      <wsdl:input message="tns:QueryPreTestDataSoapIn" />
+      <wsdl:output message="tns:QueryPreTestDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaterialLogoff">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OPI Material Logoff</wsdl:documentation>
+      <wsdl:input message="tns:MaterialLogoffSoapIn" />
+      <wsdl:output message="tns:MaterialLogoffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPPRSTATE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit EQP PR STATE</wsdl:documentation>
+      <wsdl:input message="tns:EditEQPPRSTATESoapIn" />
+      <wsdl:output message="tns:EditEQPPRSTATESoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DelEQPPRSTATE">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Del OPI EQP Basis</wsdl:documentation>
@@ -5251,11 +5362,6 @@
       <wsdl:input message="tns:LoadSystemParamentSoapIn" />
       <wsdl:output message="tns:LoadSystemParamentSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="IsertMSMQMessage">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Isert MSMQ Message</wsdl:documentation>
-      <wsdl:input message="tns:IsertMSMQMessageSoapIn" />
-      <wsdl:output message="tns:IsertMSMQMessageSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="CheckOutFunction_TEST">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">移入函数(CheckOutFunction_Cassette) TEST</wsdl:documentation>
       <wsdl:input message="tns:CheckOutFunction_TESTSoapIn" />
@@ -5305,6 +5411,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得ProductBasis</wsdl:documentation>
       <wsdl:input message="tns:LoadProductSoapIn" />
       <wsdl:output message="tns:LoadProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadOPPropertyJson">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load OP Property return Json</wsdl:documentation>
+      <wsdl:input message="tns:LoadOPPropertyJsonSoapIn" />
+      <wsdl:output message="tns:LoadOPPropertyJsonSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LoadCarrierBasis">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load Carrier Basis</wsdl:documentation>
@@ -5616,14 +5727,18 @@
       <wsdl:input message="tns:AddEQPPRSTATESoapIn" />
       <wsdl:output message="tns:AddEQPPRSTATESoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="EditEQPPRSTATE">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Edit EQP PR STATE</wsdl:documentation>
-      <wsdl:input message="tns:EditEQPPRSTATESoapIn" />
-      <wsdl:output message="tns:EditEQPPRSTATESoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="wsWPSystemSoap" type="tns:wsWPSystemSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsertMSMQMessage">
+      <soap:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Dino_Test">
       <soap:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
       <wsdl:input>
@@ -5786,8 +5901,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
-      <soap:operation soapAction="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson" style="document" />
+    <wsdl:operation name="Add_Material_Record">
+      <soap:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -5795,8 +5910,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Add_Material_Record">
-      <soap:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
+    <wsdl:operation name="QueryMMSettingData">
+      <soap:operation soapAction="http://tempuri.org/QueryMMSettingData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestPotID">
+      <soap:operation soapAction="http://tempuri.org/QueryPreTestPotID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestData">
+      <soap:operation soapAction="http://tempuri.org/QueryPreTestData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaterialLogoff">
+      <soap:operation soapAction="http://tempuri.org/MaterialLogoff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPPRSTATE">
+      <soap:operation soapAction="http://tempuri.org/EditEQPPRSTATE" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -6560,15 +6711,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsertMSMQMessage">
-      <soap:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CheckOutFunction_TEST">
       <soap:operation soapAction="http://tempuri.org/CheckOutFunction_TEST" style="document" />
       <wsdl:input>
@@ -6652,6 +6794,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoadProduct">
       <soap:operation soapAction="http://tempuri.org/LoadProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadOPPropertyJson">
+      <soap:operation soapAction="http://tempuri.org/LoadOPPropertyJson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -7217,18 +7368,18 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="EditEQPPRSTATE">
-      <soap:operation soapAction="http://tempuri.org/EditEQPPRSTATE" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="wsWPSystemSoap12" type="tns:wsWPSystemSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsertMSMQMessage">
+      <soap12:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Dino_Test">
       <soap12:operation soapAction="http://tempuri.org/Dino_Test" style="document" />
       <wsdl:input>
@@ -7391,8 +7542,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadMaterialRecordJoinMaterialUsedStateJson">
-      <soap12:operation soapAction="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson" style="document" />
+    <wsdl:operation name="Add_Material_Record">
+      <soap12:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -7400,8 +7551,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Add_Material_Record">
-      <soap12:operation soapAction="http://tempuri.org/Add_Material_Record" style="document" />
+    <wsdl:operation name="QueryMMSettingData">
+      <soap12:operation soapAction="http://tempuri.org/QueryMMSettingData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestPotID">
+      <soap12:operation soapAction="http://tempuri.org/QueryPreTestPotID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPreTestData">
+      <soap12:operation soapAction="http://tempuri.org/QueryPreTestData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaterialLogoff">
+      <soap12:operation soapAction="http://tempuri.org/MaterialLogoff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditEQPPRSTATE">
+      <soap12:operation soapAction="http://tempuri.org/EditEQPPRSTATE" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -8165,15 +8352,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsertMSMQMessage">
-      <soap12:operation soapAction="http://tempuri.org/IsertMSMQMessage" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CheckOutFunction_TEST">
       <soap12:operation soapAction="http://tempuri.org/CheckOutFunction_TEST" style="document" />
       <wsdl:input>
@@ -8257,6 +8435,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoadProduct">
       <soap12:operation soapAction="http://tempuri.org/LoadProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadOPPropertyJson">
+      <soap12:operation soapAction="http://tempuri.org/LoadOPPropertyJson" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -8815,15 +9002,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddEQPPRSTATE">
       <soap12:operation soapAction="http://tempuri.org/AddEQPPRSTATE" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EditEQPPRSTATE">
-      <soap12:operation soapAction="http://tempuri.org/EditEQPPRSTATE" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

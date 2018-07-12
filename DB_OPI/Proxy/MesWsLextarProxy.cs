@@ -212,6 +212,7 @@ namespace DB_OPI.Proxy
         }
 
 
+
         public static DataTable LoadWIPInventory_RawJoinFrameIDByMatLotNo(string userNo, string eqpNo, string matLotNo)
         {
             string strIdentity = XmlGenUtil.CombineXMLIdentity(eqpNo, userNo);

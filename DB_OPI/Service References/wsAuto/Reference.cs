@@ -16,6 +16,10 @@ namespace DB_OPI.wsAuto {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wsAuto.wsWPSystemSoap")]
     public interface wsWPSystemSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IsertMSMQMessage", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string IsertMSMQMessage(string InXml);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Dino_Test", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Dino_Test(string InXml);
@@ -88,13 +92,29 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadMaterialRecordJson(string userNo, string eqpNo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadMaterialRecordJoinMaterialUsedStateJson", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string LoadMaterialRecordJoinMaterialUsedStateJson(string userNo, string eqpNo, string type, string logonStTimeStr, string logonEndTimeStr);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Add_Material_Record", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string Add_Material_Record(string InXml);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/QueryMMSettingData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string QueryMMSettingData(string userNo, string prodNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/QueryPreTestPotID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string QueryPreTestPotID(string userNo, string glEqpNo, string lotNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/QueryPreTestData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string QueryPreTestData(string userNo, string potID, string glEqpNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MaterialLogoff", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string MaterialLogoff(string userNo, string eqpNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditEQPPRSTATE", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool EditEQPPRSTATE(string W_CARRIERNO, string W_CARRIERNO_PR, string W_LOTNO, string W_STATE, string S_CARRIERNO_PR, string S_COLOR, string S_STARTTIME_STR, string S_IN_P_TIME_STR, string S_OUT_P_TIME_STR, string S_IN_C_TIME_STR, string S_OUT_C_TIME_STR, int S_FLAG_I, int S_FLAG_O, string S_ENDTIME_STR, string S_STATE);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelEQPPRSTATE", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -748,10 +768,6 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string LoadSystemParament(string InXml);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IsertMSMQMessage", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string IsertMSMQMessage(string InXml);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CheckOutFunction_TEST", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         string CheckOutFunction_TEST(string CassetteNo, string EquipmentNo, string OPID, string UserNo);
@@ -791,6 +807,10 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadProduct", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         int LoadProduct(ref string ProductNo, ref string ProductVersion, ref System.Data.DataSet dsReturn);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadOPPropertyJson", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string LoadOPPropertyJson(string userNo, string opNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoadCarrierBasis", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -1039,10 +1059,6 @@ namespace DB_OPI.wsAuto {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddEQPPRSTATE", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool AddEQPPRSTATE(string CARRIERNO, string EQPNO_PR, string EQPNO_GL, string PRODUCTNO, string LOTNO, string CREATOR, string STATE, string HZ, string RUNTIME);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditEQPPRSTATE", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool EditEQPPRSTATE(string W_CARRIERNO, string W_CARRIERNO_PR, string W_LOTNO, string W_STATE, string S_CARRIERNO_PR, string S_COLOR, string S_STARTTIME_STR, string S_IN_P_TIME_STR, string S_OUT_P_TIME_STR, string S_IN_C_TIME_STR, string S_OUT_C_TIME_STR, int S_FLAG_I, int S_FLAG_O, string S_ENDTIME_STR, string S_STATE);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1070,6 +1086,10 @@ namespace DB_OPI.wsAuto {
         
         public wsWPSystemSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string IsertMSMQMessage(string InXml) {
+            return base.Channel.IsertMSMQMessage(InXml);
         }
         
         public string Dino_Test(string InXml) {
@@ -1144,12 +1164,28 @@ namespace DB_OPI.wsAuto {
             return base.Channel.LoadMaterialRecordJson(userNo, eqpNo);
         }
         
-        public string LoadMaterialRecordJoinMaterialUsedStateJson(string userNo, string eqpNo, string type, string logonStTimeStr, string logonEndTimeStr) {
-            return base.Channel.LoadMaterialRecordJoinMaterialUsedStateJson(userNo, eqpNo, type, logonStTimeStr, logonEndTimeStr);
-        }
-        
         public string Add_Material_Record(string InXml) {
             return base.Channel.Add_Material_Record(InXml);
+        }
+        
+        public string QueryMMSettingData(string userNo, string prodNo) {
+            return base.Channel.QueryMMSettingData(userNo, prodNo);
+        }
+        
+        public string QueryPreTestPotID(string userNo, string glEqpNo, string lotNo) {
+            return base.Channel.QueryPreTestPotID(userNo, glEqpNo, lotNo);
+        }
+        
+        public string QueryPreTestData(string userNo, string potID, string glEqpNo) {
+            return base.Channel.QueryPreTestData(userNo, potID, glEqpNo);
+        }
+        
+        public string MaterialLogoff(string userNo, string eqpNo, string matLotNo, string logonStTimeStr, string logonEndTimeStr) {
+            return base.Channel.MaterialLogoff(userNo, eqpNo, matLotNo, logonStTimeStr, logonEndTimeStr);
+        }
+        
+        public bool EditEQPPRSTATE(string W_CARRIERNO, string W_CARRIERNO_PR, string W_LOTNO, string W_STATE, string S_CARRIERNO_PR, string S_COLOR, string S_STARTTIME_STR, string S_IN_P_TIME_STR, string S_OUT_P_TIME_STR, string S_IN_C_TIME_STR, string S_OUT_C_TIME_STR, int S_FLAG_I, int S_FLAG_O, string S_ENDTIME_STR, string S_STATE) {
+            return base.Channel.EditEQPPRSTATE(W_CARRIERNO, W_CARRIERNO_PR, W_LOTNO, W_STATE, S_CARRIERNO_PR, S_COLOR, S_STARTTIME_STR, S_IN_P_TIME_STR, S_OUT_P_TIME_STR, S_IN_C_TIME_STR, S_OUT_C_TIME_STR, S_FLAG_I, S_FLAG_O, S_ENDTIME_STR, S_STATE);
         }
         
         public bool DelEQPPRSTATE(string EQUIPMENTNO, string CARRIERNO) {
@@ -1804,10 +1840,6 @@ namespace DB_OPI.wsAuto {
             return base.Channel.LoadSystemParament(InXml);
         }
         
-        public string IsertMSMQMessage(string InXml) {
-            return base.Channel.IsertMSMQMessage(InXml);
-        }
-        
         public string CheckOutFunction_TEST(string CassetteNo, string EquipmentNo, string OPID, string UserNo) {
             return base.Channel.CheckOutFunction_TEST(CassetteNo, EquipmentNo, OPID, UserNo);
         }
@@ -1846,6 +1878,10 @@ namespace DB_OPI.wsAuto {
         
         public int LoadProduct(ref string ProductNo, ref string ProductVersion, ref System.Data.DataSet dsReturn) {
             return base.Channel.LoadProduct(ref ProductNo, ref ProductVersion, ref dsReturn);
+        }
+        
+        public string LoadOPPropertyJson(string userNo, string opNo) {
+            return base.Channel.LoadOPPropertyJson(userNo, opNo);
         }
         
         public bool LoadCarrierBasis(string CST_ID) {
@@ -2094,10 +2130,6 @@ namespace DB_OPI.wsAuto {
         
         public bool AddEQPPRSTATE(string CARRIERNO, string EQPNO_PR, string EQPNO_GL, string PRODUCTNO, string LOTNO, string CREATOR, string STATE, string HZ, string RUNTIME) {
             return base.Channel.AddEQPPRSTATE(CARRIERNO, EQPNO_PR, EQPNO_GL, PRODUCTNO, LOTNO, CREATOR, STATE, HZ, RUNTIME);
-        }
-        
-        public bool EditEQPPRSTATE(string W_CARRIERNO, string W_CARRIERNO_PR, string W_LOTNO, string W_STATE, string S_CARRIERNO_PR, string S_COLOR, string S_STARTTIME_STR, string S_IN_P_TIME_STR, string S_OUT_P_TIME_STR, string S_IN_C_TIME_STR, string S_OUT_C_TIME_STR, int S_FLAG_I, int S_FLAG_O, string S_ENDTIME_STR, string S_STATE) {
-            return base.Channel.EditEQPPRSTATE(W_CARRIERNO, W_CARRIERNO_PR, W_LOTNO, W_STATE, S_CARRIERNO_PR, S_COLOR, S_STARTTIME_STR, S_IN_P_TIME_STR, S_OUT_P_TIME_STR, S_IN_C_TIME_STR, S_OUT_C_TIME_STR, S_FLAG_I, S_FLAG_O, S_ENDTIME_STR, S_STATE);
         }
     }
 }
