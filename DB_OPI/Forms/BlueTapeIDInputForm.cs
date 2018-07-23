@@ -39,6 +39,9 @@ namespace DB_OPI.Forms
         private void BlueTapeIDInputForm_Load(object sender, EventArgs e)
         {
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+#if DEBUG
+            this.TopMost = false;
+#endif
         }
     }
 }

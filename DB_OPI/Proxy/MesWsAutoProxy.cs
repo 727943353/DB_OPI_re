@@ -131,6 +131,55 @@ namespace DB_OPI.Proxy
                 throw new Exception(wsRes.Exception.Stack);
 
         }
+
+        public static DataTable GetApConfigByIP(string ip)
+        {
+            string result = wsWPSystem.LoadApConfigByKeyValue("DB_OPI", "DB_OPI", "IP", ip);
+
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception("LoadApConfigByIP fail." + wsRes.Exception.ToString());
+
+            return wsRes.ReturnTable;
+        }
+
+        public static DataTable GetApConfigByApID(string apID)
+        {
+            string result = wsWPSystem.LoadApConfig("DB_OPI", "DB_OPI", apID);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception("LoadApConfig fail." + wsRes.Exception.ToString());
+
+            return wsRes.ReturnTable;
+        }
+
+        public static bool DeleteApConfigByIP(string ip)
+        {
+            string result = wsWPSystem.DeleteApConfigByKeyValue("DB_OPI", "DB_OPI", "IP", ip);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception("DeleteApConfigByIP fail." + wsRes.Exception.Stack);
+
+            if (wsRes.Result == ResultEnum.Success)
+                return true;
+
+            return false;
+        }
+
+        public static bool InsertApConfig(string ip, string apID, string[] keys, string[] values)
+        {
+            string result = wsWPSystem.InsertApConfig("DB_OPI", "DB_OPI", apID, keys, values);
+            WsResponse wsRes = JsonConvert.DeserializeObject<WsResponse>(result);
+            if (wsRes.Result == ResultEnum.Exception)
+                throw new Exception("InsertApConfig fail." + wsRes.Exception.Stack);
+
+            if (wsRes.Result == ResultEnum.Success)
+                return true;
+
+            return false;
+
+        }
+
         //public static DataTable LoadMaterialRecordJoinMaterialUsedStateJson(string eqpNo, string userNo, string type, DateTime logonStTime, DateTime lognEndTime)
         //{
         //    string result = wsWPSystem.LoadMaterialRecordJoinMaterialUsedStateJson(userNo, eqpNo, type, logonStTime.ToString("yyyy-MM-dd HH:mm:ss"), lognEndTime.ToString("yyyy-MM-dd HH:mm:ss"));

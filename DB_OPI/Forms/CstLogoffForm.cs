@@ -33,9 +33,22 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
+            LoadLotInfo();
             userNoTxt.Focus();
+        }
 
-            
+        /// <summary>
+        /// Set auto logoff data
+        /// </summary>
+        /// <param name="unloadCst"></param>
+        /// <param name="userNo"></param>
+        /// <param name="pwd"></param>
+        public void SetAutoLogoffData(string unloadCst, string userNo, string pwd)
+        {
+            txtUnloadingCassette.Text = unloadCst.ToUpper().Trim();
+            userNoTxt.Text = userNo.ToUpper().Trim();
+            pwdTxt.Text = pwd.ToUpper().Trim();
+
         }
 
         private void LoadOPError()
@@ -70,7 +83,9 @@ namespace DB_OPI.Forms
         private void CstLogoffForm_Load(object sender, EventArgs e)
         {
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
+#if DEBUG
+            this.TopMost = false;
+#endif
             iugError.AutoGenerateColumns = false;
             txtEquipmentNo.Text = eqpNo;
             LoadOPError();
@@ -95,12 +110,38 @@ namespace DB_OPI.Forms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            DoLogoffCst();
+        }
+
+
+        public bool DoLogoffCst()
+        {
             if (string.IsNullOrEmpty(txtUnloadingCassette.Text))
             {
                 lblMessage.Text = "下機 彈匣不能為空 ( Unloading Cassette can,t be empty) !!";
                 lblMessage.BackColor = Color.Red;
                 txtUnloadingCassette.Focus();
-                return;
+                return false;
+            }
+
+            userNo = userNoTxt.Text.Trim();
+            string pwd = pwdTxt.Text.Trim();
+            if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
+            {
+                lblMessage.Text = "User No , Password 不能為空 (User No , Password  can,t be empty) !!";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.Focus();
+                return false;
+            }
+
+            if (MesWsAutoProxy.Login(userNo, pwd) == false)
+            {
+
+                lblMessage.Text = "帳號或密碼錯誤 !! (UserNo or PassWord is error)";
+                lblMessage.BackColor = Color.Red;
+                userNoTxt.SelectAll();
+                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
+                return false;
             }
 
             try
@@ -120,15 +161,15 @@ namespace DB_OPI.Forms
                     lblMessage.Text = msg;
                     lblMessage.BackColor = Color.Red;
                     txtUnloadingCassette.Focus();
-                    return;
+                    return false;
                 }
 
                 if (VerifyOpErrorGridInput() == false)
-                    return;
+                    return false;
 
                 if (VerifyMaterialQty(lotInfo.LotNo, lotInfo.CurrQty) == false)
                 {
-                    return;
+                    return false;
                 }
 
                 DataTable errOpTb = (DataTable)iugError.DataSource;
@@ -171,18 +212,21 @@ namespace DB_OPI.Forms
                         txtUnloadingCassette.Text = "";
                         txtUnloadingCassette.Focus();
                     }
-                    
+
 
                 }
 
+                userNoTxt.Text = "";
+                pwdTxt.Text = "";
 
-
+                return true;
             }
             catch (Exception ex)
             {
                 lblMessage.Text = ex.Message;
                 lblMessage.BackColor = Color.Red;
                 txtUnloadingCassette.SelectAll();
+                return false;
             }
         }
 
@@ -245,25 +289,12 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
-            userNo = userNoTxt.Text.Trim();
-            string pwd = pwdTxt.Text.Trim();
-            if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
-            {
-                lblMessage.Text = "User No , Password 不能為空 (User No , Password  can,t be empty) !!";
-                lblMessage.BackColor = Color.Red;
-                userNoTxt.Focus();
-                return;
-            }
+            
+        }
 
-            if (MesWsAutoProxy.Login(userNo, pwd) == false)
-            {
-
-                lblMessage.Text = "帳號或密碼錯誤 !! (UserNo or PassWord is error)";
-                lblMessage.BackColor = Color.Red;
-                userNoTxt.SelectAll();
-                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
-                return;
-            }
+        public bool LoadLotInfo()
+        {
+            
 
             try
             {
@@ -286,7 +317,7 @@ namespace DB_OPI.Forms
                     lblMessage.Text = msg;
                     lblMessage.BackColor = Color.Red;
                     txtUnloadingCassette.SelectAll();
-                    return;
+                    return false;
                 }
 
                 opNo = lotInfo.OpNo;
@@ -298,7 +329,7 @@ namespace DB_OPI.Forms
                 {
                     lblMessage.Text = txtLotNo.Text + " status is not running!!";
                     lblMessage.BackColor = Color.Red;
-                    return;
+                    return false;
                 }
 
                 LoadOPError();
@@ -306,18 +337,20 @@ namespace DB_OPI.Forms
                 lblMessage.Text = "";
                 lblMessage.BackColor = Color.Transparent;
                 btnConfirm.Focus();
+                return true;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
+                return false;
+
             }
 
+            
 
-            userNoTxt.Text = "";
-            pwdTxt.Text = "";
         }
-
+        
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -1,8 +1,11 @@
-﻿using DB_OPI.Forms;
+﻿using BarCodeReader.BarCodeReaders;
+using BarCodeReader.Interfaces;
+using DB_OPI.Forms;
 using DB_OPI.Proxy;
 using DB_OPI.Queues;
 using DB_OPI.Util;
 using MesCommonCode.WebService.Msg;
+using NLog;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +15,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,6 +26,7 @@ namespace DB_OPI
 {
     public partial class Form1 : Form
     {
+        private ILogger logger = LogManager.GetCurrentClassLogger();
         private System.Timers.Timer eqpStateTimer;
         private FixedSizedQueue<string> glReheatDoneQueue = new FixedSizedQueue<string>(1000);
         private FixedSizedQueue<string> glLifeEndQueue = new FixedSizedQueue<string>(1000);
@@ -29,12 +34,24 @@ namespace DB_OPI
 
         //public static readonly string GLUE_LIFE_TIME_TYPE = "GlueLife";
         //public static readonly string GLUE_REHEAT_TYPE = "GlueReheat";
+        private string userNo;
+        private string pwd;
+
         private DataTable glueLifeTb = new DataTable();
         string gComputerName;
         string logPath = @"C:\OPI_PIC\Log\";
-        bool reheatMode = false;
-        bool glueCtrlEnabled = false;
+        //bool reheatMode = false;
+        //bool glueCtrlEnabled = false;
+        bool logonCstReady = true;
+        bool logoffCstReady = false;
+        string autoLogonCst = "abc";
+        string autoLogoffCst = "";
 
+        private IBarCodeReader logonBarCodeReader;
+        private IBarCodeReader logoffBarCodeReader;
+
+        CstLogonForm cstLogonForm = null;
+        CstLogoffForm cstLogoffForm = null;
         public Form1()
         {
             InitializeComponent();
@@ -42,19 +59,25 @@ namespace DB_OPI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+#if DEBUG
+            this.TopMost = false;
 
+#endif
 
+            //ap main method : Form1_Shown
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            logger.Info("<<<<< AP Start >>>>>");
+            reheatGrid.AutoGenerateColumns = false;
 
 
         }
-        
+
         private void glueReloadTimerElspsed(object sender, EventArgs e)
         {
             
             LoadAllGlReheatingData();
 
-            if (reheatMode)
+            if (AppConfigUtil.ReheatMode)
                 return;
 
             LoadGlueLifeTimeData();
@@ -153,12 +176,20 @@ namespace DB_OPI
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
-            CstLogonForm cstLogonForm = new CstLogonForm();
+            if (cstLogonForm != null)
+            {
+                cstLogonForm.Close();
+                cstLogonForm.Dispose();
+                cstLogonForm = null;
+            }
+
+            cstLogonForm = new CstLogonForm();
             cstLogonForm.Owner = this;
-            cstLogonForm.eqpNo = gComputerName;
-            cstLogonForm.doGlueVerify = glueCtrlEnabled;
+            //cstLogonForm.eqpNo = gComputerName;
+            //cstLogonForm.doGlueVerify = AppConfigUtil.GlueCtrlMode;
             cstLogonForm.ShowDialog(this);
             cstLogonForm.Dispose();
+            cstLogonForm = null;
 
             LoadEqpState();
             LoadLotState();
@@ -166,7 +197,13 @@ namespace DB_OPI
 
         private void btnLogOff_Click(object sender, EventArgs e)
         {
-            CstLogoffForm cstLogoffForm = new CstLogoffForm();
+            if (cstLogoffForm != null)
+            {
+                cstLogoffForm.Close();
+                cstLogoffForm.Dispose();
+                cstLogoffForm = null;
+            }
+            cstLogoffForm = new CstLogoffForm();
             //cstLogoffForm.userNo = loginUserLab.Text;
             cstLogoffForm.eqpNo = gComputerName;
             DataTable tb = (DataTable)dvLotNo.DataSource;
@@ -187,7 +224,9 @@ namespace DB_OPI
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
             loginUserLab.Text = loginForm.loginUser;
-            if (loginForm.ReheatMode)
+            userNo = loginForm.loginUser;
+            pwd = loginForm.pwd;
+            if (AppConfigUtil.ReheatMode)
             {
                 SetReHeatMode();
                 LoadAllGlReheatingData();
@@ -195,8 +234,8 @@ namespace DB_OPI
                 return;
             }
 
-            glueCtrlEnabled = loginForm.GlueCtrlEnabled;
-            if (loginForm.GlueCtrlEnabled)
+            
+            if (AppConfigUtil.GlueCtrlMode)
             {
                 glueCtrlStateLab.Text = "膠材卡控 : Enabled";
                 glueCtrlStateLab.ForeColor = Color.ForestGreen;
@@ -208,7 +247,20 @@ namespace DB_OPI
             
             loginForm.Dispose();
 
+            if (AppConfigUtil.AutoMode)
+            {
+                autoModeLab.Text = "AutoMode : Enabled";
+                logonPortLab.Text = "Logon : " + AppConfigUtil.LogonPort;
+                logoffPortLab.Text = "Logoff : " + AppConfigUtil.LogoffPort;
+
+                InitLogonBarcode();
+                InitLogoffBarcode();
+
+            }
             
+
+
+
             try
             {
                 eqpStateTimer = new System.Timers.Timer();
@@ -221,35 +273,33 @@ namespace DB_OPI
                 glueLifeGrid.AutoGenerateColumns = false;
 
                 //10.234.104.63
-                string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo(DnsUtil.GetLocalIp());
+                //string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo(DnsUtil.GetLocalIp());
                 
-                string setEqpNo = ConfigurationManager.AppSettings["EqpNo"];
+                //string setEqpNo = ConfigurationManager.AppSettings["EqpNo"];
 
-                if (string.IsNullOrEmpty(setEqpNo) == false)
-                {
-                    eqpNo = setEqpNo;
-                }
+                //if (string.IsNullOrEmpty(setEqpNo) == false)
+                //{
+                //    eqpNo = setEqpNo;
+                //}
                 
 
                 //string eqpNo = MesWsAutoProxy.LoadOPIEquipmentNo("10.234.104.63");
-                if (string.IsNullOrEmpty(eqpNo))
-                {
-                    MessageBox.Show("無法取得 EQP NO by [" + DnsUtil.GetLocalIp() + "].");
-                    this.Close();
-                }
+                //if (string.IsNullOrEmpty(eqpNo))
+                //{
+                //    MessageBox.Show("無法取得 EQP NO by [" + DnsUtil.GetLocalIp() + "].");
+                //    this.Close();
+                //}
 
 
-                grbContent.Text = eqpNo;
-                gComputerName = eqpNo;
+                grbContent.Text = AppConfigUtil.EqpNo;
+                gComputerName = AppConfigUtil.EqpNo;
 
                 LoadEqpState();
 
                 LoadLotState();
 
-                LoadMaterialState();
+                LoadMaterialState();                
 
-                eqpStateTimer.Start();
-                //LoadGlueLifeTimeData();
                 LoadGlueLifeTimeData();
 
                 LoadAllGlReheatingData();
@@ -263,9 +313,249 @@ namespace DB_OPI
             }
         }
 
+        /// <summary>
+        /// Initial logon com port bar code reader.
+        /// </summary>
+        private void InitLogonBarcode()
+        {
+            SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogonPort, 9600, Parity.None, 8, StopBits.One);
+            objSerialPort1.ReceivedBytesThreshold = 1;
+            objSerialPort1.Open();
+            objSerialPort1.DiscardInBuffer();
+
+
+            logonBarCodeReader = new FixedBarCode(objSerialPort1);
+            logonBarCodeReader.PinStableIntervel = 300;
+            logonBarCodeReader.Enable();
+
+            //logonBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
+            logonBarCodeReader.SerialPin = SerialPinChange.CDChanged;
+            logonBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogonComportPinChangeEventHandler);
+            logonBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogonComportDataRecivedEventHandler);
+        }
+
+        /// <summary>
+        /// listen logon com port ping change event. 
+        /// sensor trigger
+        /// </summary>
+        /// <param name="pinState"></param>
+        private void LogonComportPinChangeEventHandler(SerialPinState pinState)
+        {
+            logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler start =====");
+            logger.Debug("Auto Mode => Logon Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", AppConfigUtil.LogonPort, pinState.CD, pinState.CTS);
+            logonCstReady = pinState.CD;
+            if (logonCstReady)
+            {
+                logonPortLab.ForeColor = Color.Green;
+                logger.Info("Auto Mode => Logon Com port : {0} Open Reader", AppConfigUtil.LogonPort);
+                logonBarCodeReader.OpenReader();
+            }
+            else
+            {
+                logonPortLab.ForeColor = Color.Black;
+                autoLogonCst = "";
+                logonPortLab.Text = "Logon : " + AppConfigUtil.LogonPort;
+            }
+            logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler end =====");
+        }
+
+        /// <summary>
+        /// logon com port reader to read bar code of cassette
+        /// </summary>
+        /// <param name="data"></param>
+        private void LogonComportDataRecivedEventHandler(string data)
+        {
+            if (this.InvokeRequired)
+            {
+                //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
+                this.Invoke(new DataRecivedEventHandler(LogonComportDataRecivedEventHandler), new object[] { data });
+            }
+            else //已經在UI執行緒
+            {
+                logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler start =====");
+                logger.Debug("Auto Mode => Logon Comport {0} , Recived data : [{1}]", AppConfigUtil.LogonPort, data);
+                autoLogonCst = data.Trim();
+                if (string.IsNullOrEmpty(autoLogonCst))
+                {
+                    logonCstReady = false;
+                    string err = "Auto Mode => Logon Comport " + AppConfigUtil.LogonPort + " 無法讀取 Cassette NO，請手動上機。";
+                    logger.Warn(err);
+                    MessageBox.Show(err, "Warning");
+                }
+
+                logger.Debug("Auto Mode => Logon CST ready : {0}, Logoff CST ready : {1}", logonCstReady, logoffCstReady);
+                logonPortLab.Text = "Logon : " + autoLogonCst;
+                if (logonCstReady && logoffCstReady)
+                {
+
+                    DoAutoLogonCst();
+                }
+
+                logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler end =====");
+            }
+
+            
+        }
+
+        private void InitLogoffBarcode()
+        {
+            SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogoffPort, 9600, Parity.None, 8, StopBits.One);
+            objSerialPort1.ReceivedBytesThreshold = 1;
+            objSerialPort1.Open();
+            objSerialPort1.DiscardInBuffer();
+
+            
+            logoffBarCodeReader = new FixedBarCode(objSerialPort1);
+            logoffBarCodeReader.PinStableIntervel = 300;
+            logoffBarCodeReader.Enable();
+
+            //logoffBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
+            logoffBarCodeReader.SerialPin = SerialPinChange.CDChanged;
+            logoffBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler);
+            logoffBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler);
+        }
+
+        /// <summary>
+        /// listen logoff com port ping change event. 
+        /// sensor trigger
+        /// </summary>
+        /// <param name="pinState"></param>
+        private void LogoffComportPinChangeEventHandler(SerialPinState pinState)
+        {
+            
+
+            if (this.InvokeRequired)
+            {
+                
+                //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
+                this.Invoke(new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler), new object[] { pinState });
+            }
+            else //已經在UI執行緒
+            {
+                logger.Debug("Auto Mode => ===== LogoffComportPinChangeEventHandler start =====");
+                logger.Debug("Auto Mode => Logoff Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", AppConfigUtil.LogoffPort, pinState.CD, pinState.CTS);
+                if (pinState.CD)
+                {
+                    logoffCstReady = pinState.CD;
+                    logoffPortLab.ForeColor = Color.Green;
+                    logger.Info("Auto Mode => Logoff Com port : {0} Open Reader", AppConfigUtil.LogoffPort);
+                    logoffBarCodeReader.OpenReader();
+                }
+                else
+                {
+                    logoffPortLab.ForeColor = Color.Black;
+                    if (logoffCstReady)
+                    {
+                        logoffCstReady = false;
+                        if (string.IsNullOrEmpty(autoLogoffCst))
+                        {
+                            string err = "Auto Mode => Logoff Comport " + AppConfigUtil.LogoffPort + " 無法讀取 Cassette NO，請手動下機。";
+                            logger.Warn(err);
+                            MessageBox.Show(err, "Warning");
+                        }
+                        else
+                        {
+                            if (cstLogonForm != null)
+                            {
+                                cstLogonForm.Close();
+                                cstLogonForm.Dispose();
+                                cstLogonForm = null;
+                            }
+
+                            if (cstLogoffForm != null)
+                            {
+                                cstLogoffForm.Close();
+                                cstLogoffForm.Dispose();
+                                cstLogoffForm = null;
+                            }
+
+                            cstLogoffForm = new CstLogoffForm();
+                            cstLogoffForm.SetAutoLogoffData(autoLogoffCst, userNo, pwd);
+                            autoLogoffCst = "";
+                            cstLogoffForm.Show();
+                            logger.Info("Auto Mode => Open CstLogoffForm");
+                            if (cstLogoffForm.LoadLotInfo() == true)
+                            {
+                                logger.Info("Auto Mode => CstLogoffForm.DoLogoffCst");
+                                cstLogoffForm.DoLogoffCst();
+                            }
+
+                        }
+
+
+                    }//if (logoffCstReady)
+
+                    logoffPortLab.Text = "Logoff : " + AppConfigUtil.LogoffPort;
+                }//if (pinState.CD)
+                logger.Debug("Auto Mode => ===== LogoffComportPinChangeEventHandler end =====");
+
+            }//if (this.InvokeRequired)
+
+
+        }
+
+        /// <summary>
+        /// logoff com port reader to read bar code of cassette
+        /// </summary>
+        /// <param name="data"></param>
+        private void LogoffComportDataRecivedEventHandler(string data)
+        {
+            if (this.InvokeRequired)
+            {
+
+                //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
+                this.Invoke(new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler), new object[] { data });
+            }
+            else //已經在UI執行緒
+            {
+                if (logoffCstReady)
+                {
+                    logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler start =====");
+
+                    logger.Info("Auto Mode => Logoff Com port {0} , Recived data : [{1}]", AppConfigUtil.LogoffPort, data);
+                    autoLogoffCst = data.Trim();
+                    logoffPortLab.Text = "Logoff : " + autoLogoffCst;
+
+                    logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler end =====");
+                }
+                
+            }
+            
+        }
+
+
+        private void DoAutoLogonCst()
+        {
+            logger.Debug("Auto Mode => ===== Auto Logon CST Start =====");
+            if (cstLogonForm != null)
+            {
+                cstLogonForm.Close();
+                cstLogonForm.Dispose();
+                cstLogonForm = null;
+            }
+
+            if (cstLogoffForm != null)
+            {
+                cstLogoffForm.Close();
+                cstLogoffForm.Dispose();
+                cstLogoffForm = null;
+            }
+
+            logger.Info("Auto Mode => Open CstLogonForm");
+            cstLogonForm = new CstLogonForm();
+            cstLogonForm.Show();
+
+            cstLogonForm.SetAutoLogonData(autoLogonCst, autoLogoffCst, userNo, pwd);
+
+            logger.Info("Auto Mode => CstLogonForm do logon cst");
+            cstLogonForm.btnConfirm_Click(null, null);
+
+            logger.Debug("Auto Mode => ===== Auto Logon CST End =====");
+        }
+
         private void SetReHeatMode()
         {
-            reheatMode = true;
+            
             glLotNoTxt.Enabled = true;
             reheatReloadBtn.Enabled = true;
             celRhBtn.Enabled = true;
@@ -281,7 +571,7 @@ namespace DB_OPI
             btnLeadFrameScreen.Enabled = false;
             btnChangeState.Enabled = false;
 
-
+            glueCtrlStateLab.Text = "回溫模式";
         }
 
         private void btnMaterialTurnEQP_Click(object sender, EventArgs e)
@@ -289,7 +579,7 @@ namespace DB_OPI
             MaterialLogonForm matLogonForm = new MaterialLogonForm();
             matLogonForm.userNo = loginUserLab.Text;
             matLogonForm.equipmentNo = gComputerName;
-            matLogonForm.isVerifyGlue = glueCtrlEnabled;
+            matLogonForm.isVerifyGlue = AppConfigUtil.GlueCtrlMode;
 
             matLogonForm.ShowDialog();
 
@@ -454,13 +744,14 @@ namespace DB_OPI
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
-            if (string.IsNullOrEmpty(glLotNoTxt.Text.Trim()))
+            string glLotNo = glLotNoTxt.Text.Trim();
+            if (string.IsNullOrEmpty(glLotNo))
                 return;
 
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                WsResponse wsRes = MesWsLextarProxy.AddGlueReheatData(loginUserLab.Text, glLotNoTxt.Text);
+                WsResponse wsRes = MesWsLextarProxy.AddGlueReheatData(loginUserLab.Text, glLotNo);
                 if (wsRes.Result != ResultEnum.Success)
                 {
                     MessageBox.Show(wsRes.ReturnMsg);
@@ -487,7 +778,8 @@ namespace DB_OPI
 
         private void LoadAllGlReheatingData()
         {
-            if (reheatMode == false && glueCtrlEnabled == false)
+            
+            if (AppConfigUtil.ReheatMode == false && AppConfigUtil.GlueCtrlMode == false)
                 return;
 
             try
@@ -511,7 +803,7 @@ namespace DB_OPI
 
         private void CheckGlReheatState()
         {
-            if (reheatMode == false && glueCtrlEnabled == false)
+            if (AppConfigUtil.ReheatMode == false && AppConfigUtil.GlueCtrlMode == false)
                 return;
 
             List<string> reheatDoneList = new List<string>();
@@ -595,7 +887,7 @@ namespace DB_OPI
         private void LoadGlueLifeTimeData()
         {
             
-            if (reheatMode == false && glueCtrlEnabled == false)
+            if (AppConfigUtil.ReheatMode == false && AppConfigUtil.GlueCtrlMode == false)
                 return;
                         
             glueLifeGrid.DataSource = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(loginUserLab.Text, gComputerName);
@@ -604,7 +896,7 @@ namespace DB_OPI
 
         private void CheckGlLifeTime()
         {
-            if (reheatMode == false && glueCtrlEnabled == false)
+            if (AppConfigUtil.ReheatMode == false && AppConfigUtil.GlueCtrlMode == false)
                 return;
 
             List<string> willLifeEndList = new List<string>();
@@ -674,7 +966,7 @@ namespace DB_OPI
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (reheatMode)
+            if (AppConfigUtil.ReheatMode)
             {
                 if (tabControl1.SelectedIndex != 3)
                 {
@@ -686,7 +978,7 @@ namespace DB_OPI
 
         private void glueVerifyChk_CheckedChanged(object sender, EventArgs e)
         {
-            if (reheatMode == false && glueCtrlEnabled == false)
+            if (AppConfigUtil.ReheatMode == false && AppConfigUtil.GlueCtrlMode == false)
                 return;
             LoadGlueLifeTimeData();
             LoadAllGlReheatingData();

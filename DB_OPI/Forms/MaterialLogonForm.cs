@@ -26,7 +26,9 @@ namespace DB_OPI.Forms
         private void MaterialLogonForm_Load(object sender, EventArgs e)
         {
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
+#if DEBUG
+            this.TopMost = false;
+#endif
             msgTb.Columns.Add("CreateTime");
             msgTb.Columns.Add("Message");
             msgGrid.DataSource = msgTb;
@@ -53,7 +55,7 @@ namespace DB_OPI.Forms
             if (e.KeyChar != Convert.ToChar(13))
                 return;
 
-            AddMessageToGrid(matLotNoTxt.Text + " 物料批號即將上機");
+            AddMessageToGrid(matLotNoTxt.Text.Trim() + " 物料批號即將上機");
         }
 
         private void AddMessageToGrid(string msg)
@@ -96,7 +98,7 @@ namespace DB_OPI.Forms
             try
             {
                 string operName = equipmentNo.Substring(2, 2);
-                string matNo = matLotNoTxt.Text.Split('-')[0];
+                string matNo = matLotNoTxt.Text.Trim().Split('-')[0];
                 if (operName == "DB")
                 {
                     if (matLotNoTxt.Text.StartsWith("42.") && isVerifyGlue)

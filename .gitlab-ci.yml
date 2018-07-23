@@ -1,0 +1,23 @@
+stages:
+ - build
+ - deploy
+ 
+before_script:
+ - chcp 65001
+ - 'D:\Pony\Tool\nuget restore DB_OPI.sln'
+
+build: 
+ stage: build
+ script:
+ - chcp 65001
+ - '"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild" DB_OPI.sln /p:VisualStudioVersion=14.0 /t:Clean,ReBuild /p:Configuration=Debug;Platform="Any CPU"'
+ only:
+ - master
+ 
+deploy: 
+ stage: deploy
+ script:
+ - chcp 65001
+ - '"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild" DB_OPI.sln /p:VisualStudioVersion=14.0 /t:Clean,ReBuild /p:DeployOnBuild=true /p:Configuration=Release;Platform="Any CPU" /p:OutputPath="\\10.234.80.67\FTP4IT\T05\IT\Release\AP\DB_OPI_TEST"'
+ only:
+ - production
