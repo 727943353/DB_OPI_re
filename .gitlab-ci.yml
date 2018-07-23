@@ -4,7 +4,7 @@ stages:
  
 before_script:
  - chcp 65001
- - 'D:\Pony\Tool\nuget restore DB_OPI.sln'
+ - 'D:\Pony\Tool\nuget restore DB_OPI.sln -Source \\T05EFAB1\T05_Nuget_Server'
 
 build: 
  stage: build
