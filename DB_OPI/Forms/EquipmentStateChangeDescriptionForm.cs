@@ -46,6 +46,10 @@ namespace DB_OPI.Forms
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             try
             {
+#if DEBUG
+                this.TopMost = false;
+#endif
+
                 Cursor.Current = Cursors.WaitCursor;
 
                 reasonListGrid.AutoGenerateColumns = false;

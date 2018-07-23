@@ -1,5 +1,7 @@
 ﻿using DB_OPI.Proxy;
+using DB_OPI.Util;
 using DB_OPI.Vo;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,25 +15,47 @@ namespace DB_OPI.Forms
 {
     public partial class CstLogonForm : Form
     {
-        private string userNo;
-        public string eqpNo;
-        public bool doGlueVerify;
+        private ILogger logger = LogManager.GetCurrentClassLogger();
+        public string userNo;
+        public string pwd;
+        public string loadingCst;
+        public string unloadingCst;
+        //public string eqpNo;
+        //public bool doGlueVerify;
 
         public CstLogonForm()
         {
             InitializeComponent();
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        public void SetAutoLogonData(string loadCst, string unloadCst, string userNo, string pwd)
         {
+            txtLoadingCassette.Text = loadCst.ToUpper().Trim();
+            txtUnloadingCassette.Text = unloadCst.ToUpper().Trim();
+            userNoTxt.Text = userNo.ToUpper().Trim();
+            pwdTxt.Text = pwd;
+
+            logger.Info("Auto Mode => Set CstLogonForm Data. LoadingCst: {0}, UnloadingCst: {1}, UserNo: {2}", txtLoadingCassette.Text, txtUnloadingCassette.Text, userNoTxt.Text);
+        }
+
+
+        
+
+        public void btnConfirm_Click(object sender, EventArgs e)
+        {
+            logger.Info("===== Confirm Click start =====");
             lblMessage.Text = "";
             lblMessage.BackColor = Color.White;
 
             if (string.IsNullOrEmpty(txtLoadingCassette.Text) || string.IsNullOrEmpty(txtUnloadingCassette.Text))
             {
                 lblMessage.Text = "上下機 彈匣不能為空 (Loading Cassette or Unloading Cassette can,t be empty) !!";
+                logger.Warn(lblMessage.Text);
+
                 lblMessage.BackColor = Color.Red;
                 txtLoadingCassette.Focus();
+
+                logger.Info("===== Confirm Click end =====");
                 return;
             }
 
@@ -40,8 +64,10 @@ namespace DB_OPI.Forms
             if (string.IsNullOrEmpty(userNo) || string.IsNullOrEmpty(pwd))
             {
                 lblMessage.Text = "User No , Password 不能為空 (User No , Password  can,t be empty) !!";
+                logger.Warn(lblMessage.Text);
                 lblMessage.BackColor = Color.Red;
                 userNoTxt.Focus();
+                logger.Info("===== Confirm Click end =====");
                 return;
             }
             
@@ -49,32 +75,42 @@ namespace DB_OPI.Forms
             {
                 
                 lblMessage.Text = "帳號或密碼錯誤 !! (UserNo or PassWord is error)";
+                logger.Warn(lblMessage.Text);
                 lblMessage.BackColor = Color.Red;
                 userNoTxt.SelectAll();
-                MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
+                //MessageBox.Show("帳號或密碼錯誤 !! (UserNo or PassWord is error)", "Log In failed");
+                logger.Info("===== Confirm Click end =====");
                 return;
             }
             
 
             string loadingCst = txtLoadingCassette.Text.Trim();
             string unloadingCst = txtUnloadingCassette.Text.Trim();
-            if (doGlueVerify)
+            logger.Info("Glue Control Mode : {0}", AppConfigUtil.GlueCtrlMode);
+            if (AppConfigUtil.GlueCtrlMode)
             {
                 if (CheckGlueLifeTime() == false)
+                {
+                    logger.Info("===== Confirm Click end =====");
                     return;
+                }
+                
             }
             LotInfo lotInfo;
             string msg;
-            if (MesWsLextarProxy.GetLotInfo(userNo, eqpNo, loadingCst, out lotInfo, out msg) == false)
+            if (MesWsLextarProxy.GetLotInfo(userNo, AppConfigUtil.EqpNo, loadingCst, out lotInfo, out msg) == false)
             {
                 lblMessage.Text = msg;
+                logger.Warn(lblMessage.Text);
+
                 lblMessage.BackColor = Color.Red;
                 txtLoadingCassette.Focus();
+                logger.Info("===== Confirm Click end =====");
                 return;
             }
 
             msg = "";
-            if (MesWsAutoProxy.CheckInFunction_Cassette(userNo, loadingCst, unloadingCst, eqpNo, lotInfo.OpNo, ref msg) == true)
+            if (MesWsAutoProxy.CheckInFunction_Cassette(userNo, loadingCst, unloadingCst, AppConfigUtil.EqpNo, lotInfo.OpNo, ref msg) == true)
             {
                 lblMessage.Text = loadingCst + " Logon Successfully !!";
                 lblMessage.BackColor = Color.Lime;
@@ -86,11 +122,13 @@ namespace DB_OPI.Forms
             else
             {
                 lblMessage.Text = msg;
+                logger.Warn(lblMessage.Text);
                 lblMessage.BackColor = Color.Red;
             }
 
             userNoTxt.Text = "";
             pwdTxt.Text = "";
+            logger.Info("===== Confirm Click end =====");
         }
 
 
@@ -100,10 +138,12 @@ namespace DB_OPI.Forms
             try
             {
                 
-                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, eqpNo);
+                DataTable tb = MesWsLextarProxy.LoadMaterialRecordJoinGlueUsedStateOnEquipment(userNo, AppConfigUtil.EqpNo);
                 if (tb.Rows.Count == 0)
                 {
-                    ShowErrorMsg("上機失敗，此機台並未上固晶膠。");
+                    ShowErrorMsg("CST 上機失敗，此 " + AppConfigUtil.EqpNo + " 機台並未上固晶膠。");
+
+                    
                     return false;
                 }
                 
@@ -125,7 +165,9 @@ namespace DB_OPI.Forms
             }
             catch (Exception ex)
             {
+                logger.Error(ex, "Check Glue Life Time Error");
                 MessageBox.Show("Check Glue Life Time Error." + ex.ToString());
+                
                 return false;
             }
             return true;
@@ -144,7 +186,16 @@ namespace DB_OPI.Forms
         {
             this.Text += " ___ Ver : " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            if (doGlueVerify)
+            #if DEBUG
+            this.TopMost = false;
+            #endif
+
+            userNoTxt.Text = userNo;
+            pwdTxt.Text = pwd;
+            txtLoadingCassette.Text = loadingCst;
+            txtUnloadingCassette.Text = unloadingCst;
+
+            if (AppConfigUtil.GlueCtrlMode)
             {
                 glueCtrlStateLab.Text = "膠材卡控 : Enabled";
                 glueCtrlStateLab.ForeColor = Color.ForestGreen;
@@ -166,6 +217,8 @@ namespace DB_OPI.Forms
 
         private void ShowErrorMsg(string msg)
         {
+            logger.Warn(msg);
+
             lblMessage.Text = msg;
             lblMessage.BackColor = Color.Red;
         }
