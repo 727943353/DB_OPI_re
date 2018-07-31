@@ -196,6 +196,7 @@
             // 
             // eqpNoTxt
             // 
+            this.eqpNoTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eqpNoTxt.Location = new System.Drawing.Point(92, 117);
             this.eqpNoTxt.Name = "eqpNoTxt";
             this.eqpNoTxt.Size = new System.Drawing.Size(125, 22);

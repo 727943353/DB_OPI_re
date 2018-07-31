@@ -170,6 +170,18 @@ namespace DB_OPI.Forms
         private void autoModeChk_CheckedChanged(object sender, EventArgs e)
         {
             autoGrp.Enabled = autoModeChk.Checked;
+            if (autoModeChk.Checked)
+            {
+                glueCtrlChk.Checked = false;
+                glueCtrlChk.Enabled = false;
+                reheModeChk.Checked = false;
+                reheModeChk.Enabled = false;
+            }
+            else
+            {
+                glueCtrlChk.Enabled = true;
+                reheModeChk.Enabled = true;
+            }
         }
     }
 }
