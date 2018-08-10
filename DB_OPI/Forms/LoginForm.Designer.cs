@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.eqpNoTxt = new System.Windows.Forms.TextBox();
+            this.comTestBtn = new System.Windows.Forms.Button();
             this.autoGrp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(36, 389);
+            this.loginBtn.Location = new System.Drawing.Point(45, 417);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(75, 23);
             this.loginBtn.TabIndex = 3;
@@ -96,7 +97,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(146, 389);
+            this.exitBtn.Location = new System.Drawing.Point(155, 417);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(75, 23);
             this.exitBtn.TabIndex = 3;
@@ -138,6 +139,7 @@
             // 
             // autoGrp
             // 
+            this.autoGrp.Controls.Add(this.comTestBtn);
             this.autoGrp.Controls.Add(this.logoffPortCmb);
             this.autoGrp.Controls.Add(this.logonPortCmb);
             this.autoGrp.Controls.Add(this.label4);
@@ -145,7 +147,7 @@
             this.autoGrp.Enabled = false;
             this.autoGrp.Location = new System.Drawing.Point(21, 229);
             this.autoGrp.Name = "autoGrp";
-            this.autoGrp.Size = new System.Drawing.Size(256, 139);
+            this.autoGrp.Size = new System.Drawing.Size(256, 168);
             this.autoGrp.TabIndex = 7;
             this.autoGrp.TabStop = false;
             this.autoGrp.Text = "自動過帳 com port 設定";
@@ -202,6 +204,16 @@
             this.eqpNoTxt.Size = new System.Drawing.Size(125, 22);
             this.eqpNoTxt.TabIndex = 8;
             // 
+            // comTestBtn
+            // 
+            this.comTestBtn.Location = new System.Drawing.Point(10, 129);
+            this.comTestBtn.Name = "comTestBtn";
+            this.comTestBtn.Size = new System.Drawing.Size(89, 23);
+            this.comTestBtn.TabIndex = 2;
+            this.comTestBtn.Text = "ComPort Test";
+            this.comTestBtn.UseVisualStyleBackColor = true;
+            this.comTestBtn.Click += new System.EventHandler(this.comTestBtn_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -250,5 +262,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox eqpNoTxt;
+        private System.Windows.Forms.Button comTestBtn;
     }
 }

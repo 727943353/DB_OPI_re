@@ -183,5 +183,11 @@ namespace DB_OPI.Forms
                 reheModeChk.Enabled = true;
             }
         }
+
+        private void comTestBtn_Click(object sender, EventArgs e)
+        {
+            ComPortTestForm testForm = new ComPortTestForm();
+            testForm.ShowDialog();
+        }
     }
 }

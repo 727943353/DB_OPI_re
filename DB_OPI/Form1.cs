@@ -42,9 +42,11 @@ namespace DB_OPI
         string logPath = @"C:\OPI_PIC\Log\";
         //bool reheatMode = false;
         //bool glueCtrlEnabled = false;
-        bool logonCstReady = true;
-        bool logoffCstReady = false;
-        string autoLogonCst = "abc";
+        bool isLogonCstReady = false;
+        bool isLogoffCstReady = false;
+        bool isLotLogOned = false;
+
+        string autoLogonCst = "";
         string autoLogoffCst = "";
 
         private IBarCodeReader logonBarCodeReader;
@@ -250,11 +252,14 @@ namespace DB_OPI
             if (AppConfigUtil.AutoMode)
             {
                 autoModeLab.Text = "AutoMode : Enabled";
+                autoModeLab.ForeColor = Color.Green;
                 logonPortLab.Text = "Logon : " + AppConfigUtil.LogonPort;
                 logoffPortLab.Text = "Logoff : " + AppConfigUtil.LogoffPort;
 
                 InitLogonBarcode();
+                
                 InitLogoffBarcode();
+                
 
             }
             
@@ -318,20 +323,34 @@ namespace DB_OPI
         /// </summary>
         private void InitLogonBarcode()
         {
-            SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogonPort, 9600, Parity.None, 8, StopBits.One);
-            objSerialPort1.ReceivedBytesThreshold = 1;
-            objSerialPort1.Open();
-            objSerialPort1.DiscardInBuffer();
+            logger.Info("===== Init LogOn Barcode start =====");
+            logger.Info("LogOn port : " + AppConfigUtil.LogonPort);
+            try
+            {
+                SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogonPort, 9600, Parity.None, 8, StopBits.One);
+                objSerialPort1.ReceivedBytesThreshold = 1;
+                objSerialPort1.Open();
+                objSerialPort1.DiscardInBuffer();
 
 
-            logonBarCodeReader = new FixedBarCode(objSerialPort1);
-            logonBarCodeReader.PinStableIntervel = 300;
-            logonBarCodeReader.Enable();
+                logonBarCodeReader = new FixedBarCode(objSerialPort1);
+                logonBarCodeReader.PinStableIntervel = 300;
+                logonBarCodeReader.SerialPin = SerialPinChange.CDChanged;
+                logonBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogonComportPinChangeEventHandler);
+                logonBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogonComportDataRecivedEventHandler);
 
-            //logonBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
-            logonBarCodeReader.SerialPin = SerialPinChange.CDChanged;
-            logonBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogonComportPinChangeEventHandler);
-            logonBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogonComportDataRecivedEventHandler);
+                logonBarCodeReader.Enable();
+
+                //logonBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
+                
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Init LogOn Barcode error.");
+                throw new Exception("Init LogOn Barcode [" + AppConfigUtil.LogonPort + "] Error", ex);
+            }
+            
+            logger.Info("===== Init LogOn Barcode end =====");
         }
 
         /// <summary>
@@ -339,80 +358,125 @@ namespace DB_OPI
         /// sensor trigger
         /// </summary>
         /// <param name="pinState"></param>
-        private void LogonComportPinChangeEventHandler(SerialPinState pinState)
+        private void LogonComportPinChangeEventHandler(IBarCodeReader barCodeReader, SerialPinState pinState)
         {
-            logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler start =====");
-            logger.Debug("Auto Mode => Logon Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", AppConfigUtil.LogonPort, pinState.CD, pinState.CTS);
-            logonCstReady = pinState.CD;
-            if (logonCstReady)
+            try
             {
-                logonPortLab.ForeColor = Color.Green;
-                logger.Info("Auto Mode => Logon Com port : {0} Open Reader", AppConfigUtil.LogonPort);
-                logonBarCodeReader.OpenReader();
+                logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler start =====");
+                logger.Debug("Auto Mode => Logon Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", barCodeReader.TargetPort.PortName, pinState.CD, pinState.CTS);
+                
+                if (pinState.CD)
+                {
+                    
+                    logger.Info("Auto Mode => Logon Com port : {0} Open Reader", barCodeReader.TargetPort.PortName);
+                    barCodeReader.OpenReader();
+                }
+                else
+                {
+                    isLogonCstReady = false;
+                    isLotLogOned = false;
+                    logonPortLab.ForeColor = Color.Black;
+                    autoLogonCst = "";
+                    logonPortLab.Text = "Logon : " + barCodeReader.TargetPort.PortName;
+                }
+                logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler end =====");
             }
-            else
+            catch (Exception ex)
             {
-                logonPortLab.ForeColor = Color.Black;
-                autoLogonCst = "";
-                logonPortLab.Text = "Logon : " + AppConfigUtil.LogonPort;
+                logger.Error(ex, barCodeReader.TargetPort.PortName + " : LogonComportPinChangeEventHandler error");
+                MessageBox.Show("Com port [" + barCodeReader.TargetPort.PortName + "] Pin Change event error . " + ex.ToString());
             }
-            logger.Info("Auto Mode => ===== LogonComportPinChangeEventHandler end =====");
+            
         }
 
         /// <summary>
         /// logon com port reader to read bar code of cassette
         /// </summary>
         /// <param name="data"></param>
-        private void LogonComportDataRecivedEventHandler(string data)
+        private void LogonComportDataRecivedEventHandler(IBarCodeReader barCodeReader, string data)
         {
-            if (this.InvokeRequired)
+            try
             {
-                //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
-                this.Invoke(new DataRecivedEventHandler(LogonComportDataRecivedEventHandler), new object[] { data });
+                if (this.InvokeRequired)
+                {
+                    //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
+                    this.Invoke(new DataRecivedEventHandler(LogonComportDataRecivedEventHandler), new object[] { barCodeReader, data });
+                }
+                else //已經在UI執行緒
+                {
+                    logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler start =====");
+                    logger.Debug("Auto Mode => Logon Comport {0} , Recived data : [{1}]", barCodeReader.TargetPort.PortName, data);
+                    autoLogonCst = data.Trim();
+                    if (string.IsNullOrEmpty(autoLogonCst))
+                    {
+                        isLogonCstReady = false;
+                        string err = "Auto Mode => Logon Comport " + barCodeReader.TargetPort.PortName + " 無法讀取 Cassette NO，請手動上機。";
+                        logger.Warn(err);
+                        MessageBox.Show(err, "Warning");
+
+                        return;
+                    }
+
+                    isLogonCstReady = true;
+                    logger.Debug("Auto Mode => Logon CST ready : {0}, Logoff CST ready : {1}", isLogonCstReady, isLogoffCstReady);
+                    logonPortLab.ForeColor = Color.Green;
+                    logonPortLab.Text = "Logon : " + autoLogonCst;
+                    if (isLogonCstReady && isLogoffCstReady)
+                    {
+                        if (isLotLogOned)
+                            return;
+                        isLotLogOned = true;
+                        DoAutoLogonCst();
+                        
+                    }
+
+                    logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler end =====");
+                }
             }
-            else //已經在UI執行緒
+            catch (Exception ex)
             {
-                logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler start =====");
-                logger.Debug("Auto Mode => Logon Comport {0} , Recived data : [{1}]", AppConfigUtil.LogonPort, data);
-                autoLogonCst = data.Trim();
-                if (string.IsNullOrEmpty(autoLogonCst))
-                {
-                    logonCstReady = false;
-                    string err = "Auto Mode => Logon Comport " + AppConfigUtil.LogonPort + " 無法讀取 Cassette NO，請手動上機。";
-                    logger.Warn(err);
-                    MessageBox.Show(err, "Warning");
-                }
 
-                logger.Debug("Auto Mode => Logon CST ready : {0}, Logoff CST ready : {1}", logonCstReady, logoffCstReady);
-                logonPortLab.Text = "Logon : " + autoLogonCst;
-                if (logonCstReady && logoffCstReady)
-                {
-
-                    DoAutoLogonCst();
-                }
-
-                logger.Info("Auto Mode => ===== LogonComportDataRecivedEventHandler end =====");
+                logger.Error(ex, barCodeReader.TargetPort.PortName + " : LogonComportDataRecivedEventHandler error");
+                MessageBox.Show("Com port [" + barCodeReader.TargetPort.PortName + "] reader data error . " + ex.ToString());
             }
+            
 
             
         }
 
         private void InitLogoffBarcode()
         {
-            SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogoffPort, 9600, Parity.None, 8, StopBits.One);
-            objSerialPort1.ReceivedBytesThreshold = 1;
-            objSerialPort1.Open();
-            objSerialPort1.DiscardInBuffer();
 
+            logger.Info("===== Init LogOff Barcode start =====");
+            logger.Info("LogOff port : " + AppConfigUtil.LogoffPort);
+            try
+            {
+                SerialPort objSerialPort1 = new SerialPort(AppConfigUtil.LogoffPort, 9600, Parity.None, 8, StopBits.One);
+                objSerialPort1.ReceivedBytesThreshold = 1;
+                objSerialPort1.Open();
+                objSerialPort1.DiscardInBuffer();
+
+
+                logoffBarCodeReader = new FixedBarCode(objSerialPort1);
+                logoffBarCodeReader.PinStableIntervel = 300;
+                logoffBarCodeReader.SerialPin = SerialPinChange.CDChanged;
+                logoffBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler);
+                logoffBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler);
+
+                logoffBarCodeReader.Enable();
+
+                //logoffBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
+                
+            }
+            catch (Exception ex)
+            {
+                string errMsg = "Init LogOff Barcode [" + AppConfigUtil.LogoffPort + "] error";
+                logger.Error(ex, errMsg);
+                throw new Exception(errMsg, ex);
+            }
             
-            logoffBarCodeReader = new FixedBarCode(objSerialPort1);
-            logoffBarCodeReader.PinStableIntervel = 300;
-            logoffBarCodeReader.Enable();
 
-            //logoffBarCodeReader.SerialPin = SerialPinChange.DsrChanged | SerialPinChange.CtsChanged | SerialPinChange.CDChanged | SerialPinChange.Ring;
-            logoffBarCodeReader.SerialPin = SerialPinChange.CDChanged;
-            logoffBarCodeReader.PinChangedEvent += new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler);
-            logoffBarCodeReader.DataRecivedEvent += new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler);
+            logger.Info("===== Init LogOff Barcode end =====");
         }
 
         /// <summary>
@@ -420,72 +484,71 @@ namespace DB_OPI
         /// sensor trigger
         /// </summary>
         /// <param name="pinState"></param>
-        private void LogoffComportPinChangeEventHandler(SerialPinState pinState)
+        private void LogoffComportPinChangeEventHandler(IBarCodeReader barCodeReader, SerialPinState pinState)
         {
-            
+            logoffPortLab.ForeColor = Color.Black;
 
             if (this.InvokeRequired)
             {
                 
                 //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
-                this.Invoke(new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler), new object[] { pinState });
+                this.Invoke(new BarCodeReader.Interfaces.PinChangedEventHandler(LogoffComportPinChangeEventHandler), new object[] { barCodeReader, pinState });
             }
             else //已經在UI執行緒
             {
                 logger.Debug("Auto Mode => ===== LogoffComportPinChangeEventHandler start =====");
-                logger.Debug("Auto Mode => Logoff Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", AppConfigUtil.LogoffPort, pinState.CD, pinState.CTS);
+                logger.Debug("Auto Mode => Logoff Comport {0} , ping change , CD (Cassette) : {1}, CTS (LF) : {2}", barCodeReader.TargetPort.PortName, pinState.CD, pinState.CTS);
                 if (pinState.CD)
                 {
-                    logoffCstReady = pinState.CD;
-                    logoffPortLab.ForeColor = Color.Green;
-                    logger.Info("Auto Mode => Logoff Com port : {0} Open Reader", AppConfigUtil.LogoffPort);
+                    //logoffCstReady = pinState.CD;
+                    logger.Info("Auto Mode => Logoff Com port : {0} Open Reader", barCodeReader.TargetPort.PortName);
                     logoffBarCodeReader.OpenReader();
                 }
                 else
                 {
-                    logoffPortLab.ForeColor = Color.Black;
-                    if (logoffCstReady)
+                    isLotLogOned = false;
+                    if (isLogoffCstReady)
                     {
-                        logoffCstReady = false;
+                        isLogoffCstReady = false;
                         if (string.IsNullOrEmpty(autoLogoffCst))
                         {
-                            string err = "Auto Mode => Logoff Comport " + AppConfigUtil.LogoffPort + " 無法讀取 Cassette NO，請手動下機。";
+                            string err = "Auto Mode => Logoff Comport " + barCodeReader.TargetPort.PortName + " 無法讀取 Cassette NO，請手動下機。";
                             logger.Warn(err);
                             MessageBox.Show(err, "Warning");
+                            return;
                         }
-                        else
+
+                        //log off cassette
+                        if (cstLogonForm != null)
                         {
-                            if (cstLogonForm != null)
-                            {
-                                cstLogonForm.Close();
-                                cstLogonForm.Dispose();
-                                cstLogonForm = null;
-                            }
+                            cstLogonForm.Close();
+                            cstLogonForm.Dispose();
+                            cstLogonForm = null;
+                        }
 
-                            if (cstLogoffForm != null)
-                            {
-                                cstLogoffForm.Close();
-                                cstLogoffForm.Dispose();
-                                cstLogoffForm = null;
-                            }
+                        if (cstLogoffForm != null)
+                        {
+                            cstLogoffForm.Close();
+                            cstLogoffForm.Dispose();
+                            cstLogoffForm = null;
+                        }
 
-                            cstLogoffForm = new CstLogoffForm();
-                            cstLogoffForm.SetAutoLogoffData(autoLogoffCst, userNo, pwd);
-                            autoLogoffCst = "";
-                            cstLogoffForm.Show();
-                            logger.Info("Auto Mode => Open CstLogoffForm");
-                            if (cstLogoffForm.LoadLotInfo() == true)
-                            {
-                                logger.Info("Auto Mode => CstLogoffForm.DoLogoffCst");
-                                cstLogoffForm.DoLogoffCst();
-                            }
-
+                        cstLogoffForm = new CstLogoffForm();
+                        cstLogoffForm.SetAutoLogoffData(autoLogoffCst, userNo, pwd);
+                        autoLogoffCst = "";
+                        cstLogoffForm.Show();
+                        logger.Info("Auto Mode => Open CstLogoffForm");
+                        if (cstLogoffForm.LoadLotInfo() == true)
+                        {
+                            logger.Info("Auto Mode => CstLogoffForm.DoLogoffCst");
+                            cstLogoffForm.DoLogoffCst();
                         }
 
 
                     }//if (logoffCstReady)
 
-                    logoffPortLab.Text = "Logoff : " + AppConfigUtil.LogoffPort;
+                    
+                    logoffPortLab.Text = "Logoff : " + barCodeReader.TargetPort.PortName;
                 }//if (pinState.CD)
                 logger.Debug("Auto Mode => ===== LogoffComportPinChangeEventHandler end =====");
 
@@ -498,27 +561,54 @@ namespace DB_OPI
         /// logoff com port reader to read bar code of cassette
         /// </summary>
         /// <param name="data"></param>
-        private void LogoffComportDataRecivedEventHandler(string data)
+        private void LogoffComportDataRecivedEventHandler(IBarCodeReader barCodeReader, string data)
         {
             if (this.InvokeRequired)
             {
 
                 //在擁有控制項基礎視窗控制代碼的執行緒上執行委派。
-                this.Invoke(new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler), new object[] { data });
+                this.Invoke(new DataRecivedEventHandler(LogoffComportDataRecivedEventHandler), new object[] { barCodeReader, data });
             }
             else //已經在UI執行緒
             {
-                if (logoffCstReady)
+                //logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler start =====");
+
+                //logger.Info("Auto Mode => Logoff Com port {0} , Recived data : [{1}]", barCodeReader.TargetPort.PortName, data);
+                //autoLogoffCst = data.Trim();
+                //logoffPortLab.ForeColor = Color.Green;
+                //logoffPortLab.Text = "Logoff : " + autoLogoffCst;
+
+                //logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler end =====");
+
+                logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler start =====");
+
+                logger.Info("Auto Mode => Logoff Com port {0} , Recived data : [{1}]", barCodeReader.TargetPort.PortName, data);
+                autoLogoffCst = data.Trim();
+                if (string.IsNullOrEmpty(autoLogoffCst))
                 {
-                    logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler start =====");
+                    isLogoffCstReady = false;
+                    string err = "Auto Mode => LogOff Comport " + barCodeReader.TargetPort.PortName + " 無法讀取 Cassette No，請手動上機。";
+                    logger.Warn(err);
+                    MessageBox.Show(err, "Warning");
 
-                    logger.Info("Auto Mode => Logoff Com port {0} , Recived data : [{1}]", AppConfigUtil.LogoffPort, data);
-                    autoLogoffCst = data.Trim();
-                    logoffPortLab.Text = "Logoff : " + autoLogoffCst;
-
-                    logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler end =====");
+                    return;
                 }
-                
+
+                isLogoffCstReady = true;
+                logoffPortLab.ForeColor = Color.Green;
+                logoffPortLab.Text = "Logoff : " + autoLogoffCst;
+                if (isLogonCstReady && isLogoffCstReady)
+                {
+
+                    if (isLotLogOned)
+                        return;
+                    isLotLogOned = true;
+                    DoAutoLogonCst();
+                    
+                }
+
+                logger.Debug("Auto Mode => ===== LogoffComportDataRecivedEventHandler end =====");
+
             }
             
         }
@@ -527,28 +617,38 @@ namespace DB_OPI
         private void DoAutoLogonCst()
         {
             logger.Debug("Auto Mode => ===== Auto Logon CST Start =====");
-            if (cstLogonForm != null)
+            try
             {
-                cstLogonForm.Close();
-                cstLogonForm.Dispose();
-                cstLogonForm = null;
-            }
+                if (cstLogonForm != null)
+                {
+                    cstLogonForm.Close();
+                    cstLogonForm.Dispose();
+                    cstLogonForm = null;
+                }
 
-            if (cstLogoffForm != null)
+                if (cstLogoffForm != null)
+                {
+                    cstLogoffForm.Close();
+                    cstLogoffForm.Dispose();
+                    cstLogoffForm = null;
+                }
+
+                logger.Info("Auto Mode => Open CstLogonForm");
+                cstLogonForm = new CstLogonForm();
+                cstLogonForm.Show();
+
+                cstLogonForm.SetAutoLogonData(autoLogonCst, autoLogoffCst, userNo, pwd);
+
+                logger.Info("Auto Mode => CstLogonForm do logon cst");
+                cstLogonForm.btnConfirm_Click(null, null);
+            }
+            catch (Exception ex)
             {
-                cstLogoffForm.Close();
-                cstLogoffForm.Dispose();
-                cstLogoffForm = null;
+
+                logger.Error(ex, "Auto Logon CST error.");
+                MessageBox.Show("Auto Logon CST error. " + ex.ToString());
             }
-
-            logger.Info("Auto Mode => Open CstLogonForm");
-            cstLogonForm = new CstLogonForm();
-            cstLogonForm.Show();
-
-            cstLogonForm.SetAutoLogonData(autoLogonCst, autoLogoffCst, userNo, pwd);
-
-            logger.Info("Auto Mode => CstLogonForm do logon cst");
-            cstLogonForm.btnConfirm_Click(null, null);
+            
 
             logger.Debug("Auto Mode => ===== Auto Logon CST End =====");
         }
@@ -983,6 +1083,38 @@ namespace DB_OPI
             LoadGlueLifeTimeData();
             LoadAllGlReheatingData();
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            logger.Info("===== Form1_FormClosing start =====");
+            if (logonBarCodeReader != null)
+            {
+                try
+                {
+                    logonBarCodeReader.TargetPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, "logonBarCodeReader comport close error.");
+                    
+                }
+            }
+
+            if (logoffBarCodeReader != null)
+            {
+                try
+                {
+                    logoffBarCodeReader.TargetPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, "logoffBarCodeReader comport close error.");
+
+                }
+            }
+
+            logger.Info("===== Form1_FormClosing end =====");
         }
     }
 }
